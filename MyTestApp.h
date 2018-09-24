@@ -25,6 +25,8 @@ private:
     Ogre::RenderWindow* mWindow;
     Ogre::RTShader::ShaderGenerator* shadergen_;
 
+    OIS::Keyboard* mKeyboard;
+
 };
 }
 #endif

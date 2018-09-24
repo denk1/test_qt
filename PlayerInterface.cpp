@@ -42,8 +42,7 @@ CEGUI::Window* PlayerInterface::getRootWindow()
 bool PlayerInterface::keyPressed( const OIS::KeyEvent &arg )
 {
     CEGUI::System &sys = CEGUI::System::getSingleton();
-
-    if (sys.injectKeyDown(arg.key) && sys.injectChar(arg.text))
+    if (sys.getDefaultGUIContext().injectKeyDown((CEGUI::Key::Scan)arg.key) && sys.getDefaultGUIContext().injectChar((CEGUI::Key::Scan)arg.key))
 		return true;
 
     return false;
@@ -51,7 +50,8 @@ bool PlayerInterface::keyPressed( const OIS::KeyEvent &arg )
  
 bool PlayerInterface::keyReleased( const OIS::KeyEvent &arg )
 {
-    if(CEGUI::System::getSingleton().injectKeyUp(arg.key)) 
+
+    if(CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyUp((CEGUI::Key::Scan)arg.key))
 		return true;
 
     return false;
@@ -81,7 +81,7 @@ CEGUI::MouseButton  PlayerInterface::convertButton(OIS::MouseButtonID buttonID)
  
 bool PlayerInterface::mouseMoved( const OIS::MouseEvent &arg )
 {
-    if(CEGUI::System::getSingleton().injectMouseMove(arg.state.X.rel, arg.state.Y.rel)) 
+    if(CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseMove(arg.state.X.rel, arg.state.Y.rel))
 		return true;
 
     return false;
@@ -89,7 +89,7 @@ bool PlayerInterface::mouseMoved( const OIS::MouseEvent &arg )
  
 bool PlayerInterface::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
-    if(CEGUI::System::getSingleton().injectMouseButtonDown(convertButton(id))) 
+    if(CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonDown(convertButton(id)))
 		return true;
 
     return false;
@@ -97,7 +97,7 @@ bool PlayerInterface::mousePressed( const OIS::MouseEvent &arg, OIS::MouseButton
  
 bool PlayerInterface::mouseReleased( const OIS::MouseEvent &arg, OIS::MouseButtonID id )
 {
-    if(CEGUI::System::getSingleton().injectMouseButtonUp(convertButton(id))) 
+    if(CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonUp(convertButton(id)))
 		return true;
 
     return false;

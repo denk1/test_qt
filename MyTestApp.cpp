@@ -7,12 +7,7 @@ namespace RAT
 
 MyTestApp::MyTestApp() : OgreBites::ApplicationContext("OgreTutorialApp")
 {
-    // get a pointer to the already created root
-    root_ = getRoot();
-    scnMgr_ = root_->createSceneManager();
-    mWindow = getRenderWindow();
-    // register our scene with the RTSS
-    shadergen_ = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
+
 }
 
 bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
@@ -28,10 +23,12 @@ void MyTestApp::setup(void)
 {
     // do not forget to call the base first
     OgreBites::ApplicationContext::setup();
-
-    // register for input events
-    addInputListener(this);
-
+    // get a pointer to the already created root
+    root_ = getRoot();
+    scnMgr_ = root_->createSceneManager();
+    mWindow = getRenderWindow();
+    // register our scene with the RTSS
+    shadergen_ = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
     shadergen_->addSceneManager(scnMgr_);
     // without light we would just get a black screen
     Ogre::Light* light = scnMgr_->createLight("MainLight");
@@ -64,6 +61,16 @@ void MyTestApp::setup(void)
 Ogre::SceneManager *MyTestApp::getSceneManager()
 {
     return scnMgr_;
+}
+
+Ogre::RenderWindow *MyTestApp::getWindow()
+{
+    return MyTestApp::getSingleton().mWindow;
+}
+
+OIS::Keyboard *MyTestApp::getKeyboard()
+{
+    return mKeyboard;
 }
 
 }

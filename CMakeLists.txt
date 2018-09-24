@@ -25,4 +25,8 @@ add_executable(${PROJECT_NAME} main.cpp
 target_link_libraries(test_qt OgreMain
                               OgreBites
                               freetype
+                              CEGUIBase-0
+                              CEGUICommonDialogs-0
+                              CEGUIOgreRenderer-0
+                              OIS
                              )
