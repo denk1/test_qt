@@ -58,6 +58,11 @@ void MyTestApp::setup(void)
     node2->attachObject(ent2);
 }
 
+Ogre::Root *MyTestApp::getRoot()
+{
+    return mRoot;
+}
+
 Ogre::SceneManager *MyTestApp::getSceneManager()
 {
     return scnMgr_;
@@ -65,12 +70,28 @@ Ogre::SceneManager *MyTestApp::getSceneManager()
 
 Ogre::RenderWindow *MyTestApp::getWindow()
 {
+    return mWindow;
     return MyTestApp::getSingleton().mWindow;
+}
+
+Ogre::Root *MyTestApp::GetRootS()
+{
+    return MyTestApp::getSingleton().mRoot;
 }
 
 OIS::Keyboard *MyTestApp::getKeyboard()
 {
     return mKeyboard;
+}
+
+OIS::Mouse *MyTestApp::getMouse()
+{
+    return mMouse;
+}
+
+Ogre::SceneManager *MyTestApp::getSceneManagerS()
+{
+
 }
 
 }

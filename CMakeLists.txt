@@ -21,6 +21,7 @@ add_executable(${PROJECT_NAME} main.cpp
                                TPCamera.cpp
                                MyTestApp.cpp
                                PlayerInterface.cpp
+                               GameState.cpp
                                )
 target_link_libraries(test_qt OgreMain
                               OgreBites

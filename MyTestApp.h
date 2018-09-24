@@ -16,9 +16,17 @@ public:
     MyTestApp();
     bool keyPressed(const OgreBites::KeyboardEvent& evt);
     void setup();
+    Ogre::Root* getRoot();
     Ogre::SceneManager* getSceneManager();
     Ogre::RenderWindow* getWindow();
+    //const Ogre::GameState
+
+    static Ogre::Root* GetRootS();
+
     OIS::Keyboard* getKeyboard();
+    OIS::Mouse* getMouse();
+
+    static Ogre::SceneManager* getSceneManagerS();
 private:
     Ogre::SceneManager* scnMgr_;
     Ogre::Root* root_;
@@ -26,6 +34,7 @@ private:
     Ogre::RTShader::ShaderGenerator* shadergen_;
 
     OIS::Keyboard* mKeyboard;
+    OIS::Mouse* mMouse;
 
 };
 }
