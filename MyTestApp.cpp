@@ -21,11 +21,33 @@ bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
 
 void MyTestApp::setup(void)
 {
+    root_ = getRoot();
+    mResourcesCfg_ = "resources.cfg";
     // do not forget to call the base first
     OgreBites::ApplicationContext::setup();
+    Ogre::ConfigFile cf;
+    cf.load(mResourcesCfg_);
+    Ogre::ConfigFile::SectionIterator seci = cf.getSectionIterator();
+    Ogre::String secName, typeName, archName;
+    while (seci.hasMoreElements())
+    {
+        secName = seci.peekNextKey();
+        Ogre::ConfigFile::SettingsMultiMap *settings = seci.getNext();
+        Ogre::ConfigFile::SettingsMultiMap::iterator i;
+        for (i = settings->begin(); i != settings->end(); ++i)
+        {
+            typeName = i->first;
+            archName = i->second;
+            Ogre::ResourceGroupManager::getSingleton().addResourceLocation(
+                archName, typeName, secName);
+        }
+    }
     // get a pointer to the already created root
-    root_ = getRoot();
+//    Ogre::ResourceGroupManager::getSingleton().addResourceLocation("resources", "FileSystem");
+    // Initialise the resource groups:
+    Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
     scnMgr_ = root_->createSceneManager();
+//    scnMgr_->setSkyBox(true, "Cratelake");
     mWindow = getRenderWindow();
     // register our scene with the RTSS
     shadergen_ = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
@@ -71,12 +93,21 @@ Ogre::SceneManager *MyTestApp::getSceneManager()
 Ogre::RenderWindow *MyTestApp::getWindow()
 {
     return mWindow;
-    return MyTestApp::getSingleton().mWindow;
+}
+
+const GameState *MyTestApp::getGameState()
+{
+    return mGameState;
 }
 
 Ogre::Root *MyTestApp::GetRootS()
 {
     return MyTestApp::getSingleton().mRoot;
+}
+
+GameState *MyTestApp::getGameStateS()
+{
+    return MyTestApp::getSingleton().mGameState;
 }
 
 OIS::Keyboard *MyTestApp::getKeyboard()
@@ -89,9 +120,46 @@ OIS::Mouse *MyTestApp::getMouse()
     return mMouse;
 }
 
+void MyTestApp::switchState(GameState *nextState)
+{
+    mGameState->switchState(nextState);
+    mGameState = nextState;
+}
+
+void MyTestApp::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, Ogre::SceneNode *sceneNode)
+{
+    if(!sceneNode)
+    {
+        return;
+    }
+
+    Ogre::SceneNode::ObjectIterator itObject = sceneNode->getAttachedObjectIterator();
+
+    for(int i = 0; i < sceneNode->numAttachedObjects(); ++i)
+    {
+        if(sceneNode->getAttachedObject(i)->getTypeFlags() != 4294967295)
+            sceneMgr->destroyMovableObject(sceneNode->getAttachedObject(i));
+        else
+            return;
+    }
+
+    Ogre::SceneNode::ChildNodeIterator itChild = sceneNode->getChildIterator();
+
+    while(itChild.hasMoreElements())
+    {
+        Ogre::SceneNode* childNode = static_cast<Ogre::SceneNode*>(itChild.getNext());
+        destroyAllAttachedMovableObjects(sceneMgr, childNode);
+    }
+}
+
 Ogre::SceneManager *MyTestApp::getSceneManagerS()
 {
+    return MyTestApp::getSingleton().scnMgr_;
+}
 
+Ogre::RenderWindow *MyTestApp::getWindowS()
+{
+    return MyTestApp::getSingleton().mWindow;
 }
 
 }
