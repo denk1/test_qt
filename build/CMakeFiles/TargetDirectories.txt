@@ -1,3 +1,0 @@
-/home/den/Projects/test_qt/build/CMakeFiles/rebuild_cache.dir
-/home/den/Projects/test_qt/build/CMakeFiles/test_qt.dir
-/home/den/Projects/test_qt/build/CMakeFiles/edit_cache.dir
