@@ -8,7 +8,7 @@
 
 namespace RAT
 {
-
+class MyTestApp;
 class TPCamera : public Ogre::Singleton<TPCamera>, public Ogre::FrameListener
 {
 public:
@@ -56,8 +56,8 @@ protected:
 	Ogre::Real mTargetDistance;
 	Ogre::Real mYaw;
 	Ogre::Real mPitch;
-        bool mFollowVehicle;
-        MyTestApp& myTestApp;
+    bool mFollowVehicle;
+    MyTestApp& myTestApp;
 
 };
 

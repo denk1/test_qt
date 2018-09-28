@@ -5,12 +5,15 @@
 #include <OGRE/Ogre.h>
 #include <OGRE/OgreResourceManager.h>
 #include <OGRE/Bites/OgreApplicationContext.h>
+#include <OgreWindowEventUtilities.h>
 #include "PlayerInterface.h"
 #include "GameState.h"
+#include "TPCamera.h"
 
 namespace RAT
 {
 
+class TPCamera;
 
 class MyTestApp : public Ogre::Singleton<MyTestApp>, public OgreBites::ApplicationContext, public OgreBites::InputListener
 {
@@ -34,7 +37,15 @@ public:
     void switchState(GameState* nextState);
 
     static void destroyAllAttachedMovableObjects(Ogre::SceneManager* sceneMgr, Ogre::SceneNode* sceneNode);
+protected:
+    virtual void windowResized(Ogre::RenderWindow *rw);
+    virtual void windowClosed(Ogre::RenderWindow *rw);
+
+    //Ogre::FrameListener
+    virtual bool frameRenderingQueued(const Ogre::FrameEvent &evt);
+    bool isArg(const Ogre::String& arg);
 private:
+    std::vector<Ogre::String> mArgs;
     Ogre::SceneManager* scnMgr_;
     Ogre::Root* root_;
     Ogre::RenderWindow* mWindow;
@@ -44,8 +55,14 @@ private:
 
     PlayerInterface* mPlayerInterface_;
 
+    OIS::InputManager* mInputManager;
     OIS::Keyboard* mKeyboard;
     OIS::Mouse* mMouse;
+
+    TPCamera* mCamera;
+
+    bool mExit;
+
 
 };
 }

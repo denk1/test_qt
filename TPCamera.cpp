@@ -84,8 +84,8 @@ bool TPCamera::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
 		delta.normalise();
 
-        if (MyTestApp::getSingleton().getKeyboard()->isModifierDown(OIS::Keyboard::Modifier::Shift))
-			delta *= 4;
+//        if (MyTestApp::getSingleton().getKeyboard()->isModifierDown(OIS::Keyboard::Modifier::Shift))
+//			delta *= 4;
 
 		mCamera->move(delta * mVelocity * evt.timeSinceLastFrame);
 	}

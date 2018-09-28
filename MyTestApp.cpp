@@ -25,6 +25,7 @@ void MyTestApp::setup(void)
     mResourcesCfg_ = "resources.cfg";
     // do not forget to call the base first
     OgreBites::ApplicationContext::setup();
+    addInputListener(this);
     Ogre::ConfigFile cf;
     cf.load(mResourcesCfg_);
     Ogre::ConfigFile::SectionIterator seci = cf.getSectionIterator();
@@ -46,7 +47,7 @@ void MyTestApp::setup(void)
 //    Ogre::ResourceGroupManager::getSingleton().addResourceLocation("resources", "FileSystem");
     // Initialise the resource groups:
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
-    scnMgr_ = root_->createSceneManager();
+    scnMgr_ = root_->createSceneManager(Ogre::ST_EXTERIOR_FAR, "BulletTerrain");
 //    scnMgr_->setSkyBox(true, "Cratelake");
     mWindow = getRenderWindow();
     // register our scene with the RTSS
@@ -59,18 +60,30 @@ void MyTestApp::setup(void)
     lightNode->attachObject(light);
     // also need to tell where we are
     Ogre::SceneNode* camNode = scnMgr_->getRootSceneNode()->createChildSceneNode();
+    //camNode->setPosition(0, 0, 140);
     camNode->setPosition(0, 47, 222);
     camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
     // create the camera
-    Ogre::Camera* cam = scnMgr_->createCamera("myCam");
+    mCamera = new TPCamera();
+    Ogre::Camera* cam = mCamera->getCamera();
+    //Ogre::Camera* cam = scnMgr_->createCamera("myCam");
+    Ogre::Viewport* viewPort = mWindow->addViewport(cam);
+    //Ogre::Viewport* viewPort = getRenderWindow()->getViewport(0);
+    viewPort->setBackgroundColour(Ogre::ColourValue(.0f, .0f, .0f));
+    root_->addFrameListener(mCamera);
+    mCamera->getCamera()->setPosition(Ogre::Vector3(200, 150, 150));
     cam->setNearClipDistance(5); // specific to this sample
     cam->setAutoAspectRatio(true);
     camNode->attachObject(cam);
     // and tell it to render into the main window
-    getRenderWindow()->addViewport(cam);
+    //getRenderWindow()->addViewport(cam);
     Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
-    Ogre::Viewport* viewPort = getRenderWindow()->getViewport(0);
-    viewPort->setBackgroundColour(Ogre::ColourValue(.0f, .0f, .0f));
+    windowResized(mWindow);
+    scnMgr_->setShadowColour(Ogre::ColourValue(0.7, 0.7, 0.7));
+    Ogre::AxisAlignedBox bounds = Ogre::AxisAlignedBox(
+                Ogre::Vector3(-1000, -1000, -1000),
+                Ogre::Vector3(1000, 1000, 1000)
+                );
     // finally something to render
     Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
     Ogre::Entity* ent2 = scnMgr_->createEntity("ogrehead.mesh");
@@ -150,6 +163,47 @@ void MyTestApp::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, O
         Ogre::SceneNode* childNode = static_cast<Ogre::SceneNode*>(itChild.getNext());
         destroyAllAttachedMovableObjects(sceneMgr, childNode);
     }
+}
+
+void MyTestApp::windowResized(Ogre::RenderWindow *rw)
+{
+    unsigned int width, height, depth;
+    int left, top;
+    rw->getMetrics(width, height, depth, left, top);
+}
+
+void MyTestApp::windowClosed(Ogre::RenderWindow *rw)
+{
+    if(rw == mWindow)
+    {
+        if(mInputManager)
+        {
+            mInputManager->destroyInputObject( mMouse);
+            mInputManager->destroyInputObject( mKeyboard);
+
+            OIS::InputManager::destroyInputSystem(mInputManager);
+            mInputManager = 0;
+        }
+    }
+}
+
+bool MyTestApp::frameRenderingQueued(const Ogre::FrameEvent &evt)
+{
+    if(mWindow->isClosed() || mExit)
+        return false;
+
+    //mKeyboard->capture();
+    //mMouse->capture();
+
+    return true;
+}
+
+bool MyTestApp::isArg(const Ogre::String &arg)
+{
+    for(std::vector<Ogre::String>::iterator it = mArgs.begin(); it != mArgs.end(); ++it)
+        if (!it->compare(arg))
+            return true;
+    return false;
 }
 
 Ogre::SceneManager *MyTestApp::getSceneManagerS()
