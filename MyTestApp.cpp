@@ -84,6 +84,8 @@ void MyTestApp::setup(void)
                 Ogre::Vector3(-1000, -1000, -1000),
                 Ogre::Vector3(1000, 1000, 1000)
                 );
+    new Physics(bounds, true);
+//    mGameState = new GSStart();
     // finally something to render
     Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
     Ogre::Entity* ent2 = scnMgr_->createEntity("ogrehead.mesh");

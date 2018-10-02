@@ -6,6 +6,7 @@
 #include <OGRE/OgreResourceManager.h>
 #include <OGRE/Bites/OgreApplicationContext.h>
 #include <OgreWindowEventUtilities.h>
+#include "Physics.h"
 #include "PlayerInterface.h"
 #include "GameState.h"
 #include "TPCamera.h"

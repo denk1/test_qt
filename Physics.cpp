@@ -2,7 +2,7 @@
 #include "MyTestApp.h"
 #include <Utils/OgreBulletCollisionsMeshToShapeConverter.h>
 
-template<> RAT::Physics* Ogre::Singleton<RAT::Physics>::ms_Singleton = 0;
+template<> RAT::Physics* Ogre::Singleton<RAT::Physics>::msSingleton = 0;
 
 namespace RAT
 {
@@ -10,7 +10,7 @@ namespace RAT
 Physics::Physics(const Ogre::AxisAlignedBox& bounds, bool debug, const Ogre::Vector3& gravityVector)
 	:mDebugDrawer(0), mNumEntitiesInstanced(0)
 {
-	mWorld = new OgreBulletDynamics::DynamicsWorld(Game::getSceneManagerS(), bounds, gravityVector);
+    mWorld = new OgreBulletDynamics::DynamicsWorld(MyTestApp::getSceneManagerS(), bounds, gravityVector);
 	if(debug)
 		{
 		// add Debug info display tool
@@ -18,16 +18,16 @@ Physics::Physics(const Ogre::AxisAlignedBox& bounds, bool debug, const Ogre::Vec
 		mDebugDrawer->setDrawWireframe(true);   // we want to see the Bullet containers
 		mWorld->setDebugDrawer(mDebugDrawer);
 		mWorld->setShowDebugShapes(true);      // enable it if you want to see the Bullet containers
-		Ogre::SceneNode *node = Game::getSceneManagerS()->getRootSceneNode()->createChildSceneNode("debugDrawer", Ogre::Vector3::ZERO);
+        Ogre::SceneNode *node = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode("debugDrawer", Ogre::Vector3::ZERO);
 		node->attachObject(static_cast <Ogre::SimpleRenderable *> (mDebugDrawer));
 	}
 
-	Game::GetRootS()->addFrameListener(this);
+    MyTestApp::GetRootS()->addFrameListener(this);
 }
 
 Physics::~Physics()
 {
-	Game::GetRootS()->removeFrameListener(this);
+    MyTestApp::GetRootS()->removeFrameListener(this);
 
 	free();
 
@@ -185,10 +185,11 @@ OgreBulletCollisions::CompoundCollisionShape* Physics::createCompoundCollisionSh
 
 OgreBulletCollisions::HeightmapCollisionShape* Physics::createHeightmapCollisionShape(int width, int length, Ogre::Real* heightData, Ogre::Vector3& scale, int maxHeight, bool flip)
 {
-	OgreBulletCollisions::HeightmapCollisionShape* shape = new OgreBulletCollisions::HeightmapCollisionShape(width, length, scale, maxHeight, heightData, flip);
-	mShapes.push_back(shape);
+    //OgreBulletCollisions::HeightmapCollisionShape* shape = new OgreBulletCollisions::HeightmapCollisionShape(width, length, scale, maxHeight, heightData, flip);
+    OgreBulletCollisions::HeightmapCollisionShape* shape = new OgreBulletCollisions::HeightmapCollisionShape(width, length, scale, heightData, flip);
+    mShapes.push_back(shape);
 	
-	return shape;
+    return shape;
 }
 
 OgreBulletDynamics::RigidBody* Physics::createRigidBody(const Ogre::String &name, 
@@ -200,8 +201,8 @@ OgreBulletDynamics::RigidBody* Physics::createRigidBody(const Ogre::String &name
 
 	mBodies.push_back(body);  
 	++mNumEntitiesInstanced;
-	
-	return body;
+
+    return body;
 }
 
 }

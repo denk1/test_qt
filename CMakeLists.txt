@@ -11,8 +11,10 @@ find_package(OGRE 1.11 REQUIRED COMPONENTS Bites RTShaderSystem)
 file(COPY ${OGRE_CONFIG_DIR}/resources.cfg DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(/usr/local/include/OGRE/RTShaderSystem)
 INCLUDE_DIRECTORIES(/usr/local/include/cegui-0)
-#INCLUDE_DIRECTORIES(/usr/local/include/cegui-0/CEGUI)
+INCLUDE_DIRECTORIES(/usr/local/include/OgreBullet/Dynamics)
+INCLUDE_DIRECTORIES(/usr/local/include/OgreBullet/Collisions)
 INCLUDE_DIRECTORIES(/usr/local/include/ois)
+INCLUDE_DIRECTORIES(/usr/local/include/bullet)
 link_directories(/usr/local/lib/)
 LINK_DIRECTORIES(/home/den/Downloads/build-ogre-1.11.2-Desktop-Debug/Dependencies/lib)
 LINK_DIRECTORIES(/home/den/Downloads/build-ogre-1.11.2-Desktop-Debug/freetype-2.9/objs)
@@ -23,6 +25,7 @@ add_executable(${PROJECT_NAME} main.cpp
                                PlayerInterface.cpp
                                GameState.cpp
                                Physics.cpp
+#                               GSStart.cpp
                                )
 target_link_libraries(test_qt OgreMain
                               OgreBites
@@ -31,4 +34,12 @@ target_link_libraries(test_qt OgreMain
                               CEGUICommonDialogs-0
                               CEGUIOgreRenderer-0
                               OIS
+                              Bullet3Common
+                              Bullet3Dynamics
+                              BulletCollision
+                              BulletDynamics
+                              LinearMath
+                              boost_system
+                              OgreBulletDynamics
+                              OgreBulletCollisions
                              )
