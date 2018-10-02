@@ -25,10 +25,40 @@ add_executable(${PROJECT_NAME} main.cpp
                                PlayerInterface.cpp
                                GameState.cpp
                                Physics.cpp
-#                               GSStart.cpp
+                               GSStart.cpp
+                               GSMainMenu.cpp
+                               MainMenu.cpp
+                               Map.cpp
+                               MapLoader.cpp
+                               GSMap.cpp
+                               Window.cpp
+                               BBLoader.cpp
+                               BonusBuilding.cpp
+                               BonusBuildingBase.cpp
+                               Config.cpp
+                               ConfigWindow.cpp
+                               Landscape.cpp
+                               Tower.cpp
+                               TowerBase.cpp
+                               TowerLoader.cpp
+                               Weapon.cpp
+                               WeaponFactory.cpp
+                               WeaponHolder.cpp
+                               WeaponLoader.cpp
+                               Vehicle.cpp
+                               VehicleBase.cpp
+                               VehicleLoader.cpp
+                               VehiclePrototype.cpp
+                               IngameMenu.cpp
+                               SceneLoader.cpp
+                               DotSceneLoader.cpp
+                               PhysicsShapesLoader.cpp
+                               WGun.cpp
+                               WRocketLauncher.cpp
                                )
 target_link_libraries(test_qt OgreMain
                               OgreBites
+                              OgreTerrain
                               freetype
                               CEGUIBase-0
                               CEGUICommonDialogs-0
@@ -42,4 +72,5 @@ target_link_libraries(test_qt OgreMain
                               boost_system
                               OgreBulletDynamics
                               OgreBulletCollisions
+                              tinyxml
                              )
