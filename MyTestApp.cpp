@@ -1,4 +1,9 @@
 #include "MyTestApp.h"
+#include "GSStart.h"
+#include "GSMap.h"
+#include "MapLoader.h"
+#include "WeaponFactory.h"
+#include "Config.h"
 
 template<> RAT::MyTestApp* Ogre::Singleton<RAT::MyTestApp>::msSingleton = 0;
 
@@ -7,7 +12,8 @@ namespace RAT
 
 MyTestApp::MyTestApp() : OgreBites::ApplicationContext("OgreTutorialApp")
 {
-
+    new WeaponFactory();
+    new Config();
 }
 
 bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
@@ -25,6 +31,7 @@ void MyTestApp::setup(void)
     mResourcesCfg_ = "resources.cfg";
     // do not forget to call the base first
     OgreBites::ApplicationContext::setup();
+    //CEGUI::WindowManager& wmgr = CEGUI::WindowManager::getSingleton();
     addInputListener(this);
     Ogre::ConfigFile cf;
     cf.load(mResourcesCfg_);
@@ -84,8 +91,15 @@ void MyTestApp::setup(void)
                 Ogre::Vector3(-1000, -1000, -1000),
                 Ogre::Vector3(1000, 1000, 1000)
                 );
-    new Physics(bounds, true);
-//    mGameState = new GSStart();
+    //new Physics(bounds, true);
+    new Physics(bounds);
+    mGameState = new GSStart();
+    MapLoader loader;
+    Map* map;
+    map = loader.loadMap("lowland.rtm", MyTestApp::getSingleton().getSceneManager(), "Maps");
+    map->load();
+    MyTestApp::getSingleton().switchState(new GSMap(map));
+//    ((GSStart*)mGameState)->startGame();
     // finally something to render
     Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
     Ogre::Entity* ent2 = scnMgr_->createEntity("ogrehead.mesh");

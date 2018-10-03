@@ -31,41 +31,41 @@ GSMap::~GSMap()
 
 void GSMap::enteredState()
 {
-	CEGUI::Window* rootWindow= PlayerInterface::getSingleton().getRootWindow();
-	CEGUI::WindowManager &wmgr = CEGUI::WindowManager::getSingleton();
-	CEGUI::Window* window = wmgr.createWindow("DefaultWindow", "Map/Background");
+//	CEGUI::Window* rootWindow= PlayerInterface::getSingleton().getRootWindow();
+//	CEGUI::WindowManager &wmgr = CEGUI::WindowManager::getSingleton();
+//	CEGUI::Window* window = wmgr.createWindow("DefaultWindow", "Map/Background");
 	
-    //CEGUI::System::getSingleton().setGUISheet(window);
-    CEGUI::System::getSingleton().getDefaultGUIContext().setRootWindow(window);
-	mIngameMenu = new IngameMenu(window);
-	mIngameMenu->getWindow()->setModalState(false);
-	mIngameMenu->getWindow()->hide();
+//    //CEGUI::System::getSingleton().setGUISheet(window);
+//    CEGUI::System::getSingleton().getDefaultGUIContext().setRootWindow(window);
+//	mIngameMenu = new IngameMenu(window);
+//	mIngameMenu->getWindow()->setModalState(false);
+//	mIngameMenu->getWindow()->hide();
 
-	window->subscribeEvent(CEGUI::Window::EventKeyDown, CEGUI::Event::Subscriber(&GSMap::keyDown, this));
-	window->subscribeEvent(CEGUI::Window::EventKeyUp, CEGUI::Event::Subscriber(&GSMap::keyUp, this));
-	window->subscribeEvent(CEGUI::Window::EventMouseButtonDown, CEGUI::Event::Subscriber(&GSMap::mouseDown, this));
-	window->subscribeEvent(CEGUI::Window::EventMouseButtonUp, CEGUI::Event::Subscriber(&GSMap::mouseUp, this));
-	window->subscribeEvent(CEGUI::Window::EventMouseMove, CEGUI::Event::Subscriber(&GSMap::mouseMove, this));
-	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventKeyDown, CEGUI::Event::Subscriber(&GSMap::keyDown, this)));
-	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventKeyUp, CEGUI::Event::Subscriber(&GSMap::keyUp, this)));
-	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventMouseButtonDown, CEGUI::Event::Subscriber(&GSMap::mouseDown, this)));
-	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventMouseButtonUp, CEGUI::Event::Subscriber(&GSMap::mouseUp, this)));
-	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventMouseMove, CEGUI::Event::Subscriber(&GSMap::mouseMove, this)));
+//	window->subscribeEvent(CEGUI::Window::EventKeyDown, CEGUI::Event::Subscriber(&GSMap::keyDown, this));
+//	window->subscribeEvent(CEGUI::Window::EventKeyUp, CEGUI::Event::Subscriber(&GSMap::keyUp, this));
+//	window->subscribeEvent(CEGUI::Window::EventMouseButtonDown, CEGUI::Event::Subscriber(&GSMap::mouseDown, this));
+//	window->subscribeEvent(CEGUI::Window::EventMouseButtonUp, CEGUI::Event::Subscriber(&GSMap::mouseUp, this));
+//	window->subscribeEvent(CEGUI::Window::EventMouseMove, CEGUI::Event::Subscriber(&GSMap::mouseMove, this));
+//	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventKeyDown, CEGUI::Event::Subscriber(&GSMap::keyDown, this)));
+//	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventKeyUp, CEGUI::Event::Subscriber(&GSMap::keyUp, this)));
+//	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventMouseButtonDown, CEGUI::Event::Subscriber(&GSMap::mouseDown, this)));
+//	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventMouseButtonUp, CEGUI::Event::Subscriber(&GSMap::mouseUp, this)));
+//	mEvents.push_back(rootWindow->subscribeEvent(CEGUI::Window::EventMouseMove, CEGUI::Event::Subscriber(&GSMap::mouseMove, this)));
 
-	CEGUI::Window* statusInfo = CEGUI::WindowManager::getSingleton().createWindow("TaharezLook/StaticText", "Map/Framerate");
-	statusInfo->setPosition(CEGUI::UVector2(CEGUI::UDim(0.01f, 0), CEGUI::UDim(0.01f, 0)));
-    CEGUI::USize size;
-    size.d_height = CEGUI::UDim(0.3f, 0);
-    size.d_width = CEGUI::UDim(0.1f, 0);
-    statusInfo->setSize(size);
-    //statusInfo->setSize(CEGUI::UVector2(CEGUI::UDim(0.3f, 0), CEGUI::UDim(0.1f, 0)));
-	statusInfo->setText(Ogre::StringConverter::toString(0));
+//	CEGUI::Window* statusInfo = CEGUI::WindowManager::getSingleton().createWindow("TaharezLook/StaticText", "Map/Framerate");
+//	statusInfo->setPosition(CEGUI::UVector2(CEGUI::UDim(0.01f, 0), CEGUI::UDim(0.01f, 0)));
+//    CEGUI::USize size;
+//    size.d_height = CEGUI::UDim(0.3f, 0);
+//    size.d_width = CEGUI::UDim(0.1f, 0);
+//    statusInfo->setSize(size);
+//    //statusInfo->setSize(CEGUI::UVector2(CEGUI::UDim(0.3f, 0), CEGUI::UDim(0.1f, 0)));
+//	statusInfo->setText(Ogre::StringConverter::toString(0));
 	
-	statusInfo->setProperty("BackgroundEnabled", "false");
-	statusInfo->setProperty("FrameEnabled", "false");
+//	statusInfo->setProperty("BackgroundEnabled", "false");
+//	statusInfo->setProperty("FrameEnabled", "false");
 
-    window->addChild(statusInfo);
-	window->activate();
+//    window->addChild(statusInfo);
+//	window->activate();
 
 	// tmp test code
 
@@ -314,8 +314,10 @@ bool GSMap::frameRenderingQueued(const Ogre::FrameEvent& evt)
 	statusText += "\nCameraDir: " + Ogre::StringConverter::toString(cam.x, 2) + " " + Ogre::StringConverter::toString(cam.y, 2) + " " + Ogre::StringConverter::toString(cam.z, 2);
 	int unitsSpeed = mVehicle->getAvgSpeed();
 	int kmhSpeed = mVehicle->getAvgSpeed(VehicleBase::Kmh);
-	statusText += "\nSpeed(relative): " + Ogre::StringConverter::toString(unitsSpeed) + "(" + Ogre::StringConverter::toString(kmhSpeed) + " kmh)";
-    CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("Map/Framerate")->setText(statusText);
+    statusText += "\nSpeed(relative): " + Ogre::StringConverter::toString(unitsSpeed) + "(" + Ogre::StringConverter::toString(kmhSpeed) + " kmh)";
+    // test
+    //CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("Map/Framerate")->setText(statusText);
+    // end test
     //CEGUI::WindowManager::getSingleton().getCh("Map/Framerate")->setText(statusText);
 
 
