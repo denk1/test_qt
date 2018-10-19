@@ -7,20 +7,25 @@
 #include <OGRE/Bites/OgreApplicationContext.h>
 #include <OgreWindowEventUtilities.h>
 #include "Physics.h"
+#include "GSMap.h"
 #include "PlayerInterface.h"
 #include "GameState.h"
 #include "TPCamera.h"
+#include "VehicleBase.h"
 
 namespace RAT
 {
 
 class TPCamera;
+class GSMap;
 
 class MyTestApp : public Ogre::Singleton<MyTestApp>, public OgreBites::ApplicationContext, public OgreBites::InputListener
 {
 public:
     MyTestApp();
+    ~MyTestApp();
     bool keyPressed(const OgreBites::KeyboardEvent& evt);
+    bool keyReleased(const OgreBites::KeyboardEvent& evt);
     void setup();
     Ogre::Root* getRoot();
     Ogre::SceneManager* getSceneManager();
@@ -38,6 +43,7 @@ public:
     void switchState(GameState* nextState);
 
     static void destroyAllAttachedMovableObjects(Ogre::SceneManager* sceneMgr, Ogre::SceneNode* sceneNode);
+    void setVehicle(VehicleBase* inVehicleBase);
 protected:
     virtual void windowResized(Ogre::RenderWindow *rw);
     virtual void windowClosed(Ogre::RenderWindow *rw);
@@ -45,6 +51,8 @@ protected:
     //Ogre::FrameListener
     virtual bool frameRenderingQueued(const Ogre::FrameEvent &evt);
     bool isArg(const Ogre::String& arg);
+
+
 private:
     std::vector<Ogre::String> mArgs;
     Ogre::SceneManager* scnMgr_;
@@ -61,6 +69,8 @@ private:
     OIS::Mouse* mMouse;
 
     TPCamera* mCamera;
+    VehicleBase* mVehicleBase;
+    GSMap* mGSMap;
 
     bool mExit;
 

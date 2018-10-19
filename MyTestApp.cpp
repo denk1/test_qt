@@ -1,6 +1,5 @@
 #include "MyTestApp.h"
 #include "GSStart.h"
-#include "GSMap.h"
 #include "MapLoader.h"
 #include "WeaponFactory.h"
 #include "Config.h"
@@ -16,14 +15,58 @@ MyTestApp::MyTestApp() : OgreBites::ApplicationContext("OgreTutorialApp")
     new Config();
 }
 
+MyTestApp::~MyTestApp()
+{
+
+}
+
 bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
 {
     if (evt.keysym.sym == OgreBites::SDLK_ESCAPE)
     {
         getRoot()->queueEndRendering();
     }
+    else if(evt.keysym.sym == 'w')
+    {
+        mVehicleBase->processControl(VehicleBase::VSForwardPressed);
+    }
+    else if(evt.keysym.sym == 's')
+    {
+        mVehicleBase->processControl(VehicleBase::VSBackwardPressed);
+    }
+    else if(evt.keysym.sym == 'a')
+    {
+        mVehicleBase->processControl(VehicleBase::VSLeftPressed);
+    }
+    else if(evt.keysym.sym == 'd')
+    {
+        mVehicleBase->processControl(VehicleBase::VSRightPressed);
+    }
     return true;
 }
+
+bool MyTestApp::keyReleased(const OgreBites::KeyboardEvent &evt)
+{
+    if(evt.keysym.sym == 'w')
+    {
+        mVehicleBase->processControl(VehicleBase::VSForwardReleased);
+    }
+    else if(evt.keysym.sym == 's')
+    {
+        mVehicleBase->processControl(VehicleBase::VSBackwardReleased);
+    }
+    else if(evt.keysym.sym == 'a')
+    {
+        mVehicleBase->processControl(VehicleBase::VSLeftReleased);
+    }
+    else if(evt.keysym.sym == 'd')
+    {
+        mVehicleBase->processControl(VehicleBase::VSRightReleased);
+    }
+    return true;
+}
+
+
 
 void MyTestApp::setup(void)
 {
@@ -98,7 +141,9 @@ void MyTestApp::setup(void)
     Map* map;
     map = loader.loadMap("lowland.rtm", MyTestApp::getSingleton().getSceneManager(), "Maps");
     map->load();
-    MyTestApp::getSingleton().switchState(new GSMap(map));
+    mGSMap = new GSMap(map, this);
+    //MyTestApp::getSingleton().switchState(new GSMap(map));
+    MyTestApp::getSingleton().switchState(mGSMap);
 //    ((GSStart*)mGameState)->startGame();
     // finally something to render
     //Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
@@ -179,6 +224,11 @@ void MyTestApp::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, O
         Ogre::SceneNode* childNode = static_cast<Ogre::SceneNode*>(itChild.getNext());
         destroyAllAttachedMovableObjects(sceneMgr, childNode);
     }
+}
+
+void MyTestApp::setVehicle(VehicleBase *inVehicleBase)
+{
+    mVehicleBase = inVehicleBase;
 }
 
 void MyTestApp::windowResized(Ogre::RenderWindow *rw)

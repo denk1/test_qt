@@ -5,10 +5,15 @@
 namespace RAT
 {
 
-GSMap::GSMap(Map* map)
-	: GameState(GameState::StMap), mMap(map), mIngameMenu(0), mVehicle(0)
+GSMap::GSMap(Map* map, MyTestApp *app)
+    : GameState(GameState::StMap), mMap(map), mIngameMenu(0), mVehicle(0), mApp(app)
 {
-	mInVehicle = true;
+    mInVehicle = true;
+}
+
+VehicleBase *GSMap::getVehicle()
+{
+    return mVehicle;
 }
 
 GSMap::~GSMap()
@@ -72,6 +77,7 @@ void GSMap::enteredState()
         VehiclePrototype* prot = VehicleLoader().loadVehicle("jeep.rtv", MyTestApp::getSceneManagerS(), "Vehicles");
 		mVehicle = new Vehicle(*prot);
 		mVehicle->create(mMap->getMapSceneNode());
+        mApp->setVehicle(mVehicle);
 		delete prot;
 
 		WeaponHolder* weapHolder = new WeaponHolder();

@@ -5,15 +5,19 @@
 #include "Map.h"
 #include "IngameMenu.h"
 #include "Vehicle.h"
+#include "MyTestApp.h"
 
 namespace RAT
 {
+
+class MyTestApp;
 
 	// Состояние игры - Карта(Уровень)
 class GSMap : public GameState
 {
 public:
-	GSMap(Map* map);
+    GSMap(Map* map, MyTestApp* app);
+    VehicleBase *getVehicle();
 
 protected:
 
@@ -45,6 +49,8 @@ protected:
 	
 	// tmp
 	bool mInVehicle;
+private:
+    MyTestApp* mApp;
 
 
 };

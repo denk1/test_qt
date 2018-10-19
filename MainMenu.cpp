@@ -63,7 +63,8 @@ bool MainMenu::buttonStartPressed(const CEGUI::EventArgs &e)
 	Map* map;
     map = loader.loadMap("lowland.rtm", MyTestApp::getSingleton().getSceneManager(), "Maps");
 	map->load();
-    MyTestApp::getSingleton().switchState(new GSMap(map));
+    // without CEGUI
+    //MyTestApp::getSingleton().switchState(new GSMap(map));
 
 	return true;
 }
