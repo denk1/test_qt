@@ -289,8 +289,8 @@ void VehicleBase::processIdle()
 {
 	for(int i = 0; i < 4; ++i)
 	{
-		mVehicle->applyEngineForce(0,i);
-		mVehicle->getBulletVehicle()->setBrake(0, i);
+        mVehicle->applyEngineForce(0,i);
+        mVehicle->getBulletVehicle()->setBrake(0, i);
 	}	
 }
 

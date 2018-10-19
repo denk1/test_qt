@@ -11,7 +11,8 @@ Physics::Physics(const Ogre::AxisAlignedBox& bounds, bool debug, const Ogre::Vec
 	:mDebugDrawer(0), mNumEntitiesInstanced(0)
 {
     mWorld = new OgreBulletDynamics::DynamicsWorld(MyTestApp::getSceneManagerS(), bounds, gravityVector);
-	if(debug)
+    mWorld->setShowDebugContactPoints(true);
+    if(debug)
 		{
 		// add Debug info display tool
 		mDebugDrawer = new OgreBulletCollisions::DebugDrawer();

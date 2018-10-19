@@ -138,29 +138,41 @@ void Landscape::create()
 
 void Landscape::setupPhysics(float restitution, float friction)
 {
-	float * pDataConvert= new float[mTerrain->getSize() * mTerrain->getSize()];
-	for (int i=0; i<mTerrain->getSize(); i++)
-		memcpy(pDataConvert + mTerrain->getSize()*i, 
-			mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1),
-			sizeof(float)*(mTerrain->getSize()) );
-
+    Ogre::Real fTest[257];
+    std::fill(std::begin(fTest), std::end(fTest), 0.f);
+    //std::fill(fTest, fTest + 86, 90.0f);
+    //std::fill(fTest + 88, fTest + 90, 90.0f);
+    Ogre::Real * pDataConvert= new Ogre::Real[mTerrain->getSize() * mTerrain->getSize()];
+    //mTerrain->getHeightData();
+    for (int i=0; i<mTerrain->getSize(); i++)
+//        memcpy(pDataConvert + mTerrain->getSize()*i,
+//            mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1),
+//            sizeof(float)*(mTerrain->getSize()) );
+        memcpy(pDataConvert + mTerrain->getSize()*i, &fTest[0]
+            /*mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1)*/,
+            sizeof(float)*(mTerrain->getSize()) );
+//        memset(pDataConvert + mTerrain->getSize()*i, 0
+//            /*mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1)*/,
+//            sizeof(float)*(mTerrain->getSize()) );
 		
 	float landSize = mTerrain->getSize();
 	float maxHeight = mTerrain->getMaxHeight();
     mVector3 = Ogre::Vector3(mSettings.scaleXZ, 1.f, mSettings.scaleXZ);
-    OgreBulletCollisions::HeightmapCollisionShape* shape = Physics::getSingleton().createHeightmapCollisionShape(landSize,landSize, pDataConvert, mVector3, maxHeight, true);
+    OgreBulletCollisions::HeightmapCollisionShape* shape = Physics::getSingleton().createHeightmapCollisionShape(landSize,landSize, pDataConvert, mVector3, maxHeight, false);
 	
 
 	OgreBulletDynamics::RigidBody* body = Physics::getSingleton().createRigidBody("landscape");
 		
     Ogre::SceneNode* node = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode ("Terrain", mTerrain->getPosition());
 
-	Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, (maxHeight - 1.f) / 2.f, mSettings.scaleXZ*(landSize-1.f) / 2.f);
-
+    // Original value
+    Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, 20/*(maxHeight - 1.f) / 2.f*/, mSettings.scaleXZ*(landSize-1.f) / 2.f);
+    //Ogre::Vector3 terrainShiftPos(0.f, 0.f, 0.f);
+    //Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, 1.0f/*(maxHeight - 1.f) / 2.f*/,  mSettings.scaleXZ*(landSize-1.f) / 2.f);
 	body->setStaticShape(node, shape, restitution, friction, terrainShiftPos);
 
 	// Если раскоментить, физики не будет. Вероятно буллет не делает себе копию.
-	//delete pDataConvert;
+    // delete pDataConvert;
 
 }
 	

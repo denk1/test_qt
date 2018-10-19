@@ -61,15 +61,15 @@ void MyTestApp::setup(void)
     shadergen_ = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
     shadergen_->addSceneManager(scnMgr_);
     // without light we would just get a black screen
-    Ogre::Light* light = scnMgr_->createLight("MainLight");
-    Ogre::SceneNode* lightNode = scnMgr_->getRootSceneNode()->createChildSceneNode();
-    lightNode->setPosition(20, 80, 50);
-    lightNode->attachObject(light);
+    //Ogre::Light* light = scnMgr_->createLight("MainLight");
+    //Ogre::SceneNode* lightNode = scnMgr_->getRootSceneNode()->createChildSceneNode();
+    //lightNode->setPosition(20, 80, 50);
+    //lightNode->attachObject(light);
     // also need to tell where we are
-    Ogre::SceneNode* camNode = scnMgr_->getRootSceneNode()->createChildSceneNode();
+    //Ogre::SceneNode* camNode = scnMgr_->getRootSceneNode()->createChildSceneNode();
     //camNode->setPosition(0, 0, 140);
-    camNode->setPosition(0, 47, 222);
-    camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
+    //camNode->setPosition(0, 47, 222);
+    //camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
     // create the camera
     mCamera = new TPCamera();
     Ogre::Camera* cam = mCamera->getCamera();
@@ -77,11 +77,11 @@ void MyTestApp::setup(void)
     Ogre::Viewport* viewPort = mWindow->addViewport(cam);
     //Ogre::Viewport* viewPort = getRenderWindow()->getViewport(0);
     viewPort->setBackgroundColour(Ogre::ColourValue(.0f, .0f, .0f));
-    root_->addFrameListener(mCamera);
-    mCamera->getCamera()->setPosition(Ogre::Vector3(200, 150, 150));
+    //root_->addFrameListener(mCamera);
+    //mCamera->getCamera()->setPosition(Ogre::Vector3(200, 150, 150));
     cam->setNearClipDistance(5); // specific to this sample
     cam->setAutoAspectRatio(true);
-    camNode->attachObject(cam);
+    //camNode->attachObject(cam);
     // and tell it to render into the main window
     //getRenderWindow()->addViewport(cam);
     Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
@@ -91,8 +91,8 @@ void MyTestApp::setup(void)
                 Ogre::Vector3(-1000, -1000, -1000),
                 Ogre::Vector3(1000, 1000, 1000)
                 );
-    //new Physics(bounds, true);
-    new Physics(bounds);
+    new Physics(bounds, true);
+    //new Physics(bounds);
     mGameState = new GSStart();
     MapLoader loader;
     Map* map;
@@ -101,12 +101,12 @@ void MyTestApp::setup(void)
     MyTestApp::getSingleton().switchState(new GSMap(map));
 //    ((GSStart*)mGameState)->startGame();
     // finally something to render
-    Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
-    Ogre::Entity* ent2 = scnMgr_->createEntity("ogrehead.mesh");
-    Ogre::SceneNode* node = scnMgr_->getRootSceneNode()->createChildSceneNode();
-    Ogre::SceneNode* node2 = node->createChildSceneNode(Ogre::Vector3(84, 48, 0));
-    node->attachObject(ent);
-    node2->attachObject(ent2);
+    //Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
+    //Ogre::Entity* ent2 = scnMgr_->createEntity("ogrehead.mesh");
+    //Ogre::SceneNode* node = scnMgr_->getRootSceneNode()->createChildSceneNode();
+    //Ogre::SceneNode* node2 = node->createChildSceneNode(Ogre::Vector3(84, 48, 0));
+    //node->attachObject(ent);
+    //node2->attachObject(ent2);
 }
 
 Ogre::Root *MyTestApp::getRoot()

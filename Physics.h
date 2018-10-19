@@ -22,7 +22,7 @@ class Physics : public Ogre::Singleton<Physics>, public Ogre::FrameListener
 {
 public:
 
-	Physics(const Ogre::AxisAlignedBox& bounds, bool debug = false, const Ogre::Vector3& gravityVector = Ogre::Vector3 (0,  -9.81f,  0));
+    Physics(const Ogre::AxisAlignedBox& bounds, bool debug = false, const Ogre::Vector3& gravityVector = Ogre::Vector3 (0,  -9.81f,  0));
 	~Physics();
 
 		// Удаляет все созданные объекты
