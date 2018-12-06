@@ -86,7 +86,7 @@ VehiclePrototype* VehicleLoader::loadVehicle(const Ogre::String& fileName, Ogre:
 	node = xmlRoot->FirstChild("Physics");
 	if (node && (node->Type() == TiXmlNode::TINYXML_ELEMENT))
 	{
-		parsePhysics(static_cast<TiXmlElement*>(node), vehiclePrototype);
+        parsePhysics(static_cast<TiXmlElement*>(node), vehiclePrototype);
 	}
 
 	delete xmlDoc;

@@ -186,8 +186,8 @@ OgreBulletCollisions::CompoundCollisionShape* Physics::createCompoundCollisionSh
 
 OgreBulletCollisions::HeightmapCollisionShape* Physics::createHeightmapCollisionShape(int width, int length, Ogre::Real* heightData, Ogre::Vector3& scale, int maxHeight, bool flip)
 {
-    //OgreBulletCollisions::HeightmapCollisionShape* shape = new OgreBulletCollisions::HeightmapCollisionShape(width, length, scale, maxHeight, heightData, flip);
-    OgreBulletCollisions::HeightmapCollisionShape* shape = new OgreBulletCollisions::HeightmapCollisionShape(width, length, scale, heightData, flip);
+    OgreBulletCollisions::HeightmapCollisionShape* shape = new OgreBulletCollisions::HeightmapCollisionShape(width, length, scale, maxHeight, heightData, flip);
+    //OgreBulletCollisions::HeightmapCollisionShape* shape = new OgreBulletCollisions::HeightmapCollisionShape(width, length, scale, heightData, flip);
     mShapes.push_back(shape);
 	
     return shape;

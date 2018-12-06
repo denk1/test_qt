@@ -6,191 +6,178 @@ namespace RAT
 {
 
 Landscape::Landscape()
-	:mTerrain(0), mUseBinary(false)
+    :mTerrain(0), mUseBinary(false)
 {
-		// Создаем настройки, если они еще не были созданы (см. Синглетон Огры).
-	if (Ogre::TerrainGlobalOptions::getSingletonPtr() == 0)
-		new Ogre::TerrainGlobalOptions();
+        // ??????? ?????????, ???? ??? ??? ?? ???? ??????? (??. ????????? ????).
+    if (Ogre::TerrainGlobalOptions::getSingletonPtr() == 0)
+        new Ogre::TerrainGlobalOptions();
 }
 
 Landscape::~Landscape()
 {
-	if (mTerrain)
-	{
-			// Если Ландшафт грузится, то процесс будет висеть 
-			// до завершения загрузки (Решение - грузить бинарник, что быстрее)
-		OGRE_DELETE mTerrain;
+    if (mTerrain)
+    {
+            // ???? ???????? ????????, ?? ??????? ????? ??????
+            // ?? ?????????? ???????? (??????? - ??????? ????????, ??? ???????)
+        OGRE_DELETE mTerrain;
 
         Ogre::Node* terrainNode = MyTestApp::getSceneManagerS()->getRootSceneNode()->getChild("Terrain");
-		if (terrainNode)
+        if (terrainNode)
             MyTestApp::getSceneManagerS()->destroySceneNode((Ogre::SceneNode*)terrainNode);
-	}
+    }
 }
 
 void Landscape::init(const LandscapeSettings& settings)
 {
-	mSettings = settings;
-	Ogre::TerrainGlobalOptions::getSingleton().setMaxPixelError(1);
-	Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapDistance(2000);
+    mSettings = settings;
+    Ogre::TerrainGlobalOptions::getSingleton().setMaxPixelError(1);
+    Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapDistance(2000);
     Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapAmbient(MyTestApp::getSceneManagerS()->getAmbientLight());
 
-	if (settings.light)
-	{
-		Ogre::TerrainGlobalOptions::getSingleton().setLightMapDirection(settings.light->getDerivedDirection());
-		Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapDiffuse(settings.light->getDiffuseColour());
-	}
+    if (settings.light)
+    {
+        Ogre::TerrainGlobalOptions::getSingleton().setLightMapDirection(settings.light->getDerivedDirection());
+        Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapDiffuse(settings.light->getDiffuseColour());
+    }
 
     mTerrain = OGRE_NEW Ogre::Terrain(MyTestApp::getSceneManagerS());
-	
-	mTerrain->setResourceGroup(settings.resourceGroup);
-	if (mSettings.compiledTerrain.compare(""))
-	{
-		mUseBinary = true;
-		if (Ogre::ResourceGroupManager::getSingleton().resourceExists(settings.resourceGroup, mSettings.compiledTerrain))
-			return;
 
-	}
-	else
-		mUseBinary = false;
+    mTerrain->setResourceGroup(settings.resourceGroup);
+    if (mSettings.compiledTerrain.compare(""))
+    {
+        mUseBinary = true;
+        if (Ogre::ResourceGroupManager::getSingleton().resourceExists(settings.resourceGroup, mSettings.compiledTerrain))
+            return;
 
-		// Загружаем RAW файл
-	Ogre::DataStreamPtr stream = Ogre::ResourceGroupManager::getSingleton().openResource(settings.heightRawMap, settings.resourceGroup);
-	
-	size_t streamSize = stream.get()->size();
-	if(streamSize != (settings.size + 1) * (settings.size + 1) * 4)
-	{
-		delete mTerrain;
-		mTerrain = 0;
-		OGRE_EXCEPT( Ogre::Exception::ERR_INTERNAL_ERROR, "Size of stream does not match terrainsize!", "TerrainPage" );
-	}
+    }
+    else
+        mUseBinary = false;
 
-	float* buffer = OGRE_ALLOC_T(float, streamSize, Ogre::MEMCATEGORY_GENERAL);
-	stream->read(buffer, streamSize);
+        // ????????? RAW ????
+    Ogre::DataStreamPtr stream = Ogre::ResourceGroupManager::getSingleton().openResource(settings.heightRawMap, settings.resourceGroup);
 
-		// Настройки импорта
-	mImportData.terrainSize = settings.size + 1;
-	mImportData.worldSize = settings.size * settings.scaleXZ;
-	mImportData.inputScale = settings.scaleY;
-	mImportData.inputFloat = buffer;
-	mImportData.deleteInputData = true;
-		
-	mImportData.minBatchSize = settings.minBatchSize;
-	mImportData.maxBatchSize = settings.maxBatchSize;
+    size_t streamSize = stream.get()->size();
+    if(streamSize != (settings.size + 1) * (settings.size + 1) * 4)
+    {
+        delete mTerrain;
+        mTerrain = 0;
+        OGRE_EXCEPT( Ogre::Exception::ERR_INTERNAL_ERROR, "Size of stream does not match terrainsize!", "TerrainPage" );
+    }
+
+    float* buffer = OGRE_ALLOC_T(float, streamSize, Ogre::MEMCATEGORY_GENERAL);
+    stream->read(buffer, streamSize);
+
+        // ????????? ???????
+    mImportData.terrainSize = settings.size + 1;
+    mImportData.worldSize = settings.size * settings.scaleXZ;
+    mImportData.inputScale = settings.scaleY;
+    mImportData.inputFloat = buffer;
+    mImportData.deleteInputData = true;
+
+    mImportData.minBatchSize = settings.minBatchSize;
+    mImportData.maxBatchSize = settings.maxBatchSize;
 
 }
 
 
 void Landscape::addLayer(const Ogre::String& diffuseSpecularMap, const Ogre::String& normalHeightMap, const Ogre::String& blendMap, int worldSize)
 {
-	mBlendImages.push_back(blendMap);
-	Ogre::Terrain::LayerInstance layer;
-	layer.textureNames.push_back(diffuseSpecularMap);
-	layer.textureNames.push_back(normalHeightMap);
-	layer.worldSize = worldSize;
+    mBlendImages.push_back(blendMap);
+    Ogre::Terrain::LayerInstance layer;
+    layer.textureNames.push_back(diffuseSpecularMap);
+    layer.textureNames.push_back(normalHeightMap);
+    layer.worldSize = worldSize;
 
-	mImportData.layerList.push_back(layer);
-		
+    mImportData.layerList.push_back(layer);
+
 }
 
 void Landscape::create()
 {
-	
-	if (Ogre::ResourceGroupManager::getSingleton().resourceExists(mSettings.resourceGroup, mSettings.compiledTerrain))
-	{
-		mTerrain->load(mSettings.compiledTerrain);
-	}
-	else
-	{
-		mTerrain->prepare(mImportData);
-		mTerrain->load();
-		
 
-			// Загружаем карты смешивания
-		for(int j = 1; j < mTerrain->getLayerCount(); j++)
-		{
-			Ogre::TerrainLayerBlendMap *blendmap = mTerrain->getLayerBlendMap(j);
-			Ogre::Image img;
-			img.load(mBlendImages[j], mSettings.resourceGroup);
-			int blendmapsize = mTerrain->getLayerBlendMapSize();
-			if(img.getWidth() != blendmapsize)
-				img.resize(blendmapsize, blendmapsize);
+    if (Ogre::ResourceGroupManager::getSingleton().resourceExists(mSettings.resourceGroup, mSettings.compiledTerrain))
+    {
+        mTerrain->load(mSettings.compiledTerrain);
+    }
+    else
+    {
+        mTerrain->prepare(mImportData);
+        mTerrain->load();
 
-			float *ptr = blendmap->getBlendPointer();
-			Ogre::uint8 *data = static_cast<Ogre::uint8*>(img.getPixelBox().data);
 
-			for(int bp = 0;bp < blendmapsize * blendmapsize;bp++)
-				ptr[bp] = static_cast<float>(data[bp]) / 255.0f;
+            // ????????? ????? ??????????
+        for(int j = 1; j < mTerrain->getLayerCount(); j++)
+        {
+            Ogre::TerrainLayerBlendMap *blendmap = mTerrain->getLayerBlendMap(j);
+            Ogre::Image img;
+            img.load(mBlendImages[j], mSettings.resourceGroup);
+            int blendmapsize = mTerrain->getLayerBlendMapSize();
+            if(img.getWidth() != blendmapsize)
+                img.resize(blendmapsize, blendmapsize);
 
-			blendmap->dirty();
-			blendmap->update();
-		}
+            float *ptr = blendmap->getBlendPointer();
+            Ogre::uint8 *data = static_cast<Ogre::uint8*>(img.getPixelBox().data);
 
-			// При использования бинарника, его необходимо создать, когда ландшафт загрузится
-		if (mUseBinary)
+            for(int bp = 0;bp < blendmapsize * blendmapsize;bp++)
+                ptr[bp] = static_cast<float>(data[bp]) / 255.0f;
+
+            blendmap->dirty();
+            blendmap->update();
+        }
+
+            // ??? ????????????? ?????????, ??? ?????????? ???????, ????? ???????? ??????????
+        if (mUseBinary)
             MyTestApp::GetRootS()->addFrameListener(this);
-	}
+    }
 
-		// Огре размещает ландшафт так, чтобы центр был в (0; 0; 0). Перемещаем, чтобы левый угол был в (0; 0; 0)
-	mTerrain->setPosition(Ogre::Vector3(mSettings.scaleXZ*mSettings.size / 2.f, 0, mSettings.scaleXZ*mSettings.size / 2.f));
+        // ???? ????????? ???????? ???, ????? ????? ??? ? (0; 0; 0). ??????????, ????? ????? ???? ??? ? (0; 0; 0)
+    mTerrain->setPosition(Ogre::Vector3(mSettings.scaleXZ*mSettings.size / 2.f, 0, mSettings.scaleXZ*mSettings.size / 2.f));
 
-	mTerrain->freeTemporaryResources();
+    mTerrain->freeTemporaryResources();
 }
 
 void Landscape::setupPhysics(float restitution, float friction)
 {
-    Ogre::Real fTest[257];
-    std::fill(std::begin(fTest), std::end(fTest), 0.f);
-    //std::fill(fTest, fTest + 86, 90.0f);
-    //std::fill(fTest + 88, fTest + 90, 90.0f);
     Ogre::Real * pDataConvert= new Ogre::Real[mTerrain->getSize() * mTerrain->getSize()];
-    //mTerrain->getHeightData();
     for (int i=0; i<mTerrain->getSize(); i++)
-//        memcpy(pDataConvert + mTerrain->getSize()*i,
-//            mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1),
-//            sizeof(float)*(mTerrain->getSize()) );
-        memcpy(pDataConvert + mTerrain->getSize()*i, &fTest[0]
-            /*mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1)*/,
+        memcpy(pDataConvert + mTerrain->getSize()*i,
+            mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1),
             sizeof(float)*(mTerrain->getSize()) );
-//        memset(pDataConvert + mTerrain->getSize()*i, 0
-//            /*mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1)*/,
-//            sizeof(float)*(mTerrain->getSize()) );
-		
-	float landSize = mTerrain->getSize();
-	float maxHeight = mTerrain->getMaxHeight();
+
+    float landSize = mTerrain->getSize();
+    float maxHeight = mTerrain->getMaxHeight();
     mVector3 = Ogre::Vector3(mSettings.scaleXZ, 1.f, mSettings.scaleXZ);
     OgreBulletCollisions::HeightmapCollisionShape* shape = Physics::getSingleton().createHeightmapCollisionShape(landSize,landSize, pDataConvert, mVector3, maxHeight, false);
-	
 
-	OgreBulletDynamics::RigidBody* body = Physics::getSingleton().createRigidBody("landscape");
-		
+
+    OgreBulletDynamics::RigidBody* body = Physics::getSingleton().createRigidBody("landscape");
+
     Ogre::SceneNode* node = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode ("Terrain", mTerrain->getPosition());
 
-    // Original value
-    Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, 20/*(maxHeight - 1.f) / 2.f*/, mSettings.scaleXZ*(landSize-1.f) / 2.f);
-    //Ogre::Vector3 terrainShiftPos(0.f, 0.f, 0.f);
-    //Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, 1.0f/*(maxHeight - 1.f) / 2.f*/,  mSettings.scaleXZ*(landSize-1.f) / 2.f);
-	body->setStaticShape(node, shape, restitution, friction, terrainShiftPos);
+    Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, (maxHeight - 1.f) / 2.f, mSettings.scaleXZ*(landSize-1.f) / 2.f);
 
-	// Если раскоментить, физики не будет. Вероятно буллет не делает себе копию.
-    // delete pDataConvert;
+    body->setStaticShape(node, shape, restitution, friction, terrainShiftPos);
+
+    // ???? ????????????, ?????? ?? ?????. ???????? ?????? ?? ?????? ???? ?????.
+    //delete pDataConvert;
 
 }
-	
+
 
 Ogre::Terrain* Landscape::getTerrain()
 {
-	return mTerrain;
+    return mTerrain;
 }
 
 bool Landscape::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
-		// Сохраняем, как только полностью загрузился
-	if (!mTerrain->isDerivedDataUpdateInProgress())
-	{
-		mTerrain->save(mSettings.compiledTerrain);
+        // ?????????, ??? ?????? ????????? ??????????
+    if (!mTerrain->isDerivedDataUpdateInProgress())
+    {
+        mTerrain->save(mSettings.compiledTerrain);
         MyTestApp::GetRootS()->removeFrameListener(this);
-	}
-	return true;
+    }
+    return true;
 }
 
 }

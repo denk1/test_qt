@@ -16,8 +16,8 @@ INCLUDE_DIRECTORIES(/usr/local/include/OgreBullet/Collisions)
 INCLUDE_DIRECTORIES(/usr/local/include/ois)
 INCLUDE_DIRECTORIES(/usr/local/include/bullet)
 link_directories(/usr/local/lib/)
-LINK_DIRECTORIES(/home/den/Downloads/build-ogre-1.11.2-Desktop-Debug/Dependencies/lib)
-LINK_DIRECTORIES(/home/den/Downloads/build-ogre-1.11.2-Desktop-Debug/freetype-2.9/objs)
+LINK_DIRECTORIES(/home/den/Downloads/ogre-1.11.3/build/freetype-2.9/objs)
+LINK_DIRECTORIES(/home/den/Downloads/build-ogre-1.11.2-Desktop-Release/Dependencies/lib/)
 project(test_qt)
 add_executable(${PROJECT_NAME} main.cpp
                                TPCamera.cpp
@@ -73,4 +73,5 @@ target_link_libraries(test_qt OgreMain
                               OgreBulletDynamics
                               OgreBulletCollisions
                               tinyxml
+
                              )
