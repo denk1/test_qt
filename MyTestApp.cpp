@@ -9,7 +9,7 @@ template<> RAT::MyTestApp* Ogre::Singleton<RAT::MyTestApp>::msSingleton = 0;
 namespace RAT
 {
 
-MyTestApp::MyTestApp() : OgreBites::ApplicationContext("OgreTutorialApp")
+MyTestApp::MyTestApp() : OgreBites::ApplicationContext("OgreTutorialApp"), mInVehicle(true)
 {
     new WeaponFactory();
     new Config();
@@ -25,43 +25,102 @@ bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
     if (evt.keysym.sym == OgreBites::SDLK_ESCAPE)
     {
         getRoot()->queueEndRendering();
+        return true;
     }
-    else if(evt.keysym.sym == 'w')
+
+    if(mInVehicle)
     {
-        mVehicleBase->processControl(VehicleBase::VSForwardPressed);
+
+        if(evt.keysym.sym == 'w')
+        {
+            mVehicle->processControl(VehicleBase::VSForwardPressed);
+        }
+        else if(evt.keysym.sym == 's')
+        {
+            mVehicle->processControl(VehicleBase::VSBackwardPressed);
+        }
+        else if(evt.keysym.sym == 'a')
+        {
+            mVehicle->processControl(VehicleBase::VSLeftPressed);
+        }
+        else if(evt.keysym.sym == 'd')
+        {
+            mVehicle->processControl(VehicleBase::VSRightPressed);
+        }
     }
-    else if(evt.keysym.sym == 's')
+    else
     {
-        mVehicleBase->processControl(VehicleBase::VSBackwardPressed);
-    }
-    else if(evt.keysym.sym == 'a')
-    {
-        mVehicleBase->processControl(VehicleBase::VSLeftPressed);
-    }
-    else if(evt.keysym.sym == 'd')
-    {
-        mVehicleBase->processControl(VehicleBase::VSRightPressed);
+        if (evt.keysym.sym == 'w')
+        {
+            TPCamera::getSingleton().startGoingForward();
+        }
+        else if(evt.keysym.sym == 'a')
+        {
+            TPCamera::getSingleton().startGoingLeft();
+        }
+        else if(evt.keysym.sym == 's')
+        {
+            TPCamera::getSingleton().startGoingBack();
+        }
+        else if(evt.keysym.sym == 'd')
+        {
+            TPCamera::getSingleton().startGoingRight();
+        }
+
     }
     return true;
 }
 
 bool MyTestApp::keyReleased(const OgreBites::KeyboardEvent &evt)
 {
-    if(evt.keysym.sym == 'w')
+    if(mInVehicle)
     {
-        mVehicleBase->processControl(VehicleBase::VSForwardReleased);
+        if(evt.keysym.sym == OgreBites::SDLK_F1)
+        {
+            TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 9);
+            mInVehicle = false;
+        }
+        else if(evt.keysym.sym == 'w')
+        {
+            mVehicle->processControl(VehicleBase::VSForwardReleased);
+        }
+        else if(evt.keysym.sym == 's')
+        {
+            mVehicle->processControl(VehicleBase::VSBackwardReleased);
+        }
+        else if(evt.keysym.sym == 'a')
+        {
+            mVehicle->processControl(VehicleBase::VSLeftReleased);
+        }
+        else if(evt.keysym.sym == 'd')
+        {
+            mVehicle->processControl(VehicleBase::VSRightReleased);
+        }
     }
-    else if(evt.keysym.sym == 's')
+    else
     {
-        mVehicleBase->processControl(VehicleBase::VSBackwardReleased);
-    }
-    else if(evt.keysym.sym == 'a')
-    {
-        mVehicleBase->processControl(VehicleBase::VSLeftReleased);
-    }
-    else if(evt.keysym.sym == 'd')
-    {
-        mVehicleBase->processControl(VehicleBase::VSRightReleased);
+        if(evt.keysym.sym == OgreBites::SDLK_F1)
+        {
+            TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 9);
+            mInVehicle = true;
+
+        }
+        else if(evt.keysym.sym == 'w')
+        {
+            TPCamera::getSingleton().stopGoingForward();
+        }
+        else if(evt.keysym.sym == 'a')
+        {
+            TPCamera::getSingleton().stopGoingLeft();
+        }
+        else if(evt.keysym.sym == 's')
+        {
+            TPCamera::getSingleton().stopGoingBack();
+        }
+        else if(evt.keysym.sym == 'd')
+        {
+            TPCamera::getSingleton().stopGoingRight();
+        }
     }
     return true;
 }
@@ -121,7 +180,7 @@ void MyTestApp::setup(void)
     //Ogre::Viewport* viewPort = getRenderWindow()->getViewport(0);
     viewPort->setBackgroundColour(Ogre::ColourValue(.0f, .0f, .0f));
     //root_->addFrameListener(mCamera);
-    //mCamera->getCamera()->setPosition(Ogre::Vector3(200, 150, 150));
+    mCamera->getCamera()->setPosition(Ogre::Vector3(200,150,150));
     cam->setNearClipDistance(5); // specific to this sample
     cam->setAutoAspectRatio(true);
     //camNode->attachObject(cam);
@@ -144,6 +203,7 @@ void MyTestApp::setup(void)
     mGSMap = new GSMap(map, this);
     //MyTestApp::getSingleton().switchState(new GSMap(map));
     MyTestApp::getSingleton().switchState(mGSMap);
+    TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 20);
 //    ((GSStart*)mGameState)->startGame();
     // finally something to render
     //Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
@@ -226,9 +286,9 @@ void MyTestApp::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, O
     }
 }
 
-void MyTestApp::setVehicle(VehicleBase *inVehicleBase)
+void MyTestApp::setVehicle(Vehicle *inVehicleBase)
 {
-    mVehicleBase = inVehicleBase;
+    mVehicle = inVehicleBase;
 }
 
 void MyTestApp::windowResized(Ogre::RenderWindow *rw)

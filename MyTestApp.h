@@ -43,7 +43,7 @@ public:
     void switchState(GameState* nextState);
 
     static void destroyAllAttachedMovableObjects(Ogre::SceneManager* sceneMgr, Ogre::SceneNode* sceneNode);
-    void setVehicle(VehicleBase* inVehicleBase);
+    void setVehicle(Vehicle *inVehicleBase);
 protected:
     virtual void windowResized(Ogre::RenderWindow *rw);
     virtual void windowClosed(Ogre::RenderWindow *rw);
@@ -69,8 +69,9 @@ private:
     OIS::Mouse* mMouse;
 
     TPCamera* mCamera;
-    VehicleBase* mVehicleBase;
+    Vehicle* mVehicle;
     GSMap* mGSMap;
+    bool mInVehicle;
 
     bool mExit;
 
