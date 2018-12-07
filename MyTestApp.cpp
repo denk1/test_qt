@@ -77,7 +77,7 @@ bool MyTestApp::keyReleased(const OgreBites::KeyboardEvent &evt)
     {
         if(evt.keysym.sym == OgreBites::SDLK_F1)
         {
-            TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 9);
+            TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 0);
             mInVehicle = false;
         }
         else if(evt.keysym.sym == 'w')
@@ -122,6 +122,13 @@ bool MyTestApp::keyReleased(const OgreBites::KeyboardEvent &evt)
             TPCamera::getSingleton().stopGoingRight();
         }
     }
+    return true;
+}
+
+bool MyTestApp::mouseMoved(const OgreBites::MouseMotionEvent& evt)
+{
+
+    TPCamera::getSingleton().rotate(evt.xrel, evt.yrel);
     return true;
 }
 
@@ -180,6 +187,7 @@ void MyTestApp::setup(void)
     //Ogre::Viewport* viewPort = getRenderWindow()->getViewport(0);
     viewPort->setBackgroundColour(Ogre::ColourValue(.0f, .0f, .0f));
     //root_->addFrameListener(mCamera);
+    mRoot->addFrameListener(mCamera);
     mCamera->getCamera()->setPosition(Ogre::Vector3(200,150,150));
     cam->setNearClipDistance(5); // specific to this sample
     cam->setAutoAspectRatio(true);
@@ -193,8 +201,8 @@ void MyTestApp::setup(void)
                 Ogre::Vector3(-1000, -1000, -1000),
                 Ogre::Vector3(1000, 1000, 1000)
                 );
-    new Physics(bounds, true);
-    //new Physics(bounds);
+    //new Physics(bounds, true);
+    new Physics(bounds);
     mGameState = new GSStart();
     MapLoader loader;
     Map* map;
@@ -203,7 +211,7 @@ void MyTestApp::setup(void)
     mGSMap = new GSMap(map, this);
     //MyTestApp::getSingleton().switchState(new GSMap(map));
     MyTestApp::getSingleton().switchState(mGSMap);
-    TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 20);
+    //TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 10);
 //    ((GSStart*)mGameState)->startGame();
     // finally something to render
     //Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");

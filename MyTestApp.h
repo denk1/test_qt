@@ -26,6 +26,7 @@ public:
     ~MyTestApp();
     bool keyPressed(const OgreBites::KeyboardEvent& evt);
     bool keyReleased(const OgreBites::KeyboardEvent& evt);
+    bool mouseMoved(const OgreBites::MouseMotionEvent& evt);
     void setup();
     Ogre::Root* getRoot();
     Ogre::SceneManager* getSceneManager();
