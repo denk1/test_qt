@@ -36,6 +36,8 @@ public:
 	void stopGoingLeft();
 	void stopGoingForward();
 	void stopGoingBack();
+    void changeSignDirection(int sign);
+    bool setTargetFollowing();
 
 	void update();
 
@@ -58,6 +60,7 @@ protected:
 	Ogre::Real mPitch;
     bool mFollowVehicle;
     MyTestApp& myTestApp;
+    int mSignDirection;
 
 };
 

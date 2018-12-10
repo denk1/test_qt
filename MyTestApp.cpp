@@ -27,6 +27,10 @@ bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
         getRoot()->queueEndRendering();
         return true;
     }
+    else if(evt.keysym.sym == OgreBites::SDLK_F2)
+    {
+        mCamera->setTargetFollowing();
+    }
 
     if(mInVehicle)
     {
@@ -34,10 +38,12 @@ bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
         if(evt.keysym.sym == 'w')
         {
             mVehicle->processControl(VehicleBase::VSForwardPressed);
+            mCamera->changeSignDirection(-1);
         }
         else if(evt.keysym.sym == 's')
         {
             mVehicle->processControl(VehicleBase::VSBackwardPressed);
+            mCamera->changeSignDirection(1);
         }
         else if(evt.keysym.sym == 'a')
         {
@@ -140,7 +146,6 @@ void MyTestApp::setup(void)
     mResourcesCfg_ = "resources.cfg";
     // do not forget to call the base first
     OgreBites::ApplicationContext::setup();
-    //CEGUI::WindowManager& wmgr = CEGUI::WindowManager::getSingleton();
     addInputListener(this);
     Ogre::ConfigFile cf;
     cf.load(mResourcesCfg_);
@@ -160,7 +165,6 @@ void MyTestApp::setup(void)
         }
     }
     // get a pointer to the already created root
-//    Ogre::ResourceGroupManager::getSingleton().addResourceLocation("resources", "FileSystem");
     // Initialise the resource groups:
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
     scnMgr_ = root_->createSceneManager(Ogre::ST_EXTERIOR_FAR, "BulletTerrain");
@@ -170,30 +174,17 @@ void MyTestApp::setup(void)
     shadergen_ = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
     shadergen_->addSceneManager(scnMgr_);
     // without light we would just get a black screen
-    //Ogre::Light* light = scnMgr_->createLight("MainLight");
-    //Ogre::SceneNode* lightNode = scnMgr_->getRootSceneNode()->createChildSceneNode();
-    //lightNode->setPosition(20, 80, 50);
-    //lightNode->attachObject(light);
-    // also need to tell where we are
-    //Ogre::SceneNode* camNode = scnMgr_->getRootSceneNode()->createChildSceneNode();
-    //camNode->setPosition(0, 0, 140);
-    //camNode->setPosition(0, 47, 222);
-    //camNode->lookAt(Ogre::Vector3(0, 0, -1), Ogre::Node::TS_PARENT);
+
     // create the camera
     mCamera = new TPCamera();
     Ogre::Camera* cam = mCamera->getCamera();
-    //Ogre::Camera* cam = scnMgr_->createCamera("myCam");
     Ogre::Viewport* viewPort = mWindow->addViewport(cam);
     //Ogre::Viewport* viewPort = getRenderWindow()->getViewport(0);
     viewPort->setBackgroundColour(Ogre::ColourValue(.0f, .0f, .0f));
     //root_->addFrameListener(mCamera);
     mRoot->addFrameListener(mCamera);
-    mCamera->getCamera()->setPosition(Ogre::Vector3(200,150,150));
-    cam->setNearClipDistance(5); // specific to this sample
+    //cam->setNearClipDistance(5); // specific to this sample
     cam->setAutoAspectRatio(true);
-    //camNode->attachObject(cam);
-    // and tell it to render into the main window
-    //getRenderWindow()->addViewport(cam);
     Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
     windowResized(mWindow);
     scnMgr_->setShadowColour(Ogre::ColourValue(0.7, 0.7, 0.7));
@@ -209,17 +200,7 @@ void MyTestApp::setup(void)
     map = loader.loadMap("lowland.rtm", MyTestApp::getSingleton().getSceneManager(), "Maps");
     map->load();
     mGSMap = new GSMap(map, this);
-    //MyTestApp::getSingleton().switchState(new GSMap(map));
     MyTestApp::getSingleton().switchState(mGSMap);
-    //TPCamera::getSingleton().setTargetVehicle(mVehicle->getVehicleSN(), 10);
-//    ((GSStart*)mGameState)->startGame();
-    // finally something to render
-    //Ogre::Entity* ent = scnMgr_->createEntity("ogrehead.mesh");
-    //Ogre::Entity* ent2 = scnMgr_->createEntity("ogrehead.mesh");
-    //Ogre::SceneNode* node = scnMgr_->getRootSceneNode()->createChildSceneNode();
-    //Ogre::SceneNode* node2 = node->createChildSceneNode(Ogre::Vector3(84, 48, 0));
-    //node->attachObject(ent);
-    //node2->attachObject(ent2);
 }
 
 Ogre::Root *MyTestApp::getRoot()

@@ -8,11 +8,19 @@ namespace RAT
 
 TPCamera::TPCamera()
 	:mVelocity(60), mSencivity(0.001), mYaw(0), mPitch(0),
-    mGoingBack(false), mGoingForward(false), mGoingLeft(false), mGoingRight(false), mTarget(0), mFollowVehicle(false),  myTestApp(MyTestApp::getSingleton())
+    mGoingBack(false),
+    mGoingForward(false),
+    mGoingLeft(false),
+    mGoingRight(false),
+    mTarget(0),
+    mFollowVehicle(false),
+    myTestApp(MyTestApp::getSingleton()),
+    mSignDirection(-1)
 {
     mCamera = myTestApp.getSceneManager()->createCamera("PlayerCam");
 	
-	mCamera->setPosition(Ogre::Vector3(0, 200, 200));
+    //mCamera->setPosition(Ogre::Vector3(0, 200, 200));
+    mCamera->setPosition(Ogre::Vector3(300, 100, 450));
     mCamera->lookAt(Ogre::Vector3(0,0,0));
     mCamera->setNearClipDistance(1);
 	mCamera->setCastShadows(false);
@@ -20,7 +28,7 @@ TPCamera::TPCamera()
 	mCamera->setAspectRatio(
         Ogre::Real(myTestApp.getWindow()->getWidth()) / Ogre::Real(myTestApp.getWindow()->getHeight()));
 	
-	mCamera->setOrientation(Ogre::Quaternion(Ogre::Radian(mPitch),Ogre::Vector3::UNIT_Y)*Ogre::Quaternion(Ogre::Radian(mYaw),Ogre::Vector3::UNIT_X));
+    mCamera->setOrientation(Ogre::Quaternion(Ogre::Radian(mPitch),Ogre::Vector3::UNIT_Y)*Ogre::Quaternion(Ogre::Radian(mYaw),Ogre::Vector3::UNIT_X));
 }
 
 TPCamera::~TPCamera()
@@ -40,7 +48,7 @@ void TPCamera::setTarget(Ogre::SceneNode* target, const Ogre::Real dist)
 void TPCamera::setTargetVehicle(Ogre::SceneNode* target, const Ogre::Real dist)
 {
 	mTarget = target;
-	mFollowVehicle = true;
+    mFollowVehicle = true; // was true
 	mTargetDistance = dist;
 
 	mYaw = 0;
@@ -53,10 +61,10 @@ void TPCamera::update()
 	{
 		if (mFollowVehicle)
 		{
-
+            Ogre::Vector3 testPosCam = mTarget->_getDerivedPosition();
 			Ogre::Vector3 dir = mTarget->_getDerivedOrientation() * Ogre::Quaternion(Ogre::Radian(mYaw), Ogre::Vector3::UNIT_Y) *Ogre::Quaternion(Ogre::Radian(mPitch), Ogre::Vector3::UNIT_X) * Ogre::Vector3(0,0,1);
 			dir.normalise();
-			mCamera->setPosition(mTarget->_getDerivedPosition() + Ogre::Vector3(0, 3.0f, 0) + dir*mTargetDistance);
+            mCamera->setPosition(mTarget->_getDerivedPosition() + Ogre::Vector3(0, 3.0f, 0) + mSignDirection*dir*mTargetDistance);
 			mCamera->lookAt(mTarget->_getDerivedPosition() + Ogre::Vector3(0, 3.0f, 0));
 			
 		}
@@ -156,7 +164,19 @@ void TPCamera::stopGoingForward()
 
 void TPCamera::stopGoingBack()
 {
-	mGoingBack = false;
+    mGoingBack = false;
+}
+
+void TPCamera::changeSignDirection(int sign)
+{
+    mSignDirection = sign;
+}
+
+bool TPCamera::setTargetFollowing()
+{
+    mCamera->setPosition(Ogre::Vector3(300, 100, 550));
+    mFollowVehicle = !mFollowVehicle;
+    return mFollowVehicle;
 }
 
 }
