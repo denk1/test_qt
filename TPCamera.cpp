@@ -1,5 +1,5 @@
 #include "TPCamera.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 
 template<> RAT::TPCamera* Ogre::Singleton<RAT::TPCamera>::msSingleton = 0;
 
@@ -14,10 +14,10 @@ TPCamera::TPCamera()
     mGoingRight(false),
     mTarget(0),
     mFollowVehicle(false),
-    myTestApp(MyTestApp::getSingleton()),
+    mIts(ITS::getSingleton()),
     mSignDirection(-1)
 {
-    mCamera = myTestApp.getSceneManager()->createCamera("PlayerCam");
+    mCamera = mIts.getSceneManager()->createCamera("PlayerCam");
 	
     //mCamera->setPosition(Ogre::Vector3(0, 200, 200));
     mCamera->setPosition(Ogre::Vector3(300, 100, 450));
@@ -26,7 +26,7 @@ TPCamera::TPCamera()
 	mCamera->setCastShadows(false);
 	//mCamera->setAutoAspectRatio(true);
 	mCamera->setAspectRatio(
-        Ogre::Real(myTestApp.getWindow()->getWidth()) / Ogre::Real(myTestApp.getWindow()->getHeight()));
+        Ogre::Real(mIts.getWindow()->getWidth()) / Ogre::Real(mIts.getWindow()->getHeight()));
 	
     mCamera->setOrientation(Ogre::Quaternion(Ogre::Radian(mPitch),Ogre::Vector3::UNIT_Y)*Ogre::Quaternion(Ogre::Radian(mYaw),Ogre::Vector3::UNIT_X));
 }
@@ -92,7 +92,7 @@ bool TPCamera::frameRenderingQueued(const Ogre::FrameEvent& evt)
 
 		delta.normalise();
 
-//        if (MyTestApp::getSingleton().getKeyboard()->isModifierDown(OIS::Keyboard::Modifier::Shift))
+//        if (ITS::getSingleton().getKeyboard()->isModifierDown(OIS::Keyboard::Modifier::Shift))
 //			delta *= 4;
 
 		mCamera->move(delta * mVelocity * evt.timeSinceLastFrame);

@@ -1,5 +1,5 @@
 #include "WeaponHolder.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "WeaponFactory.h"
 
 namespace RAT
@@ -34,9 +34,9 @@ WeaponHolder::~WeaponHolder()
     if (mSceneNode)
     {
         // ?????????? ??????????? ?????????
-        MyTestApp::destroyAllAttachedMovableObjects(MyTestApp::getSceneManagerS(), mSceneNode);
+        ITS::destroyAllAttachedMovableObjects(ITS::getSceneManagerS(), mSceneNode);
         mSceneNode->removeAndDestroyAllChildren();
-        MyTestApp::getSceneManagerS()->destroySceneNode(mSceneNode);
+        ITS::getSceneManagerS()->destroySceneNode(mSceneNode);
     }
 }
 
@@ -53,7 +53,7 @@ const HolderDescription& WeaponHolder::getDescription()
 void WeaponHolder::create(Ogre::SceneNode* parentNode)
 {
     mSceneNode = parentNode->createChildSceneNode(mDescription.mPosition);
-    mSceneNode->attachObject(MyTestApp::getSceneManagerS()->createEntity(mDescription.mMeshFile));
+    mSceneNode->attachObject(ITS::getSceneManagerS()->createEntity(mDescription.mMeshFile));
 
     for(std::vector<Weapon*>::iterator it= mWeapons.begin(); it != mWeapons.end(); ++it)
     {

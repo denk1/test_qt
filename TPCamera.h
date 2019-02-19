@@ -4,11 +4,11 @@
 #include <Ogre.h>
 #include <OgreRoot.h>
 #include <OgreSingleton.h>
-#include "MyTestApp.h"
+#include "ITS.h"
 
 namespace RAT
 {
-class MyTestApp;
+class ITS;
 class TPCamera : public Ogre::Singleton<TPCamera>, public Ogre::FrameListener
 {
 public:
@@ -59,7 +59,7 @@ protected:
 	Ogre::Real mYaw;
 	Ogre::Real mPitch;
     bool mFollowVehicle;
-    MyTestApp& myTestApp;
+    ITS& mIts;
     int mSignDirection;
 
 };

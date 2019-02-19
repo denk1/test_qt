@@ -1,5 +1,5 @@
 #include "IngameMenu.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "MapLoader.h"
 #include "GSMainMenu.h"
 
@@ -56,7 +56,7 @@ bool IngameMenu::buttonReturnPressed(const CEGUI::EventArgs &e)
 	mWindow->setModalState(false);
 	mWindow->hide();
 
-    MyTestApp::getSingleton().switchState(new GSMainMenu());
+    ITS::getSingleton().switchState(new GSMainMenu());
 
 	return true;
 }
@@ -66,7 +66,7 @@ bool IngameMenu::buttonExitPressed(const CEGUI::EventArgs &e)
 	mWindow->setModalState(false);
 	mWindow->hide();
 
-    //MyTestApp::getSingleton().exit();
+    //ITS::getSingleton().exit();
 
 	return true;
 }

@@ -19,11 +19,11 @@ namespace RAT
 class TPCamera;
 class GSMap;
 
-class MyTestApp : public Ogre::Singleton<MyTestApp>, public OgreBites::ApplicationContext, public OgreBites::InputListener
+class ITS : public Ogre::Singleton<ITS>, public OgreBites::ApplicationContext, public OgreBites::InputListener
 {
 public:
-    MyTestApp();
-    ~MyTestApp();
+    ITS();
+    ~ITS();
     bool keyPressed(const OgreBites::KeyboardEvent& evt);
     bool keyReleased(const OgreBites::KeyboardEvent& evt);
     bool mouseMoved(const OgreBites::MouseMotionEvent& evt);

@@ -1,5 +1,5 @@
 #include "GSMainMenu.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include <cegui-0/CEGUI/CEGUI.h>
 
 namespace RAT

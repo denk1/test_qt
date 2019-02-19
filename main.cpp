@@ -1,12 +1,12 @@
-#include "MyTestApp.h"
+#include "ITS.h"
 
 using namespace std;
 
 int main()
 {
-    RAT::MyTestApp app;
-    app.initApp();
-    app.getRoot()->startRendering();
-    app.closeApp();
+    RAT::ITS its;
+    its.initApp();
+    its.getRoot()->startRendering();
+    its.closeApp();
     return 0;
 }

@@ -1,5 +1,5 @@
 #include "VehicleBase.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "Config.h"
 
 namespace RAT
@@ -38,16 +38,16 @@ VehicleBase::~VehicleBase()
         // TODO: delete physics shapes
 
         Ogre::SceneNode* node = mVehicleSN;
-        MyTestApp::destroyAllAttachedMovableObjects(MyTestApp::getSceneManagerS(), node);
+        ITS::destroyAllAttachedMovableObjects(ITS::getSceneManagerS(), node);
         node->removeAndDestroyAllChildren();
-        MyTestApp::getSceneManagerS()->destroySceneNode(node);
+        ITS::getSceneManagerS()->destroySceneNode(node);
 
         for(int i = 0; i < 4; ++i)
         {
             node = mVehicleWSN[i];
-            MyTestApp::destroyAllAttachedMovableObjects(MyTestApp::getSceneManagerS(), node);
+            ITS::destroyAllAttachedMovableObjects(ITS::getSceneManagerS(), node);
             node->removeAndDestroyAllChildren();
-            MyTestApp::getSceneManagerS()->destroySceneNode(node);
+            ITS::getSceneManagerS()->destroySceneNode(node);
         }
 
     }
@@ -57,7 +57,7 @@ void VehicleBase::create(Ogre::SceneNode* parentSN)
 {
     mSteering = 0;
     mVehicleSN = parentSN->createChildSceneNode();
-    Ogre::Entity* entity = MyTestApp::getSceneManagerS()->createEntity(mMesh);
+    Ogre::Entity* entity = ITS::getSceneManagerS()->createEntity(mMesh);
 
     mBodySN = mVehicleSN->createChildSceneNode();
     mBodySN->attachObject(entity);
@@ -101,7 +101,7 @@ void VehicleBase::create(Ogre::SceneNode* parentSN)
         // ??????? ????????? ? ???????? ?? ?? ?????
         mVehicleWSN[i] = parentSN->createChildSceneNode();
         Ogre::SceneNode* node = mVehicleWSN[i]->createChildSceneNode();
-        node->attachObject(MyTestApp::getSceneManagerS()->createEntity(mWheels[i].mMesh));
+        node->attachObject(ITS::getSceneManagerS()->createEntity(mWheels[i].mMesh));
         if (!(i % 2))
             node->yaw(Ogre::Degree(180));
 

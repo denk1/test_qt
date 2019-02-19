@@ -1,12 +1,12 @@
 #include "GSMap.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "VehicleLoader.h"
 
 namespace RAT
 {
 
-GSMap::GSMap(Map* map, MyTestApp *app)
-    : GameState(GameState::StMap), mMap(map), mIngameMenu(0), mVehicle(0), mApp(app)
+GSMap::GSMap(Map* map, ITS *app)
+    : GameState(GameState::StMap), mMap(map), mIngameMenu(0), mVehicle(0), mIts(app)
 {
     mInVehicle = true;
 }
@@ -74,10 +74,10 @@ void GSMap::enteredState()
 
 	// tmp test code
 
-        VehiclePrototype* prot = VehicleLoader().loadVehicle("jeep.rtv", MyTestApp::getSceneManagerS(), "Vehicles");
+        VehiclePrototype* prot = VehicleLoader().loadVehicle("jeep.rtv", ITS::getSceneManagerS(), "Vehicles");
 		mVehicle = new Vehicle(*prot);
 		mVehicle->create(mMap->getMapSceneNode());
-        mApp->setVehicle(mVehicle);
+        mIts->setVehicle(mVehicle);
 		delete prot;
 
 		WeaponHolder* weapHolder = new WeaponHolder();
@@ -241,15 +241,15 @@ bool GSMap::mouseDown(const CEGUI::EventArgs &e)
 	switch(args->button)
 	{
 		case CEGUI::MouseButton::LeftButton:
-            entity = MyTestApp::getSceneManagerS()->createEntity("sphere.mesh");
+            entity = ITS::getSceneManagerS()->createEntity("sphere.mesh");
 		
 			sceneBoxShape = Physics::getSingleton().createSphereCollisionShape(entity->getBoundingRadius()*0.5f/6);
-            node = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode();
+            node = ITS::getSceneManagerS()->getRootSceneNode()->createChildSceneNode();
 			node->scale(0.5f, 0.5f, 0.5f);
 			break;
 
 		case CEGUI::MouseButton::RightButton:
-            entity = MyTestApp::getSceneManagerS()->createEntity("cube.mesh");
+            entity = ITS::getSceneManagerS()->createEntity("cube.mesh");
 			
 			boundingB = entity->getBoundingBox();
 			size = boundingB.getSize(); size /= 2.0f;
@@ -257,7 +257,7 @@ bool GSMap::mouseDown(const CEGUI::EventArgs &e)
 			size *= 0.05f;
 			sceneBoxShape = Physics::getSingleton().createBoxCollisionShape(size);
 
-            node = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode();
+            node = ITS::getSceneManagerS()->getRootSceneNode()->createChildSceneNode();
 			node->scale(0.05f, 0.05f, 0.05f);
 			break;
 
@@ -312,7 +312,7 @@ bool GSMap::frameStarted(const Ogre::FrameEvent& evt)
 
 bool GSMap::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {
-    Ogre::String statusText = "FPS: " + Ogre::StringConverter::toString(MyTestApp::getSingleton().getWindow()->getStatistics().avgFPS);
+    Ogre::String statusText = "FPS: " + Ogre::StringConverter::toString(ITS::getSingleton().getWindow()->getStatistics().avgFPS);
 	Ogre::Vector3 cam = TPCamera::getSingleton().getCamera()->getPosition();
 	cam.x = (int)cam.x;cam.y = (int)cam.y;cam.z = (int)cam.z;
 	statusText += "\nCameraPos: " + Ogre::StringConverter::toString(cam);

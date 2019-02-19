@@ -1,5 +1,5 @@
 #include "ConfigWindow.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "MapLoader.h"
 #include "GSMainMenu.h"
 #include "Config.h"

@@ -1,5 +1,5 @@
 #include "GameState.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 
 namespace RAT
 {
@@ -12,7 +12,7 @@ GameState::GameState(const State state)
 
 GameState::~GameState()
 {
-    MyTestApp::GetRootS()->removeFrameListener(this);
+    ITS::GetRootS()->removeFrameListener(this);
 }
 
 GameState::State GameState::getState() const
@@ -28,7 +28,7 @@ void GameState::switchState(GameState* nextState)
 void GameState::applyState()
 {
 		// Подписываемся
-    MyTestApp::GetRootS()->addFrameListener(this);
+    ITS::GetRootS()->addFrameListener(this);
 
 		// callback об успешном входе в состояние
 	enteredState();

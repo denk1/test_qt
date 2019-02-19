@@ -1,5 +1,5 @@
 #include "BonusBuilding.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 
 namespace RAT
 {
@@ -14,9 +14,9 @@ BonusBuilding::~BonusBuilding()
 {
 	Physics::getSingleton().destroyRigidBody(mBody);
 
-    MyTestApp::destroyAllAttachedMovableObjects(MyTestApp::getSceneManagerS(), mSceneNode);
+    ITS::destroyAllAttachedMovableObjects(ITS::getSceneManagerS(), mSceneNode);
 	mSceneNode->removeAndDestroyAllChildren();
-    MyTestApp::getSceneManagerS()->destroySceneNode(mSceneNode);
+    ITS::getSceneManagerS()->destroySceneNode(mSceneNode);
 }
 
 void BonusBuilding::create(Ogre::SceneNode* node)
@@ -25,7 +25,7 @@ void BonusBuilding::create(Ogre::SceneNode* node)
 	mSceneNode->setUserAny(Ogre::Any(this));
 	mSceneNode->lookAt(mDirection, Ogre::Node::TransformSpace::TS_LOCAL);
 	
-    Ogre::Entity* bodyEntity = MyTestApp::getSceneManagerS()->createEntity(mBodyMesh);
+    Ogre::Entity* bodyEntity = ITS::getSceneManagerS()->createEntity(mBodyMesh);
 
 	mSceneNode->attachObject(bodyEntity);
 

@@ -1,26 +1,26 @@
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "GSStart.h"
 #include "MapLoader.h"
 #include "WeaponFactory.h"
 #include "Config.h"
 
-template<> RAT::MyTestApp* Ogre::Singleton<RAT::MyTestApp>::msSingleton = 0;
+template<> RAT::ITS* Ogre::Singleton<RAT::ITS>::msSingleton = 0;
 
 namespace RAT
 {
 
-MyTestApp::MyTestApp() : OgreBites::ApplicationContext("OgreTutorialApp"), mInVehicle(true)
+ITS::ITS() : OgreBites::ApplicationContext("OgreTutorialApp"), mInVehicle(true)
 {
     new WeaponFactory();
     new Config();
 }
 
-MyTestApp::~MyTestApp()
+ITS::~ITS()
 {
 
 }
 
-bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
+bool ITS::keyPressed(const OgreBites::KeyboardEvent& evt)
 {
     if (evt.keysym.sym == OgreBites::SDLK_ESCAPE)
     {
@@ -77,7 +77,7 @@ bool MyTestApp::keyPressed(const OgreBites::KeyboardEvent& evt)
     return true;
 }
 
-bool MyTestApp::keyReleased(const OgreBites::KeyboardEvent &evt)
+bool ITS::keyReleased(const OgreBites::KeyboardEvent &evt)
 {
     if(mInVehicle)
     {
@@ -131,7 +131,7 @@ bool MyTestApp::keyReleased(const OgreBites::KeyboardEvent &evt)
     return true;
 }
 
-bool MyTestApp::mouseMoved(const OgreBites::MouseMotionEvent& evt)
+bool ITS::mouseMoved(const OgreBites::MouseMotionEvent& evt)
 {
 
     TPCamera::getSingleton().rotate(evt.xrel, evt.yrel);
@@ -140,7 +140,7 @@ bool MyTestApp::mouseMoved(const OgreBites::MouseMotionEvent& evt)
 
 
 
-void MyTestApp::setup(void)
+void ITS::setup(void)
 {
     root_ = getRoot();
     mResourcesCfg_ = "resources.cfg";
@@ -197,59 +197,59 @@ void MyTestApp::setup(void)
     mGameState = new GSStart();
     MapLoader loader;
     Map* map;
-    map = loader.loadMap("lowland.rtm", MyTestApp::getSingleton().getSceneManager(), "Maps");
+    map = loader.loadMap("lowland.rtm", ITS::getSingleton().getSceneManager(), "Maps");
     map->load();
     mGSMap = new GSMap(map, this);
-    MyTestApp::getSingleton().switchState(mGSMap);
+    ITS::getSingleton().switchState(mGSMap);
 }
 
-Ogre::Root *MyTestApp::getRoot()
+Ogre::Root *ITS::getRoot()
 {
     return mRoot;
 }
 
-Ogre::SceneManager *MyTestApp::getSceneManager()
+Ogre::SceneManager *ITS::getSceneManager()
 {
     return scnMgr_;
 }
 
-Ogre::RenderWindow *MyTestApp::getWindow()
+Ogre::RenderWindow *ITS::getWindow()
 {
     return mWindow;
 }
 
-const GameState *MyTestApp::getGameState()
+const GameState *ITS::getGameState()
 {
     return mGameState;
 }
 
-Ogre::Root *MyTestApp::GetRootS()
+Ogre::Root *ITS::GetRootS()
 {
-    return MyTestApp::getSingleton().mRoot;
+    return ITS::getSingleton().mRoot;
 }
 
-GameState *MyTestApp::getGameStateS()
+GameState *ITS::getGameStateS()
 {
-    return MyTestApp::getSingleton().mGameState;
+    return ITS::getSingleton().mGameState;
 }
 
-OIS::Keyboard *MyTestApp::getKeyboard()
+OIS::Keyboard *ITS::getKeyboard()
 {
     return mKeyboard;
 }
 
-OIS::Mouse *MyTestApp::getMouse()
+OIS::Mouse *ITS::getMouse()
 {
     return mMouse;
 }
 
-void MyTestApp::switchState(GameState *nextState)
+void ITS::switchState(GameState *nextState)
 {
     mGameState->switchState(nextState);
     mGameState = nextState;
 }
 
-void MyTestApp::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, Ogre::SceneNode *sceneNode)
+void ITS::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, Ogre::SceneNode *sceneNode)
 {
     if(!sceneNode)
     {
@@ -275,19 +275,19 @@ void MyTestApp::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, O
     }
 }
 
-void MyTestApp::setVehicle(Vehicle *inVehicleBase)
+void ITS::setVehicle(Vehicle *inVehicleBase)
 {
     mVehicle = inVehicleBase;
 }
 
-void MyTestApp::windowResized(Ogre::RenderWindow *rw)
+void ITS::windowResized(Ogre::RenderWindow *rw)
 {
     unsigned int width, height, depth;
     int left, top;
     rw->getMetrics(width, height, depth, left, top);
 }
 
-void MyTestApp::windowClosed(Ogre::RenderWindow *rw)
+void ITS::windowClosed(Ogre::RenderWindow *rw)
 {
     if(rw == mWindow)
     {
@@ -302,7 +302,7 @@ void MyTestApp::windowClosed(Ogre::RenderWindow *rw)
     }
 }
 
-bool MyTestApp::frameRenderingQueued(const Ogre::FrameEvent &evt)
+bool ITS::frameRenderingQueued(const Ogre::FrameEvent &evt)
 {
     if(mWindow->isClosed() || mExit)
         return false;
@@ -313,7 +313,7 @@ bool MyTestApp::frameRenderingQueued(const Ogre::FrameEvent &evt)
     return true;
 }
 
-bool MyTestApp::isArg(const Ogre::String &arg)
+bool ITS::isArg(const Ogre::String &arg)
 {
     for(std::vector<Ogre::String>::iterator it = mArgs.begin(); it != mArgs.end(); ++it)
         if (!it->compare(arg))
@@ -321,14 +321,14 @@ bool MyTestApp::isArg(const Ogre::String &arg)
     return false;
 }
 
-Ogre::SceneManager *MyTestApp::getSceneManagerS()
+Ogre::SceneManager *ITS::getSceneManagerS()
 {
-    return MyTestApp::getSingleton().scnMgr_;
+    return ITS::getSingleton().scnMgr_;
 }
 
-Ogre::RenderWindow *MyTestApp::getWindowS()
+Ogre::RenderWindow *ITS::getWindowS()
 {
-    return MyTestApp::getSingleton().mWindow;
+    return ITS::getSingleton().mWindow;
 }
 
 }

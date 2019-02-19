@@ -1,5 +1,5 @@
 #include "Tower.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "WeaponFactory.h"
 
 namespace RAT
@@ -22,9 +22,9 @@ Tower::~Tower()
 	mWeapons.clear();*/
 	if (mTowerSceneNode)
 	{
-        MyTestApp::destroyAllAttachedMovableObjects(MyTestApp::getSceneManagerS(), mTowerSceneNode);
+        ITS::destroyAllAttachedMovableObjects(ITS::getSceneManagerS(), mTowerSceneNode);
 		mTowerSceneNode->removeAndDestroyAllChildren();
-        MyTestApp::getSceneManagerS()->destroySceneNode(mTowerSceneNode);
+        ITS::getSceneManagerS()->destroySceneNode(mTowerSceneNode);
 		mTowerSceneNode = 0;
 	}
 }
@@ -35,12 +35,12 @@ void Tower::create(Ogre::SceneNode* node)
 	mTowerSceneNode->setUserAny(Ogre::Any(this));
 	mTowerSceneNode->lookAt(mDirection, Ogre::Node::TransformSpace::TS_LOCAL);
 	
-    Ogre::Entity* bodyEntity = MyTestApp::getSceneManagerS()->createEntity(mBodyMesh);
+    Ogre::Entity* bodyEntity = ITS::getSceneManagerS()->createEntity(mBodyMesh);
 
 	mTowerSceneNode->attachObject(bodyEntity);
 
 	/*mTowerTopSceneNode = mTowerSceneNode->createChildSceneNode(mHeadDescription.mPosition);
-    mTowerTopSceneNode->attachObject(MyTestApp::getSceneManagerS()->createEntity(mHeadDescription.mMeshFile));*/
+    mTowerTopSceneNode->attachObject(ITS::getSceneManagerS()->createEntity(mHeadDescription.mMeshFile));*/
 
 	/*for(std::vector<WeaponDescription>::iterator it= mWeaponDescriptions.begin(); it != mWeaponDescriptions.end(); ++it)
 	{

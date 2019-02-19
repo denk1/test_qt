@@ -1,5 +1,5 @@
 #include "Physics.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include <Utils/OgreBulletCollisionsMeshToShapeConverter.h>
 
 template<> RAT::Physics* Ogre::Singleton<RAT::Physics>::msSingleton = 0;
@@ -10,7 +10,7 @@ namespace RAT
 Physics::Physics(const Ogre::AxisAlignedBox& bounds, bool debug, const Ogre::Vector3& gravityVector)
 	:mDebugDrawer(0), mNumEntitiesInstanced(0)
 {
-    mWorld = new OgreBulletDynamics::DynamicsWorld(MyTestApp::getSceneManagerS(), bounds, gravityVector);
+    mWorld = new OgreBulletDynamics::DynamicsWorld(ITS::getSceneManagerS(), bounds, gravityVector);
     mWorld->setShowDebugContactPoints(true);
     if(debug)
 		{
@@ -19,16 +19,16 @@ Physics::Physics(const Ogre::AxisAlignedBox& bounds, bool debug, const Ogre::Vec
 		mDebugDrawer->setDrawWireframe(true);   // we want to see the Bullet containers
 		mWorld->setDebugDrawer(mDebugDrawer);
 		mWorld->setShowDebugShapes(true);      // enable it if you want to see the Bullet containers
-        Ogre::SceneNode *node = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode("debugDrawer", Ogre::Vector3::ZERO);
+        Ogre::SceneNode *node = ITS::getSceneManagerS()->getRootSceneNode()->createChildSceneNode("debugDrawer", Ogre::Vector3::ZERO);
 		node->attachObject(static_cast <Ogre::SimpleRenderable *> (mDebugDrawer));
 	}
 
-    MyTestApp::GetRootS()->addFrameListener(this);
+    ITS::GetRootS()->addFrameListener(this);
 }
 
 Physics::~Physics()
 {
-    MyTestApp::GetRootS()->removeFrameListener(this);
+    ITS::GetRootS()->removeFrameListener(this);
 
 	free();
 

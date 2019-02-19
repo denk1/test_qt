@@ -1,5 +1,5 @@
 #include "WGun.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 
 namespace RAT
 {
@@ -12,15 +12,15 @@ WGun::WGun(const WeaponDescription& desc)
 
 WGun::~WGun()
 {
-    MyTestApp::destroyAllAttachedMovableObjects(MyTestApp::getSceneManagerS(), mSceneNode);
+    ITS::destroyAllAttachedMovableObjects(ITS::getSceneManagerS(), mSceneNode);
 	mSceneNode->removeAndDestroyAllChildren();
-    MyTestApp::getSceneManagerS()->destroySceneNode(mSceneNode);
+    ITS::getSceneManagerS()->destroySceneNode(mSceneNode);
 }
 
 void WGun::create(Ogre::SceneNode* parentNode)
 {
 	mSceneNode = parentNode->createChildSceneNode(mDescription.mPosition);
-    mSceneNode->attachObject(MyTestApp::getSceneManagerS()->createEntity(mDescription.mMeshFile));
+    mSceneNode->attachObject(ITS::getSceneManagerS()->createEntity(mDescription.mMeshFile));
 }
 
 

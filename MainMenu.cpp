@@ -1,5 +1,5 @@
 #include "MainMenu.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "MapLoader.h"
 #include "GSMap.h"
 #include "ConfigWindow.h"
@@ -61,10 +61,10 @@ bool MainMenu::buttonStartPressed(const CEGUI::EventArgs &e)
 
 	MapLoader loader;
 	Map* map;
-    map = loader.loadMap("lowland.rtm", MyTestApp::getSingleton().getSceneManager(), "Maps");
+    map = loader.loadMap("lowland.rtm", ITS::getSingleton().getSceneManager(), "Maps");
 	map->load();
     // without CEGUI
-    //MyTestApp::getSingleton().switchState(new GSMap(map));
+    //ITS::getSingleton().switchState(new GSMap(map));
 
 	return true;
 }
@@ -77,7 +77,7 @@ bool MainMenu::buttonConfigPressed(const CEGUI::EventArgs &e)
 
 bool MainMenu::buttonExitPressed(const CEGUI::EventArgs &e)
 {
-    //MyTestApp::getSingleton().exit();
+    //ITS::getSingleton().exit();
 	return true;
 }
 

@@ -21,7 +21,7 @@ LINK_DIRECTORIES(/home/den/Downloads/build-ogre-1.11.2-Desktop-Release/Dependenc
 project(its)
 add_executable(${PROJECT_NAME} main.cpp
                                TPCamera.cpp
-                               MyTestApp.cpp
+                               ITS.cpp
                                PlayerInterface.cpp
                                GameState.cpp
                                Physics.cpp

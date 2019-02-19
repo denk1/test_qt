@@ -1,5 +1,5 @@
 #include "Map.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "Physics.h"
 #include "SceneLoader.h"
 
@@ -15,7 +15,7 @@ Map::Map()
 
 Map::~Map()
 {
-    MyTestApp::getSceneManagerS()->destroyLight(mLight);
+    ITS::getSceneManagerS()->destroyLight(mLight);
 	mLight = 0;
 
 	for(std::vector<GameObject*>::iterator it = mGameObjects.begin(); it != mGameObjects.end(); ++it)
@@ -37,16 +37,16 @@ Map::~Map()
 
 	if (mMapSceneNode)
 	{
-        MyTestApp::destroyAllAttachedMovableObjects(MyTestApp::getSceneManagerS(), mMapSceneNode);
+        ITS::destroyAllAttachedMovableObjects(ITS::getSceneManagerS(), mMapSceneNode);
 		mMapSceneNode->removeAndDestroyAllChildren();
-        MyTestApp::getSceneManagerS()->destroySceneNode(mMapSceneNode);
+        ITS::getSceneManagerS()->destroySceneNode(mMapSceneNode);
 		mMapSceneNode = 0;
 	}
 }
 
 void Map::load()
 {
-    mMapSceneNode = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode("mapNode");
+    mMapSceneNode = ITS::getSceneManagerS()->getRootSceneNode()->createChildSceneNode("mapNode");
 
 	if (mLandscape)
 	{
@@ -54,9 +54,9 @@ void Map::load()
 		mLandscape->setupPhysics();
 	}
 
-    MyTestApp::getSceneManagerS()->setAmbientLight(mLightAmbient);
+    ITS::getSceneManagerS()->setAmbientLight(mLightAmbient);
 	
-    mLight = MyTestApp::getSceneManagerS()->createLight();
+    mLight = ITS::getSceneManagerS()->createLight();
 	mLight->setDirection(mLightDirection);
 	mLight->setDiffuseColour(mLightDiffuse);
 
@@ -72,14 +72,14 @@ void Map::load()
 	if (mSceneFileName.compare(""))
 	{
 		SceneLoader loader;
-        loader.parseDotScene(mSceneFileName, "General", MyTestApp::getSingleton().getSceneManager(), mMapSceneNode);
+        loader.parseDotScene(mSceneFileName, "General", ITS::getSingleton().getSceneManager(), mMapSceneNode);
 	}
 
 }
 
 void Map::addTowerBase(TowerBase* towerBase)
 {
-    Ogre::Entity* bodyEntity = MyTestApp::getSceneManagerS()->createEntity(towerBase->getBodyMesh());
+    Ogre::Entity* bodyEntity = ITS::getSceneManagerS()->createEntity(towerBase->getBodyMesh());
 	OgreBulletCollisions::CollisionShape* shape = Physics::getSingleton().createCollisionShapeFromMesh(bodyEntity);
 	towerBase->setCollisionShape(shape);
 	mTowerBases[towerBase->getName()] = towerBase;
@@ -87,7 +87,7 @@ void Map::addTowerBase(TowerBase* towerBase)
 
 void Map::addBBBase(BonusBuildingBase* bbBase)
 {
-    Ogre::Entity* bodyEntity = MyTestApp::getSceneManagerS()->createEntity(bbBase->getBodyMesh());
+    Ogre::Entity* bodyEntity = ITS::getSceneManagerS()->createEntity(bbBase->getBodyMesh());
 	OgreBulletCollisions::CollisionShape* shape = Physics::getSingleton().createCollisionShapeFromMesh(bodyEntity);
 	bbBase->setCollisionShape(shape);
 	mBBBases[bbBase->getName()] = bbBase;

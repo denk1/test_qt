@@ -1,5 +1,5 @@
 #include "Landscape.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 #include "Physics.h"
 
 namespace RAT
@@ -21,9 +21,9 @@ Landscape::~Landscape()
             // ?? ?????????? ???????? (??????? - ??????? ????????, ??? ???????)
         OGRE_DELETE mTerrain;
 
-        Ogre::Node* terrainNode = MyTestApp::getSceneManagerS()->getRootSceneNode()->getChild("Terrain");
+        Ogre::Node* terrainNode = ITS::getSceneManagerS()->getRootSceneNode()->getChild("Terrain");
         if (terrainNode)
-            MyTestApp::getSceneManagerS()->destroySceneNode((Ogre::SceneNode*)terrainNode);
+            ITS::getSceneManagerS()->destroySceneNode((Ogre::SceneNode*)terrainNode);
     }
 }
 
@@ -32,7 +32,7 @@ void Landscape::init(const LandscapeSettings& settings)
     mSettings = settings;
     Ogre::TerrainGlobalOptions::getSingleton().setMaxPixelError(1);
     Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapDistance(2000);
-    Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapAmbient(MyTestApp::getSceneManagerS()->getAmbientLight());
+    Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapAmbient(ITS::getSceneManagerS()->getAmbientLight());
 
     if (settings.light)
     {
@@ -40,7 +40,7 @@ void Landscape::init(const LandscapeSettings& settings)
         Ogre::TerrainGlobalOptions::getSingleton().setCompositeMapDiffuse(settings.light->getDiffuseColour());
     }
 
-    mTerrain = OGRE_NEW Ogre::Terrain(MyTestApp::getSceneManagerS());
+    mTerrain = OGRE_NEW Ogre::Terrain(ITS::getSceneManagerS());
 
     mTerrain->setResourceGroup(settings.resourceGroup);
     if (mSettings.compiledTerrain.compare(""))
@@ -127,7 +127,7 @@ void Landscape::create()
 
             // ??? ????????????? ?????????, ??? ?????????? ???????, ????? ???????? ??????????
         if (mUseBinary)
-            MyTestApp::GetRootS()->addFrameListener(this);
+            ITS::GetRootS()->addFrameListener(this);
     }
 
         // ???? ????????? ???????? ???, ????? ????? ??? ? (0; 0; 0). ??????????, ????? ????? ???? ??? ? (0; 0; 0)
@@ -152,7 +152,7 @@ void Landscape::setupPhysics(float restitution, float friction)
 
     OgreBulletDynamics::RigidBody* body = Physics::getSingleton().createRigidBody("landscape");
 
-    Ogre::SceneNode* node = MyTestApp::getSceneManagerS()->getRootSceneNode()->createChildSceneNode ("Terrain", mTerrain->getPosition());
+    Ogre::SceneNode* node = ITS::getSceneManagerS()->getRootSceneNode()->createChildSceneNode ("Terrain", mTerrain->getPosition());
 
     Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, (maxHeight - 1.f) / 2.f, mSettings.scaleXZ*(landSize-1.f) / 2.f);
 
@@ -175,7 +175,7 @@ bool Landscape::frameRenderingQueued(const Ogre::FrameEvent& evt)
     if (!mTerrain->isDerivedDataUpdateInProgress())
     {
         mTerrain->save(mSettings.compiledTerrain);
-        MyTestApp::GetRootS()->removeFrameListener(this);
+        ITS::GetRootS()->removeFrameListener(this);
     }
     return true;
 }

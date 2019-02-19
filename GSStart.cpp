@@ -1,6 +1,6 @@
 #include "GSStart.h"
 #include "GSMainMenu.h"
-#include "MyTestApp.h"
+#include "ITS.h"
 
 namespace RAT
 {
@@ -11,12 +11,12 @@ GSStart::GSStart()
 	// ¬ этом состо€нии возможно будут вступительные ролики. 
 	// ѕока сразу переход в главное меню
 	mIsActive = true;
-    MyTestApp::GetRootS()->addFrameListener(this);
+    ITS::GetRootS()->addFrameListener(this);
 }
 
 void GSStart::startGame()
 {
-    MyTestApp::getSingleton().switchState(new GSMainMenu());
+    ITS::getSingleton().switchState(new GSMainMenu());
 	
 }
 
