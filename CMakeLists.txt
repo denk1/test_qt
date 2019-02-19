@@ -22,21 +22,16 @@ project(its)
 add_executable(${PROJECT_NAME} main.cpp
                                TPCamera.cpp
                                ITS.cpp
-                               PlayerInterface.cpp
                                GameState.cpp
                                Physics.cpp
                                GSStart.cpp
-                               GSMainMenu.cpp
-                               MainMenu.cpp
                                Map.cpp
                                MapLoader.cpp
                                GSMap.cpp
-                               Window.cpp
                                BBLoader.cpp
                                BonusBuilding.cpp
                                BonusBuildingBase.cpp
                                Config.cpp
-                               ConfigWindow.cpp
                                Landscape.cpp
                                Tower.cpp
                                TowerBase.cpp
@@ -49,7 +44,6 @@ add_executable(${PROJECT_NAME} main.cpp
                                VehicleBase.cpp
                                VehicleLoader.cpp
                                VehiclePrototype.cpp
-                               IngameMenu.cpp
                                SceneLoader.cpp
                                DotSceneLoader.cpp
                                PhysicsShapesLoader.cpp
@@ -60,10 +54,6 @@ target_link_libraries(its OgreMain
                               OgreBites
                               OgreTerrain
                               freetype
-                              CEGUIBase-0
-                              CEGUICommonDialogs-0
-                              CEGUIOgreRenderer-0
-                              OIS
                               Bullet3Common
                               Bullet3Dynamics
                               BulletCollision

@@ -233,16 +233,6 @@ GameState *ITS::getGameStateS()
     return ITS::getSingleton().mGameState;
 }
 
-OIS::Keyboard *ITS::getKeyboard()
-{
-    return mKeyboard;
-}
-
-OIS::Mouse *ITS::getMouse()
-{
-    return mMouse;
-}
-
 void ITS::switchState(GameState *nextState)
 {
     mGameState->switchState(nextState);
@@ -291,14 +281,7 @@ void ITS::windowClosed(Ogre::RenderWindow *rw)
 {
     if(rw == mWindow)
     {
-        if(mInputManager)
-        {
-            mInputManager->destroyInputObject( mMouse);
-            mInputManager->destroyInputObject( mKeyboard);
 
-            OIS::InputManager::destroyInputSystem(mInputManager);
-            mInputManager = 0;
-        }
     }
 }
 

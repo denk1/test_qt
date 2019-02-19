@@ -3,7 +3,6 @@
 
 #include "GameState.h"
 #include "Map.h"
-#include "IngameMenu.h"
 #include "Vehicle.h"
 #include "ITS.h"
 
@@ -25,17 +24,9 @@ protected:
 
 	virtual void enteredState();
 
-		// ¬вод пользовател€
-	bool keyDown(const CEGUI::EventArgs &e);
-	bool keyUp(const CEGUI::EventArgs &e);
-
-	bool mouseDown(const CEGUI::EventArgs &e);
-	bool mouseUp(const CEGUI::EventArgs &e);
-	bool mouseMove(const CEGUI::EventArgs &e);
 
 	Map* mMap;
 
-	IngameMenu* mIngameMenu;
 
 	// Ogre::FrameListner
 	virtual bool frameStarted(const Ogre::FrameEvent& evt);
@@ -44,8 +35,6 @@ protected:
 
 	Vehicle* mVehicle;
 
-	typedef std::vector<CEGUI::Event::Connection> StateEventList;
-	StateEventList mEvents;
 	
 	// tmp
 	bool mInVehicle;

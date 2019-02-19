@@ -1,5 +1,4 @@
 #include "GSStart.h"
-#include "GSMainMenu.h"
 #include "ITS.h"
 
 namespace RAT
@@ -16,7 +15,7 @@ GSStart::GSStart()
 
 void GSStart::startGame()
 {
-    ITS::getSingleton().switchState(new GSMainMenu());
+    //ITS::getSingleton().switchState(new GSMainMenu());
 	
 }
 

@@ -8,7 +8,6 @@
 #include <OgreWindowEventUtilities.h>
 #include "Physics.h"
 #include "GSMap.h"
-#include "PlayerInterface.h"
 #include "GameState.h"
 #include "TPCamera.h"
 #include "VehicleBase.h"
@@ -38,9 +37,6 @@ public:
     static Ogre::SceneManager* getSceneManagerS();
     static Ogre::RenderWindow* getWindowS();
 
-    OIS::Keyboard* getKeyboard();
-    OIS::Mouse* getMouse();
-
     void switchState(GameState* nextState);
 
     static void destroyAllAttachedMovableObjects(Ogre::SceneManager* sceneMgr, Ogre::SceneNode* sceneNode);
@@ -63,11 +59,7 @@ private:
     Ogre::String mResourcesCfg_;
     GameState* mGameState;
 
-    PlayerInterface* mPlayerInterface_;
 
-    OIS::InputManager* mInputManager;
-    OIS::Keyboard* mKeyboard;
-    OIS::Mouse* mMouse;
 
     TPCamera* mCamera;
     Vehicle* mVehicle;
