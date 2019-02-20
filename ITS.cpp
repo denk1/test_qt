@@ -4,6 +4,7 @@
 #include "WeaponFactory.h"
 #include "Config.h"
 
+
 template<> RAT::ITS* Ogre::Singleton<RAT::ITS>::msSingleton = 0;
 
 namespace RAT
@@ -268,6 +269,12 @@ void ITS::destroyAllAttachedMovableObjects(Ogre::SceneManager *sceneMgr, Ogre::S
 void ITS::setVehicle(Vehicle *inVehicleBase)
 {
     mVehicle = inVehicleBase;
+    //mConnectionControl.setVehicle(inVehicleBase);
+}
+
+Vehicle *ITS::getVehicle()
+{
+    return mVehicle;
 }
 
 void ITS::windowResized(Ogre::RenderWindow *rw)

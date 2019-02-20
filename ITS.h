@@ -41,6 +41,7 @@ public:
 
     static void destroyAllAttachedMovableObjects(Ogre::SceneManager* sceneMgr, Ogre::SceneNode* sceneNode);
     void setVehicle(Vehicle *inVehicleBase);
+    Vehicle* getVehicle();
 protected:
     virtual void windowResized(Ogre::RenderWindow *rw);
     virtual void windowClosed(Ogre::RenderWindow *rw);
@@ -58,6 +59,7 @@ private:
     Ogre::RTShader::ShaderGenerator* shadergen_;
     Ogre::String mResourcesCfg_;
     GameState* mGameState;
+
 
 
 
