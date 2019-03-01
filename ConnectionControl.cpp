@@ -22,10 +22,17 @@ void ConnectionControl::on_open(connection_hdl hdl)
 {
     std::cout << "init connection" << std::endl;
     mHdl = hdl;
+    server::connection_ptr con = mPtrServer->get_con_from_hdl(hdl);
+    con->set_close_handshake_timeout(40000);
+    con->set_open_handshake_timeout(40000);
+    con->set_pong_timeout(40000);
+
+
 }
 
 void ConnectionControl::on_close(connection_hdl hdl)
 {
+    std::cout << "on_close connection" << std::endl;
 
 }
 
@@ -95,6 +102,9 @@ void ConnectionControl::run()
         // Set logging settings
         mServer.set_access_channels(websocketpp::log::alevel::all);
         mServer.clear_access_channels(websocketpp::log::alevel::frame_payload);
+
+        // Set pointer of server
+        mPtrServer = &mServer;
 
         // Initialize the Asio transport policy
         mServer.init_asio();
