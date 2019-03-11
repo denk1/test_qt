@@ -34,10 +34,6 @@ public:
 private:
     //void setServer(server* inPtrServer);
     websocketpp::connection_hdl mHdl;
-    bool is_stopping;
-    bool is_racing;
-    bool is_turn_left;
-    bool is_turn_right;
     std::thread mThread;
     server* mPtrServer;
     ITS* mPtrITS;

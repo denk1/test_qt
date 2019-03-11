@@ -4,10 +4,6 @@
 namespace RAT {
 
 ConnectionControl::ConnectionControl(ITS *ptrITS):
-    is_racing(false),
-    is_stopping(false),
-    is_turn_right(false),
-    is_turn_left(false),
     mPtrITS(ptrITS)
 {
 
@@ -46,46 +42,44 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
 
     if(data["action"]=="stopping_down")
     {
-        is_stopping = true;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSBackwardPressed);
     }
     else if(data["action"]=="stopping_up")
     {
-        is_stopping = false;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSBackwardReleased);
-
     }
     else if(data["action"]=="racing_down")
     {
-        is_racing = true;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSForwardPressed);
     }
     else if(data["action"]=="racing_up")
     {
-        is_racing = false;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSForwardReleased);
     }
     else if(data["action"]=="turn_left_down")
     {
-        is_turn_left = true;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSLeftPressed);
     }
     else if(data["action"]=="turn_left_up")
     {
-        is_turn_left = false;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSLeftReleased);
     }
     else if(data["action"]=="turn_right_down")
     {
-        is_turn_right = true;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSRightPressed);
     }
     else if(data["action"]=="turn_right_up")
     {
-        is_turn_right = false;
         mPtrITS->getVehicle()->processControl(VehicleBase::VSRightReleased);
     }
-
+    else if(data["action"]=="hand_break_down")
+    {
+        mPtrITS->getVehicle()->processControl(VehicleBase::VSHandBreakPressed);
+    }
+    else if(data["action"]=="hand_break_up")
+    {
+        mPtrITS->getVehicle()->processControl(VehicleBase::VSHandBreakReleased);
+    }
     // check for a special command to instruct the server to stop listening so
     // it can be cleanly exited.
     //    if (msg->get_payload() == "stop-listening") {
