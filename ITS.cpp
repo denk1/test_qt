@@ -199,6 +199,7 @@ void ITS::setup(void)
     MapLoader loader;
     Map* map;
     map = loader.loadMap("lowland.rtm", ITS::getSingleton().getSceneManager(), "Maps");
+    //map = loader.loadMap("plane.rtm", ITS::getSingleton().getSceneManager(), "Maps");
     map->load();
     mGSMap = new GSMap(map, this);
     ITS::getSingleton().switchState(mGSMap);

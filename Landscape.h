@@ -73,7 +73,7 @@ public:
 	void create(); 
 
 	/** Создает физику ландшафта */
-	void setupPhysics(float restitution = 0.6f, float friction = 0.6f); 
+    void setupPhysics(float restitution = 0.6f, float friction = 0.6f);
 
 	/** Возвращает указатель на базый ландшафт */
 	Ogre::Terrain* getTerrain();
