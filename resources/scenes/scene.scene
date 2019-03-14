@@ -1,0 +1,55 @@
+<scene formatVersion="1.0" upAxis="y" unitsPerMeter="100" minOgreVersion="1.7" ogreMaxVersion="2.3.7" author="OgreMax Scene Exporter (www.ogremax.com)" application="3DS Max">
+    <environment>
+
+        <colourAmbient r="0.333333" g="0.333333" b="0.333333" />
+        <colourBackground r="0" g="0" b="0" />
+        <clipping near="0" far="100000" />
+    </environment>
+    <nodes>
+        <node name="tube_water">
+            <position x="645.616" y="40.8532" z="731.684" />
+            <scale x="0.357677" y="0.299056" z="0.357677" />
+            <rotation qx="-0.5" qy="0.5" qz="0.5" qw="0.5" />
+            <entity name="tube_water" castShadows="true" receiveShadows="true" meshFile="tube_water.mesh">
+                <subentities>
+                    <subentity index="0" materialName="plate_u_diff" />
+                    <subentity index="1" materialName="tube__water_diff" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="mound">
+            <position x="699.111" y="34.5481" z="857.993" />
+            <scale x="1.16328" y="1" z="0.902639" />
+            <rotation qx="-2.16848e-019" qy="3.57494e-010" qz="0.00817852" qw="0.999967" />
+            <entity name="mound" castShadows="true" receiveShadows="true" meshFile="mound.mesh">
+                <subentities>
+                    <subentity index="0" materialName="lowland_soil" />
+                    <subentity index="1" materialName="lowland_stone" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="tube_long">
+            <position x="534.258" y="47.8915" z="248.805" />
+            <scale x="0.357677" y="0.299056" z="0.357677" />
+            <rotation qx="0.5" qy="0.5" qz="0.5" qw="-0.5" />
+            <entity name="tube_long" castShadows="true" receiveShadows="true" meshFile="tube_long.mesh">
+                <subentities>
+                    <subentity index="0" materialName="tube_diff" />
+                    <subentity index="1" materialName="plate_conc" />
+                    <subentity index="2" materialName="lowland_soil" />
+                </subentities>
+            </entity>
+        </node>
+        <node name="crane">
+            <position x="427.688" y="47.1112" z="689.424" />
+            <scale x="0.346222" y="1.35623" z="4.10368" />
+            <rotation qx="-0.0102953" qy="0.999947" qz="-4.44863e-008" qw="7.54939e-008" />
+            <entity name="crane" castShadows="true" receiveShadows="true" meshFile="crane.mesh">
+                <subentities>
+                    <subentity index="0" materialName="crane_diff" />
+                    <subentity index="1" materialName="truck_diff" />
+                </subentities>
+            </entity>
+        </node>
+    </nodes>
+</scene>
