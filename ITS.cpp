@@ -169,7 +169,8 @@ void ITS::setup(void)
     // Initialise the resource groups:
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
     scnMgr_ = root_->createSceneManager(Ogre::ST_EXTERIOR_FAR, "BulletTerrain");
-//    scnMgr_->setSkyBox(true, "Cratelake");
+    //scnMgr_->setSkyBox(true, "Cratelake");
+    scnMgr_->setSkyBox(true, "Examples/SpaceSkyBox", 5000);
     mWindow = getRenderWindow();
     // register our scene with the RTSS
     shadergen_ = Ogre::RTShader::ShaderGenerator::getSingletonPtr();

@@ -86,10 +86,8 @@ void Landscape::addLayer(const Ogre::String& diffuseSpecularMap, const Ogre::Str
     Ogre::Terrain::LayerInstance layer;
     layer.textureNames.push_back(diffuseSpecularMap);
     layer.textureNames.push_back(normalHeightMap);
-    layer.worldSize = worldSize;
-
+    layer.worldSize = 600;
     mImportData.layerList.push_back(layer);
-
 }
 
 void Landscape::create()
@@ -103,6 +101,7 @@ void Landscape::create()
     {
         mTerrain->prepare(mImportData);
         mTerrain->load();
+        Ogre::Real multiplier = mTerrain->getLayerUVMultiplier(0);
 
 
             // ????????? ????? ??????????
