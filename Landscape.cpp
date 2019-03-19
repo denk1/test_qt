@@ -86,8 +86,10 @@ void Landscape::addLayer(const Ogre::String& diffuseSpecularMap, const Ogre::Str
     Ogre::Terrain::LayerInstance layer;
     layer.textureNames.push_back(diffuseSpecularMap);
     layer.textureNames.push_back(normalHeightMap);
-    layer.worldSize = 600;
+    layer.worldSize = worldSize;
+
     mImportData.layerList.push_back(layer);
+
 }
 
 void Landscape::create()
@@ -101,7 +103,6 @@ void Landscape::create()
     {
         mTerrain->prepare(mImportData);
         mTerrain->load();
-        Ogre::Real multiplier = mTerrain->getLayerUVMultiplier(0);
 
 
             // ????????? ????? ??????????
@@ -118,7 +119,10 @@ void Landscape::create()
             Ogre::uint8 *data = static_cast<Ogre::uint8*>(img.getPixelBox().data);
 
             for(int bp = 0;bp < blendmapsize * blendmapsize;bp++)
-                ptr[bp] = static_cast<float>(data[bp]) / 255.0f;
+            {
+                ptr[bp] = static_cast<float>(data[bp*4]) / 255.0f;
+
+            }
 
             blendmap->dirty();
             blendmap->update();
