@@ -15,6 +15,7 @@ typedef server::message_ptr message_ptr;
 using websocketpp::lib::placeholders::_1;
 using websocketpp::lib::placeholders::_2;
 using websocketpp::lib::bind;
+using websocketpp::lib::error_code;
 using json = nlohmann::json;
 
 using namespace std::chrono_literals;
@@ -29,6 +30,8 @@ public:
     void on_open(connection_hdl hdl);
     void on_close(connection_hdl hdl);
     void on_message(connection_hdl hdl, message_ptr msg);
+    void on_timer(error_code const &ec);
+    void set_timer(int t);
     void run();
     void start();
 private:
@@ -36,6 +39,7 @@ private:
     websocketpp::connection_hdl mHdl;
     std::thread mThread;
     server* mPtrServer;
+    server::timer_ptr mPtrTimer;
     ITS* mPtrITS;
 };
 

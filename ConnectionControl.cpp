@@ -88,6 +88,36 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     //    }
 }
 
+void ConnectionControl::on_timer(const websocketpp::lib::error_code &ec)
+{
+    if (ec) {
+        // there was an error, stop telemetry
+        mPtrServer->get_alog().write(websocketpp::log::alevel::app,
+                "Timer Error: "+ec.message());
+        return;
+    }
+    const Ogre::Vector3& v = mPtrITS->getVehicle()->getVehicleSN()->getPosition();
+    if(0 < v.length())
+    {
+        std::cout << "x=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().x
+                  << "y=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().y
+                  << "z=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().z << std::endl;
+    }
+    set_timer(100);
+}
+
+void ConnectionControl::set_timer(int t)
+{
+    mPtrTimer = mPtrServer->set_timer(
+                t,
+                bind(
+                    &ConnectionControl::on_timer,
+                    this,
+                    _1
+                    ));
+
+}
+
 void ConnectionControl::run()
 {
     server mServer;
@@ -110,6 +140,7 @@ void ConnectionControl::run()
 
         mServer.listen(6789);
         mServer.start_accept();
+        set_timer(7000);
         mServer.run();
     }
     catch(websocketpp::exception& e)
