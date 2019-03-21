@@ -54,6 +54,10 @@ bool ITS::keyPressed(const OgreBites::KeyboardEvent& evt)
         {
             mVehicle->processControl(VehicleBase::VSRightPressed);
         }
+        else if(evt.keysym.sym == 32)
+        {
+            mVehicle->processControl(VehicleBase::VSHandBreakPressed);
+        }
     }
     else
     {
@@ -73,7 +77,6 @@ bool ITS::keyPressed(const OgreBites::KeyboardEvent& evt)
         {
             TPCamera::getSingleton().startGoingRight();
         }
-
     }
     return true;
 }
@@ -102,6 +105,10 @@ bool ITS::keyReleased(const OgreBites::KeyboardEvent &evt)
         else if(evt.keysym.sym == 'd')
         {
             mVehicle->processControl(VehicleBase::VSRightReleased);
+        }
+        else if(evt.keysym.sym == 32)
+        {
+            mVehicle->processControl(VehicleBase::VSHandBreakReleased);
         }
     }
     else

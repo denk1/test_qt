@@ -3,6 +3,7 @@
 
 #include <Ogre.h>
 #include <Terrain/OgreTerrain.h>
+#include <Terrain/OgreTerrainGroup.h>
 
 namespace RAT
 {
@@ -92,6 +93,7 @@ protected:
 	bool						mUseBinary;
 
         Ogre::Vector3 mVector3;
+    Ogre::TerrainGroup* mTerrainGroup;
 
 };
 

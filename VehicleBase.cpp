@@ -65,7 +65,8 @@ void VehicleBase::create(Ogre::SceneNode* parentSN)
     mCarChassis = new OgreBulletDynamics::WheeledRigidBody(mName + "_chassis", Physics::getSingleton().getWorld());
     if(mShape.get() != 0)
     {
-        mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(350,75,350));
+        //mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(350,75,350));
+        mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(448.50,75,462));
     }
     else
     {
