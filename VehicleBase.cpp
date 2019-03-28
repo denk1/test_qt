@@ -9,6 +9,8 @@ VehicleBase::VehicleBase(const VehiclePrototype& prototype)
     :VehiclePrototype(prototype), mSteeringLeft (false), mSteeringRight(false), mGas(false), mBreaks(false), mHandBreaks(false), mSpeed(0), mSpeedPos(0), mSkipedTime(0)
     , mSpeedToKmh(0.5f * 3.6f) // 0.5 - ?? ???????? ? ?????, 3.6 - ?? ?/c ? ??/?
     , mSpeedToMph(0.5f * 2.236936f) // 0.5 - ?? ???????? ? ?????, 2.236936 - ?? ?/c ? ?/?
+    , mAimAngle(.0)
+    , mCoeffForce(.0)
 {
     mActionMap[VSNone] = &VehicleBase::processNone;
     mActionMap[VSLeftPressed] = &VehicleBase::processLeftPressed;
@@ -55,6 +57,7 @@ VehicleBase::~VehicleBase()
 
 void VehicleBase::create(Ogre::SceneNode* parentSN)
 {
+    float limit = mProperties.mSteeringClamp;
     mSteering = 0;
     mVehicleSN = parentSN->createChildSceneNode();
     Ogre::Entity* entity = ITS::getSceneManagerS()->createEntity(mMesh);
@@ -66,7 +69,7 @@ void VehicleBase::create(Ogre::SceneNode* parentSN)
     if(mShape.get() != 0)
     {
         //mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(350,75,350));
-        mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(448.50,75,462));
+        mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(461.50, 10, 448.0));
     }
     else
     {
@@ -266,11 +269,11 @@ void VehicleBase::processGas(const bool forward)
         for(int i = 0; i < 4; ++i)
         {
             //float force = mWheels[i].mEngineForce * forceCoef;
-            mVehicle->applyEngineForce(mWheels[i].mEngineForce, i);
+            mVehicle->applyEngineForce(mWheels[i].mEngineForce * mCoeffForce, i);
         }
     else
         for(int i = 0; i < 4; ++i)
-            mVehicle->applyEngineForce(-mWheels[i].mEngineBackForce,i);
+            mVehicle->applyEngineForce(-mWheels[i].mEngineBackForce * mCoeffForce, i);
 
     for(int i = 0; i < 4; ++i)
         mVehicle->getBulletVehicle()->setBrake(0, i);
@@ -329,6 +332,10 @@ void VehicleBase::updateVehicleSteering(const Ogre::Real dt)
                 mSteering +=  mProperties.mSteeringIncrement * dt  * speedAffectionIncrement;
 
             float limit = mProperties.mSteeringClamp * speedAffectionClamp;
+
+            if(mAimAngle < limit )
+                limit = mAimAngle;
+
             if (mSteering > limit)
                     mSteering = limit;
         }
@@ -342,6 +349,10 @@ void VehicleBase::updateVehicleSteering(const Ogre::Real dt)
                 mSteering -= mProperties.mSteeringIncrement * dt * speedAffectionIncrement;
 
             float limit = -mProperties.mSteeringClamp * speedAffectionClamp;
+
+            if(mAimAngle > limit )
+                limit = mAimAngle;
+
             if(mSteering < limit)
                     mSteering = limit;
         }
@@ -366,6 +377,16 @@ void VehicleBase::updateVehicleSteering(const Ogre::Real dt)
 
     if (mHandBreaks)
         processHandBreaks();
+}
+
+void VehicleBase::setAimAngleSteering(const Ogre::Real angle)
+{
+    mAimAngle = angle * PI/180.0;
+}
+
+void VehicleBase::setCoeffForce(const Ogre::Real coeffForce)
+{
+    mCoeffForce = coeffForce/100.0f;
 }
 
 bool VehicleBase::frameRenderingQueued(const Ogre::FrameEvent& evt)

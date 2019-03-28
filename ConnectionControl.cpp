@@ -4,7 +4,8 @@
 namespace RAT {
 
 ConnectionControl::ConnectionControl(ITS *ptrITS):
-    mPtrITS(ptrITS)
+    mPtrITS(ptrITS),
+    isOpen(false)
 {
 
 }
@@ -22,13 +23,13 @@ void ConnectionControl::on_open(connection_hdl hdl)
     con->set_close_handshake_timeout(40000);
     con->set_open_handshake_timeout(40000);
     con->set_pong_timeout(40000);
-
-
+    isOpen = true;
 }
 
 void ConnectionControl::on_close(connection_hdl hdl)
 {
     std::cout << "on_close connection" << std::endl;
+    isOpen = false;
 
 }
 
@@ -40,8 +41,10 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     // recieve json-message from
     nlohmann::json data = nlohmann::json::parse(msg->get_payload());
 
+
     if(data["action"]=="stopping_down")
     {
+        mPtrITS->getVehicle()->setCoeffForce(getParamValue("throttle_proc", data["params"]));
         mPtrITS->getVehicle()->processControl(VehicleBase::VSBackwardPressed);
     }
     else if(data["action"]=="stopping_up")
@@ -50,6 +53,7 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     }
     else if(data["action"]=="racing_down")
     {
+        mPtrITS->getVehicle()->setCoeffForce(getParamValue("throttle_proc", data["params"]));
         mPtrITS->getVehicle()->processControl(VehicleBase::VSForwardPressed);
     }
     else if(data["action"]=="racing_up")
@@ -58,6 +62,7 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     }
     else if(data["action"]=="turn_left_down")
     {
+        mPtrITS->getVehicle()->setAimAngleSteering(getParamValue("steering_angle", data["params"]));
         mPtrITS->getVehicle()->processControl(VehicleBase::VSLeftPressed);
     }
     else if(data["action"]=="turn_left_up")
@@ -66,6 +71,7 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     }
     else if(data["action"]=="turn_right_down")
     {
+        mPtrITS->getVehicle()->setAimAngleSteering(getParamValue("steering_angle", data["params"]));
         mPtrITS->getVehicle()->processControl(VehicleBase::VSRightPressed);
     }
     else if(data["action"]=="turn_right_up")
@@ -103,6 +109,11 @@ void ConnectionControl::on_timer(const websocketpp::lib::error_code &ec)
                   << "y=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().y
                   << "z=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().z << std::endl;
     }
+    std::ostringstream strSrm;
+    strSrm << mPtrITS->getVehicle()->getSpeed();
+
+    if(isOpen)
+        mPtrServer->send(mHdl, strSrm.str().c_str(), websocketpp::frame::opcode::TEXT);
     set_timer(100);
 }
 
@@ -156,6 +167,20 @@ void ConnectionControl::run()
 void ConnectionControl::start()
 {
     mThread = std::thread(&ConnectionControl::run, this );
+}
+
+Ogre::Real ConnectionControl::getParamValue(Ogre::String nameParam, json arrayParams)
+{
+    int paramsSize = arrayParams.size();
+    int require_value = 0;
+    if(paramsSize > 0)
+    {
+        if(arrayParams.find(nameParam) != arrayParams.end())
+        {
+            require_value = arrayParams[nameParam];
+        }
+    }
+    return require_value;
 }
 
 //void ConnectionControl::setServer(server *inPtrServer)

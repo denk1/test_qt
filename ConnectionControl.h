@@ -34,6 +34,8 @@ public:
     void set_timer(int t);
     void run();
     void start();
+protected:
+    Ogre::Real getParamValue(Ogre::String nameParam, json arrayParams);
 private:
     //void setServer(server* inPtrServer);
     websocketpp::connection_hdl mHdl;
@@ -41,6 +43,7 @@ private:
     server* mPtrServer;
     server::timer_ptr mPtrTimer;
     ITS* mPtrITS;
+    bool isOpen;
 };
 
 }

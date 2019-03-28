@@ -7,6 +7,8 @@
 
 #include "VehiclePrototype.h"
 
+#define PI 3.14159
+
 
 namespace RAT
 {
@@ -58,6 +60,9 @@ public:
 	const Ogre::Vector3& getDirection();
 
 	virtual bool frameRenderingQueued(const Ogre::FrameEvent& evt);
+
+    void setAimAngleSteering(const Ogre::Real angle);
+    void setCoeffForce(const Ogre::Real coeffForce);
 
 protected:
 		// Обновление физики по состоянию управления
@@ -119,7 +124,11 @@ protected:
 	TSNVec mCPNodes;
 
 	const float mSpeedToKmh; 
-	const float mSpeedToMph; 
+    const float mSpeedToMph;
+    Ogre::Real mAimAngle;
+    Ogre::Real mCoeffForce;
+
+    bool flag;
 	
 
 };
