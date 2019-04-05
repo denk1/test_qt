@@ -103,15 +103,18 @@ void ConnectionControl::on_timer(const websocketpp::lib::error_code &ec)
         return;
     }
     const Ogre::Vector3& v = mPtrITS->getVehicle()->getVehicleSN()->getPosition();
+    Ogre::Real xLocation = 0, zLocation = 0;
     if(0 < v.length())
     {
-        std::cout << "x=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().x
-                  << "y=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().y
-                  << "z=" << mPtrITS->getVehicle()->getVehicleSN()->getPosition().z << std::endl;
+        xLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().x;
+        zLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().z;
     }
+    xLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().x;
+    zLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().z;
     std::ostringstream strSrm;
-    strSrm << mPtrITS->getVehicle()->getSpeed();
-
+    strSrm << "{ \"speed\": \"" << mPtrITS->getVehicle()->getSpeed() << "\", " <<
+                           "\"location\": {\"x\": \"" << xLocation << "\", \"z\":\"" << zLocation << "\"}" << " }";
+    std::cout << strSrm.str() << std::endl;
     if(isOpen)
         mPtrServer->send(mHdl, strSrm.str().c_str(), websocketpp::frame::opcode::TEXT);
     set_timer(100);
