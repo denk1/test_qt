@@ -111,9 +111,13 @@ void ConnectionControl::on_timer(const websocketpp::lib::error_code &ec)
     }
     xLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().x;
     zLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().z;
+    Ogre::Real degreeYaw = Ogre::Degree(mPtrITS->getVehicle()->getVehicleSN()->getOrientation().getYaw()).valueDegrees();
     std::ostringstream strSrm;
     strSrm << "{ \"speed\": \"" << mPtrITS->getVehicle()->getSpeed() << "\", " <<
-                           "\"location\": {\"x\": \"" << xLocation << "\", \"z\":\"" << zLocation << "\"}" << " }";
+                           "\"location\": {\"x\": \"" << xLocation << "\", \"z\":\"" << zLocation << "\"}," <<
+                           "\"yaw\": \"" << Ogre::StringConverter::toString(degreeYaw) << "\"," <<
+                           "\"releative_location\": {\"x\": \"" << Ogre::StringConverter::toString(xLocation - 561.50f) << "\", \"z\":\"" << Ogre::StringConverter::toString(zLocation - 448.0f) << "\"}"
+                           << " }";
     std::cout << strSrm.str() << std::endl;
     if(isOpen)
         mPtrServer->send(mHdl, strSrm.str().c_str(), websocketpp::frame::opcode::TEXT);

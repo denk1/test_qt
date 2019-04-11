@@ -61,7 +61,6 @@ void VehicleBase::create(Ogre::SceneNode* parentSN)
     mSteering = 0;
     mVehicleSN = parentSN->createChildSceneNode();
     Ogre::Entity* entity = ITS::getSceneManagerS()->createEntity(mMesh);
-
     mBodySN = mVehicleSN->createChildSceneNode();
     mBodySN->attachObject(entity);
     mBodySN->yaw(Ogre::Degree(180));
@@ -69,7 +68,7 @@ void VehicleBase::create(Ogre::SceneNode* parentSN)
     if(mShape.get() != 0)
     {
         //mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(350,75,350));
-        mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(461.50, 10, 448.0));
+        mCarChassis->setShape(mVehicleSN, mShape.get(), mProperties.mRestitution, mProperties.mFriction, mProperties.mMass, Ogre::Vector3(561.50, 10, 448.0));
     }
     else
     {
@@ -257,7 +256,6 @@ void VehicleBase::updateVehicle(const Ogre::Real dt)
     mAvgSpeed = mAvgSpeed / (Ogre::Real)avgSpeedSoft;
 
     mPreviosPosition = mVehicleSN->getPosition();
-
 }
 
 void VehicleBase::processGas(const bool forward)
