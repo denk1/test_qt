@@ -24,6 +24,7 @@ void ConnectionControl::on_open(connection_hdl hdl)
     con->set_open_handshake_timeout(40000);
     con->set_pong_timeout(40000);
     isOpen = true;
+    m_connections.insert(hdl);
 }
 
 void ConnectionControl::on_close(connection_hdl hdl)
@@ -119,8 +120,10 @@ void ConnectionControl::on_timer(const websocketpp::lib::error_code &ec)
                            "\"releative_location\": {\"x\": \"" << Ogre::StringConverter::toString(xLocation - 561.50f) << "\", \"z\":\"" << Ogre::StringConverter::toString(zLocation - 448.0f) << "\"}"
                            << " }";
     std::cout << strSrm.str() << std::endl;
-    if(isOpen)
-        mPtrServer->send(mHdl, strSrm.str().c_str(), websocketpp::frame::opcode::TEXT);
+    con_list::iterator it;
+    for (it = m_connections.begin(); it != m_connections.end(); ++it) {
+        mPtrServer->send(*it,strSrm.str().c_str(), websocketpp::frame::opcode::TEXT);
+    }
     set_timer(100);
 }
 

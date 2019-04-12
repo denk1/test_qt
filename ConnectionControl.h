@@ -38,7 +38,9 @@ protected:
     Ogre::Real getParamValue(Ogre::String nameParam, json arrayParams);
 private:
     //void setServer(server* inPtrServer);
+    typedef std::set<connection_hdl,std::owner_less<connection_hdl>> con_list;
     websocketpp::connection_hdl mHdl;
+    con_list m_connections;
     std::thread mThread;
     server* mPtrServer;
     server::timer_ptr mPtrTimer;
