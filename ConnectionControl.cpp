@@ -4,8 +4,7 @@
 namespace RAT {
 
 ConnectionControl::ConnectionControl(ITS *ptrITS):
-    mPtrITS(ptrITS),
-    isOpen(false)
+    mPtrITS(ptrITS)
 {
 
 }
@@ -23,15 +22,12 @@ void ConnectionControl::on_open(connection_hdl hdl)
     con->set_close_handshake_timeout(40000);
     con->set_open_handshake_timeout(40000);
     con->set_pong_timeout(40000);
-    isOpen = true;
     m_connections.insert(hdl);
 }
 
 void ConnectionControl::on_close(connection_hdl hdl)
 {
     std::cout << "on_close connection" << std::endl;
-    isOpen = false;
-
 }
 
 void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
@@ -87,12 +83,6 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     {
         mPtrITS->getVehicle()->processControl(VehicleBase::VSHandBreakReleased);
     }
-    // check for a special command to instruct the server to stop listening so
-    // it can be cleanly exited.
-    //    if (msg->get_payload() == "stop-listening") {
-    //        mServer.stop_listening();
-    //        return;
-    //    }
 }
 
 void ConnectionControl::on_timer(const websocketpp::lib::error_code &ec)
@@ -192,11 +182,5 @@ Ogre::Real ConnectionControl::getParamValue(Ogre::String nameParam, json arrayPa
     }
     return require_value;
 }
-
-//void ConnectionControl::setServer(server *inPtrServer)
-//{
-//    mPtrServer = inPtrServer;
-//}
-
 
 }

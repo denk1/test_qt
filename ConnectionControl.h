@@ -45,7 +45,6 @@ private:
     server* mPtrServer;
     server::timer_ptr mPtrTimer;
     ITS* mPtrITS;
-    bool isOpen;
 };
 
 }
