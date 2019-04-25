@@ -56,6 +56,7 @@ public:
 
 	Ogre::Real getSpeed(const SpeedType speedType = Units);
 	Ogre::Real getAvgSpeed(const SpeedType speedType = Units);
+    Ogre::Real getCurrSteeringAngle();
 
 	const Ogre::Vector3& getDirection();
 

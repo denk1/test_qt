@@ -219,6 +219,11 @@ Ogre::Real VehicleBase::getAvgSpeed(const SpeedType speedType)
         return  mAvgSpeed * mSpeedToMph;
 }
 
+Ogre::Real VehicleBase::getCurrSteeringAngle()
+{
+    return Ogre::Radian(mSteering).valueDegrees();
+}
+
 const Ogre::Vector3& VehicleBase::getDirection()
 {
     return mDirection;
@@ -386,6 +391,8 @@ void VehicleBase::setCoeffForce(const Ogre::Real coeffForce)
 {
     mCoeffForce = coeffForce/100.0f;
 }
+
+
 
 bool VehicleBase::frameRenderingQueued(const Ogre::FrameEvent& evt)
 {

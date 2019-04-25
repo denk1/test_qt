@@ -103,11 +103,13 @@ void ConnectionControl::on_timer(const websocketpp::lib::error_code &ec)
     xLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().x;
     zLocation = mPtrITS->getVehicle()->getVehicleSN()->getPosition().z;
     Ogre::Real degreeYaw = Ogre::Degree(mPtrITS->getVehicle()->getVehicleSN()->getOrientation().getYaw()).valueDegrees();
+    Ogre::Real currSteeringAngle = mPtrITS->getVehicle()->getCurrSteeringAngle();
     std::ostringstream strSrm;
     strSrm << "{ \"speed\": \"" << mPtrITS->getVehicle()->getSpeed() << "\", " <<
                            "\"location\": {\"x\": \"" << xLocation << "\", \"z\":\"" << zLocation << "\"}," <<
                            "\"yaw\": \"" << Ogre::StringConverter::toString(degreeYaw) << "\"," <<
-                           "\"releative_location\": {\"x\": \"" << Ogre::StringConverter::toString(xLocation - 561.50f) << "\", \"z\":\"" << Ogre::StringConverter::toString(zLocation - 448.0f) << "\"}"
+                           "\"releative_location\": {\"x\": \"" << Ogre::StringConverter::toString(xLocation - 561.50f) << "\", \"z\":\"" << Ogre::StringConverter::toString(zLocation - 448.0f) << "\"}," <<
+                           "\"current_steering_angle\": \"" << Ogre::StringConverter::toString(currSteeringAngle) << "\""
                            << " }";
     std::cout << strSrm.str() << std::endl;
     con_list::iterator it;
