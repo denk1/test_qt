@@ -13,6 +13,7 @@ INCLUDE_DIRECTORIES(/usr/local/include/bullet)
 link_directories(/usr/local/lib/)
 LINK_DIRECTORIES(/home/den/Downloads/ogre-1.11.3/build/freetype-2.9/objs)
 LINK_DIRECTORIES(/home/den/Downloads/build-ogre-1.11.2-Desktop-Release/Dependencies/lib/)
+LINK_DIRECTORIES(/home/den/Downloads/ogre-1.11.5/build/zziplib-develop/zzip/libzzip.so.13)
 project(its)
 add_executable(${PROJECT_NAME} main.cpp
                                TPCamera.cpp
