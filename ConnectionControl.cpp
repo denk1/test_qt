@@ -59,7 +59,7 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     }
     else if(data["action"]=="turn_left_down")
     {
-        mPtrITS->getVehicle()->setAimAngleSteering(getParamValue("steering_angle", data["params"]));
+        mPtrITS->getVehicle()->setAimAngleSteering(getParamValue("steering_angle", data["params"])/10.0f);
         mPtrITS->getVehicle()->processControl(VehicleBase::VSLeftPressed);
     }
     else if(data["action"]=="turn_left_up")
@@ -68,7 +68,7 @@ void ConnectionControl::on_message(connection_hdl hdl, message_ptr msg)
     }
     else if(data["action"]=="turn_right_down")
     {
-        mPtrITS->getVehicle()->setAimAngleSteering(getParamValue("steering_angle", data["params"]));
+        mPtrITS->getVehicle()->setAimAngleSteering(getParamValue("steering_angle", data["params"])/10.0f);
         mPtrITS->getVehicle()->processControl(VehicleBase::VSRightPressed);
     }
     else if(data["action"]=="turn_right_up")

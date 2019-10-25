@@ -46,6 +46,7 @@ add_executable(${PROJECT_NAME} main.cpp
                                WGun.cpp
                                WRocketLauncher.cpp
                                ConnectionControl.cpp
+                               ConnectionControlTcp.cpp
                                )
 target_link_libraries(its OgreMain
                               OgreBites
