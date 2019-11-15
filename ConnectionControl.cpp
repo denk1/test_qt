@@ -4,7 +4,7 @@
 namespace RAT {
 
 ConnectionControl::ConnectionControl(ITS *ptrITS):
-    mPtrITS(ptrITS)
+    ConnectionControlInterface(ptrITS)
 {
 
 }
@@ -166,10 +166,6 @@ void ConnectionControl::run()
     }
 }
 
-void ConnectionControl::start()
-{
-    mThread = std::thread(&ConnectionControl::run, this );
-}
 
 Ogre::Real ConnectionControl::getParamValue(Ogre::String nameParam, json arrayParams)
 {

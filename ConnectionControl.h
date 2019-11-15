@@ -3,10 +3,9 @@
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
 #include <iostream>
-#include <thread>
-#include <chrono>
 #include <nlohmann/json.hpp>
-#include "ITS.h"
+#include "ConnectionControlInterface.h"
+
 
 typedef websocketpp::server<websocketpp::config::asio> server;
 typedef websocketpp::connection_hdl connection_hdl;
@@ -22,8 +21,7 @@ using namespace std::chrono_literals;
 
 namespace RAT {
 
-class ConnectionControl
-{
+class ConnectionControl : public ConnectionControlInterface {
 public:
     ConnectionControl(ITS* ptrITS);
     ~ConnectionControl();
@@ -31,11 +29,11 @@ public:
     void on_close(connection_hdl hdl);
     void on_message(connection_hdl hdl, message_ptr msg);
     void on_timer(error_code const &ec);
-    void set_timer(int t);
     void run();
-    void start();
+
 protected:
     Ogre::Real getParamValue(Ogre::String nameParam, json arrayParams);
+    void set_timer(int i);
 private:
     //void setServer(server* inPtrServer);
     typedef std::set<connection_hdl,std::owner_less<connection_hdl>> con_list;
@@ -44,7 +42,6 @@ private:
     std::thread mThread;
     server* mPtrServer;
     server::timer_ptr mPtrTimer;
-    ITS* mPtrITS;
 };
 
 }

@@ -1,26 +1,51 @@
 #ifndef CONNECTIONCONTROLTCP_H
 #define CONNECTIONCONTROLTCP_H
-
+#include "ITS.h"
+#include "Controlling.h"
+#include "ConnectionControlInterface.h"
+#include "ThreadSafeData.h"
+#include  <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/types.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
+#include <netdb.h>
 #include <arpa/inet.h>
+#include <sys/wait.h>
+#include <signal.h>
 
-#define SA struct sockaddr
 
-class ConnectionControlTcp
+namespace  RAT {
+
+class ConnectionControlTCP : public  ConnectionControlInterface
 {
 public:
-    ConnectionControlTcp();
-    virtual ~ConnectionControlTcp();
+    ConnectionControlTCP(ITS* ptrITS) ;
+    ~ConnectionControlTCP();
+    void run();
 private:
-    void init_server();
-    void connectionLoop();
-    int mClientFd;
-    int mSocketFd;
-    struct sockaddr_in mServerAddress;
-    struct sockaddr_in mClientAddress;
-    unsigned short port;
-    bool mListenFlag;
-    char mClientIP[INET_ADDRSTRLEN + 1];
+    void *get_in_addr(struct sockaddr *sa);
+    void set_timer(int t);
+    ThreadSafeData mThreadSafeData;
+    Controlling mControlling;
+    int sockfd;
+    int new_fd;
+    struct addrinfo hints;
+    struct addrinfo *servinfo;
+    struct addrinfo *p;
+    struct sockaddr_storage their_addr;
+    socklen_t sin_size;
+    int yes = 1;
+    char s[INET6_ADDRSTRLEN];
+    int rv;
+    long int angle;
+    const char* PORT = "8001";
+    const int BACKLOG = 10;
 };
+
+}
 
 #endif // CONNECTIONCONTROLTCP_H

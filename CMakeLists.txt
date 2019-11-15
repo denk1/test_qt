@@ -5,6 +5,7 @@ find_package(OGRE 1.11 REQUIRED COMPONENTS Bites RTShaderSystem)
 
 
 # copy resource.cfg next to our binaries where OGRE looks for it
+set(CMAKE_CXX_STANDARD 17)
 file(COPY ${OGRE_CONFIG_DIR}/resources.cfg DESTINATION ${CMAKE_BINARY_DIR})
 include_directories(/usr/local/include/OGRE/RTShaderSystem)
 INCLUDE_DIRECTORIES(/usr/local/include/OgreBullet/Dynamics)
@@ -45,8 +46,11 @@ add_executable(${PROJECT_NAME} main.cpp
                                PhysicsShapesLoader.cpp
                                WGun.cpp
                                WRocketLauncher.cpp
+                               ConnectionControlInterface.cpp
                                ConnectionControl.cpp
                                ConnectionControlTcp.cpp
+                               Controlling.cpp
+                               ThreadSafeData.cpp
                                )
 target_link_libraries(its OgreMain
                               OgreBites
