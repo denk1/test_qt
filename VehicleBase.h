@@ -89,6 +89,8 @@ protected:
 	void processForwardReleased();
 	void processBackwardReleased();
 	void processHandBreakReleased();
+    void steeringPlus(const Ogre::Real dt, Ogre::Real speedAffectionIncrement);
+    void steeringMinus(const Ogre::Real dt, Ogre::Real speedAffectionIncrement);
 
 	Ogre::SceneNode* mVehicleSN;
 	Ogre::SceneNode* mBodySN;

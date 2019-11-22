@@ -195,6 +195,22 @@ void VehicleBase::processHandBreakReleased()
     mHandBreaks = false;
 }
 
+void VehicleBase::steeringPlus(const Ogre::Real dt, Ogre::Real speedAffectionIncrement)
+{
+    if (mSteering < 0)
+        mSteering +=  mProperties.mSteeringIncrement * 4.f * dt * speedAffectionIncrement; // ???? ?????? ????????? ? ?????? ???????, ?? ??????? ??????????
+    else
+        mSteering +=  mProperties.mSteeringIncrement * dt  * speedAffectionIncrement;
+}
+
+void VehicleBase::steeringMinus(const Ogre::Real dt, Ogre::Real speedAffectionIncrement)
+{
+    if (mSteering > 0)
+        mSteering -= mProperties.mSteeringIncrement * 4.f * dt * speedAffectionIncrement; // ???? ?????? ????????? ? ?????? ???????, ?? ??????? ??????????
+    else
+        mSteering -= mProperties.mSteeringIncrement * dt * speedAffectionIncrement;
+}
+
 Ogre::Real VehicleBase::getSpeed(const SpeedType speedType)
 {
     if (speedType == Units)
@@ -329,15 +345,14 @@ void VehicleBase::updateVehicleSteering(const Ogre::Real dt)
         if (mSteeringLeft)
         {
             // ?????
-            if (mSteering < 0)
-                mSteering +=  mProperties.mSteeringIncrement * 4.f * dt * speedAffectionIncrement; // ???? ?????? ????????? ? ?????? ???????, ?? ??????? ??????????
-            else
-                mSteering +=  mProperties.mSteeringIncrement * dt  * speedAffectionIncrement;
+            if(mAimAngle - mSteering > 0.02f)
+            {
+                steeringPlus(dt, speedAffectionIncrement);
+            } else if (mAimAngle - mSteering < -0.02f){
+                steeringMinus(dt, speedAffectionIncrement);
+            }
 
             float limit = mProperties.mSteeringClamp * speedAffectionClamp;
-
-            if(mAimAngle < limit )
-                limit = mAimAngle;
 
             if (mSteering > limit)
                     mSteering = limit;
@@ -346,15 +361,15 @@ void VehicleBase::updateVehicleSteering(const Ogre::Real dt)
         if (mSteeringRight)
         {
             // ??????
-            if (mSteering > 0)
-                mSteering -= mProperties.mSteeringIncrement * 4.f * dt * speedAffectionIncrement; // ???? ?????? ????????? ? ?????? ???????, ?? ??????? ??????????
-            else
-                mSteering -= mProperties.mSteeringIncrement * dt * speedAffectionIncrement;
+            if(mSteering - mAimAngle > 0.02f) {
+                steeringMinus(dt, speedAffectionIncrement);
+            } else if (mSteering - mAimAngle < -0.02f){
+                steeringPlus(dt, speedAffectionIncrement);
+            }
+
+
 
             float limit = -mProperties.mSteeringClamp * speedAffectionClamp;
-
-            if(mAimAngle > limit )
-                limit = mAimAngle;
 
             if(mSteering < limit)
                     mSteering = limit;
@@ -382,9 +397,10 @@ void VehicleBase::updateVehicleSteering(const Ogre::Real dt)
         processHandBreaks();
 }
 
+
 void VehicleBase::setAimAngleSteering(const Ogre::Real angle)
 {
-    mAimAngle = angle * PI/180.0;
+    mAimAngle = angle * PI/180.0f;
 }
 
 void VehicleBase::setCoeffForce(const Ogre::Real coeffForce)
