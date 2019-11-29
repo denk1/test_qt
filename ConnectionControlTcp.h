@@ -26,6 +26,7 @@ public:
     ConnectionControlTCP(ITS* ptrITS) ;
     ~ConnectionControlTCP();
     void run();
+    void sendTelemetry(unsigned char* msg);
 private:
     void *get_in_addr(struct sockaddr *sa);
     void set_timer(int t);

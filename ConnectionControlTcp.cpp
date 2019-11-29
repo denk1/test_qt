@@ -121,6 +121,9 @@ ConnectionControlTCP::~ConnectionControlTCP()
 
 void ConnectionControlTCP::run()
 {
+
+    TypeDefSend fSend = std::bind(&ConnectionControlTCP::sendTelemetry, this, std::placeholders::_1);
+    mControlling.setSenderTelemetry(&fSend);
     mControlling.start();
 
     while(1) {
@@ -154,6 +157,12 @@ void ConnectionControlTCP::run()
             printf("bytes_read=%d\n", bytes_read);
         }
     }
+}
+
+void ConnectionControlTCP::sendTelemetry(unsigned char* msg)
+{
+    if(new_fd > 0)
+        send(new_fd, msg, sizeof (unsigned char[18]), 0);
 }
 
 void ConnectionControlTCP::set_timer(int t)
