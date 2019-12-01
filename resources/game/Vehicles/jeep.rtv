@@ -1,0 +1,177 @@
+<Vehicle name="Jeep" mesh="jeep_body.mesh" resourceGroup="Vehicles" >
+	<Properties>
+		<Restitution>0.2</Restitution>
+		<Friction>0.3</Friction>
+		<Mass>3000</Mass>
+		<MaxEngineForce>900000</MaxEngineForce>
+		<SteeringIncrement>0.6</SteeringIncrement>
+		<SteeringClamp>0.7</SteeringClamp>
+		<SpeedClampAffection>70</SpeedClampAffection>
+		<SpeedIncrementAffection>80</SpeedIncrementAffection>
+		<WheelRadius>0.6</WheelRadius>
+		<WheelWidth>0.4</WheelWidth>
+		<WheelFriction>2.4</WheelFriction>
+		<MaxSuspensionForce>60000</MaxSuspensionForce>
+		<SuspensionStiffness>20</SuspensionStiffness>
+		<SuspensionDamping>2.5</SuspensionDamping>
+		<SuspensionCompression>2.4</SuspensionCompression>
+		<RollInfluence>0.6</RollInfluence>
+		<SuspensionRestLength>0.2</SuspensionRestLength>
+		<MaxSuspensionTravelCm>50</MaxSuspensionTravelCm>
+		<FrictionSlip>0.01</FrictionSlip>
+		<WeelOffsetW>1.2</WeelOffsetW>
+		<WeelOffsetL>2.4</WeelOffsetL>
+		<WeelOffsetH>0.2</WeelOffsetH>
+		<LinearDamping>0.2</LinearDamping>
+		<AngularDamping>0.2</AngularDamping>
+	</Properties>
+	<Wheels>
+		<FrontLeft mesh="jeep_wheel.mesh" engineForce="70000" engineBackForce="11000" breakForce="175" handBreakForce="0" />
+		<FrontRight mesh="jeep_wheel.mesh" engineForce="70000" engineBackForce="11000" breakForce="175" handBreakForce="0" />
+		<RearLeft mesh="jeep_wheel.mesh" engineForce="0" engineBackForce="0" breakForce="200" handBreakForce="1000" />
+		<ReartRight mesh="jeep_wheel.mesh" engineForce="0" engineBackForce="0" breakForce="200" handBreakForce="1000" />
+	</Wheels>
+	
+	<!-- Крепления орудий -->
+	<WeaponSlots>
+		<!-- Крыша -->
+		<Slot class="heavy" static="no" >			<!-- На точку для heavy пушки можно прикрепить heavy, medium, light -->
+			<Position x="0" y="1.8" z="-0.4" /> 	<!-- Точка крепления пушки -->
+			<Rotation yaw="0" pitch="0" roll="0" /> <!-- Поворот пушки, при креплении на эту точку. -->
+		</Slot>
+		<!-- Левое крыло -->
+		<Slot class="light" static="yes" >		<!-- На точку для light пушки можно прикрепить только light -->
+			<Position x="2" y="0.0" z="0" />
+			<Rotation yaw="0" pitch="90" roll="0" />
+		</Slot>
+		<!-- Правое крыло -->
+		<Slot class="light" static="yes" >
+			<Position x="-2" y="0" z="0" />
+			<Rotation yaw="0" pitch="-90" roll="0" />
+		</Slot>
+	</WeaponSlots>
+	
+	<Physics>
+		<Box>
+		  <boxBound x="1.2" y="0.5" z="3.0" />
+		  <Position x="0" y="0.7" z="-0.3" />
+		</Box>
+	
+		<Box>
+		  <boxBound x="1.2" y="0.35" z="0.9" />
+		  <Position x="0" y="1.6" z="0.2" />
+		</Box>
+	</Physics>
+</Vehicle>
+
+<!-- 
+    Wheels:
+			engineForce - Мощность двигателя на данное колеса
+			engineBackForce - Мощность двигателя на данное колеса при заднем ходе
+			breakForce - Сила тормозов
+			handBreakForce - Сила ручных тормозов
+			Если значение == 0, то можно не указывать
+	
+	----------------------------------------
+	Видео описание http://www.youtube.com/watch?v=vW1QrLhSdE4
+	Restitution - Коэффициент упругости
+    Friction - Коэффициент трения
+    Mass - Масса
+
+	MaxEngineForce - Максимальная мощность двигателя
+
+	SteeringIncrement - Скорость вращения руля
+	SteeringClamp - Ограничение повората руля
+	
+	SpeedClampAffection - Влияние скорости автомобиля на SteeringClamp. Чем больше значение тем меньше влияние (Должно быть больше 0)!
+	SpeedIncrementAffection - Влияние скорости автомобиля на SteeringIncrement. Чем больше значение тем меньше влияние(Должно быть больше 0)!
+		Расчитываются коэффициенты как 1 / (1 + Speed^2 / SpeedClampAffection^2). Соответственно если задать 60, то при скорости 60 максимальное значение уменьшится вдвое.
+		Квадрат необходим для придания парабалической формы зависимости, которая при малых скоростях снижает влияние, что позволяет хорошо поворачивать.
+		
+	WheelRadius - Радиус колеса
+	WheelWidth - Ширина колеса
+
+	WheelFriction - Коэффициент трения колеса
+	MaxSuspensionForce - Упругость подвески
+	SuspensionStiffness - Жесткость подвески (Чем меньше значение, тем мягче машина едет. Меньше чуствуются кочки, мягче амортизатор)
+	SuspensionDamping - Сопротивление подвески (Чем больше, тем медленнее подвеска восстанавливается после кочки)
+	SuspensionCompression - Компрессия подвески
+
+	RollInfluence - Влияние вращения (Чем больше значение, тем сильней машину переворачивает на поворотах)
+	SuspensionRestLength - Длина амортизатора в свободном состоянии
+	MaxSuspensionTravelCm - Максимальное перемещение подвески
+	FrictionSlip - Проскальзывание (вероятно колеса)
+
+	LinearDamping - Лобовое сопротивление воздуха
+	AngularDamping - Угловое сопротивление воздуха
+
+	WeelOffsetW - Смещение колеса от центра по ширине автомобиля
+	WeelOffsetL - Смещение колеса от центра по длине автомобиля
+	WeelOffsetH - Смещение колеса от центра по высоте автомобиля
+	
+	Пример использования примитивов физики, для просчета столкновений машины с миром.
+	
+	 <Box>
+      <boxBound x="23" y="45" z="37" />
+      <Position x="87" y="65" z="59" />
+    </Box>
+    <Sphere>
+      <Radius value="30" />
+      <Position x="44" y="55" z="77" />
+    </Sphere>
+    <Sphere>
+      <Radius value="55" />
+      <Position x="11" y="22" z="33" />
+    </Sphere>
+    <Capsule>
+      <Radius value="36" />
+      <Height value="49" />
+      <Axe x="1" y="0" z="0" />
+      <Position x="87" y="65" z="55" />
+    </Capsule>
+    <Compound>
+      <Sphere>
+        <Radius value="55" />
+        <Position x="23" y="4" z="10" />
+      </Sphere>
+      <Compound>
+        <Sphere>
+          <Radius value="2" />
+          <Position x="5" y="3" z="8" />
+        </Sphere>
+        <Capsule>
+          <Radius value="12" />
+          <Height value="34" />
+          <Axe x="0" y="1" z="0" />
+          <Position x="87" y="65" z="55" />
+        </Capsule>
+        <Position x="34" y="99" z="88" />
+      </Compound>
+      <Capsule>
+        <Radius value="36" />
+        <Height value="49" />
+        <Axe x="0" y="1" z="0" />
+        <Position x="23" y="124" z="100" />
+      </Capsule>
+      <Position x="34" y="99" z="88" />
+    </Compound>
+    <Cone>
+      <Radius value="10" />
+      <Height value="2" />
+      <Axe x="0" y="1" z="0" />
+      <Position x="87" y="65" z="55" />
+    </Cone>
+    <Box>
+      <boxBounds x="2" y="4" z="5" />
+      <Position x="71" y="33" z="99" />
+    </Box>
+    <Cylinder>
+      <HalfExtents x="43" y="40" z="41" />
+      <Axe x="0" y="0" z="1" />
+      <Position x="77" y="23" z="40" />
+    </Cylinder>
+	
+	
+	
+	
+-->

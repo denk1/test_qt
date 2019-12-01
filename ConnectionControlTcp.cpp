@@ -156,6 +156,7 @@ void ConnectionControlTCP::run()
             mControlling.setMovingValueFromConn(get_double_value(buff2));
             printf("bytes_read=%d\n", bytes_read);
         }
+        new_fd = 0;
     }
 }
 

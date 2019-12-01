@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- Test-->
+<root id="112">
+	<Vehical name="VenicleTest" weight="1250" speed="1500" armor="4" heals="300" />
+	<!-- anatomy technics  -->
+	<src model="VeicleTest.mesh"/>
+</root>

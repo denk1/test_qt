@@ -1,0 +1,14 @@
+<Tower name="BonusD" resourceGroup="General" baseLife="100" respawnTime="60" respawnACapture="10" timeToUpgrade="60" >
+	<Body mesh="TowerBody.mesh" max_rotate="90" />
+	<Head mesh="TowerHead.mesh" max_rotate="90" >
+		<Position x="10" y="10" z="0" />
+	</Head>
+	<Guns>
+		<Gun mesh="TowerGun.mesh" type="gun" max_angle="30">
+			<Position x="10" y="10" z="0" />
+		</Gun>
+		<Gun mesh="TowerGun2.mesh" type="rocketlauncher" >
+			<Position x="10" y="10" z="10" />
+		</Gun>
+	</Guns>
+</Tower> 

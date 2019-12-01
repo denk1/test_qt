@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout >
+   <Window Type="TaharezLook/FrameWindow" Name="MainMenu" >
+            <Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.25,0},{0.75,0},{0.75,0}}" />
+			
+            <Window Type="TaharezLook/Button" Name="MainMenu/ButtonStart">
+				<Property Name="Text" Value="Start" />
+				<Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.25,0},{0.75,0},{0.45,0}}" />
+			</Window>
+			
+			<Window Type="TaharezLook/Button" Name="MainMenu/ButtonConfig">
+				<Property Name="Text" Value="Config" />
+				<Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.5,0},{0.75,0},{0.7,0}}" />
+			</Window>
+			
+			<Window Type="TaharezLook/Button" Name="MainMenu/ButtonExit">
+				<Property Name="Text" Value="Exit" />
+				<Property Name="UnifiedAreaRect" Value="{{0.25,0},{0.75,0},{0.75,0},{0.95,0}}" />
+			</Window> 
+      <Window Type="TaharezLook/Button" Name="MainMenu/ButtonConsole">
+        <Property Name="Text" Value="Console" />
+        <Property Name="UnifiedAreaRect" Value="{{0.05,0},{0.05,0},{0.20,0},{0.20,0}}" />
+      </Window>
+    </Window>
+</GUILayout>

@@ -82,19 +82,18 @@ void Controlling::run()
     while(isRun) {
         double msg[2] = {.0, .0};
         unsigned char msg_bytes[18] = {'T', 'M'};
-        //double steering_angle = mPtrITS->getVehicle()->getCurrSteeringAngle();
-        //double speed = mPtrITS->getVehicle()->getSpeed();
-        double speed = 50.0;
-        double steering_angle = 30.0;
+        double steering_angle = mPtrITS->getVehicle()->getCurrSteeringAngle();
+        double speed = mPtrITS->getVehicle()->getSpeed();
 
-
+        size_t size_of_s = sizeof(speed);
+        size_t size_of_uint = sizeof(uint64_t);
 
         uint64_t *s = reinterpret_cast<uint64_t*>(&speed);
         uint64_t *a = reinterpret_cast<uint64_t*>(&steering_angle);
-        *s = htole64(*s);
-        *a = htole64(*a);
-        memcpy(msg_bytes + 2, reinterpret_cast<unsigned char*>(&s), sizeof (speed));
-        memcpy(msg_bytes + 10, reinterpret_cast<unsigned char*>(&a), sizeof (steering_angle));
+        *s = htobe64(*s);
+        *a = htobe64(*a);
+        memcpy(msg_bytes + 2, reinterpret_cast<unsigned char*>(s), sizeof (speed));
+        memcpy(msg_bytes + 10, reinterpret_cast<unsigned char*>(a), sizeof (steering_angle));
 
         //memset(msg_bytes, 0, sizeof (msg_bytes));
         mSenderTelemetry.send(msg_bytes);

@@ -1,0 +1,110 @@
+
+material rocket_tow_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.288235 1.288235 1.288235 1
+			diffuse 1.288235 1.288235 1.288235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture rocket_tow_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material top_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.288235 1.288235 1.288235 1
+			diffuse 1.288235 1.288235 1.288235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture top_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material top_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.288235 1.288235 1.288235 1
+			diffuse 1.288235 1.288235 1.288235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture top_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material down_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.288 1.288 1.288 1
+			diffuse 1.288 1.288 1.288 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture down_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material down_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 1.288 1.288 1.288 1
+			diffuse 1.288 1.288 1.288 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture down_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+

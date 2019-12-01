@@ -1,0 +1,4 @@
+<BonusBulding name="SpeedBonus" mesh="SpeedBonus.mesh" resourceGroup="General" timeToCapture="240" >
+	<Bonus type="Speed" value="10" />
+	<Bonus type="Armor" value="-1" />
+</BonusBulding>

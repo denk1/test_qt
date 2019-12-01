@@ -1,0 +1,16 @@
+<VehicleWeapon class="light" name="lightGun" resourceGroup="Vehicles" >
+	<!--  репление -->
+	<Body mesh="jeep_cannon_body" minRotate="-90" maxRotate="90" rotateSpeed="10" >
+		<!-- Ќа него крепитс€ оружие, аналогично крепленю оружи€ на голову башни -->
+		<Weapon mesh="jeep_cannon_gun.mesh" type="gun" baseDamage="10" reloadTime="0.1" minRotate="0" maxRotate="60" rotateSpeed="10" >
+			<Position x="0" y="2.7" z="0" /> <!-- смещение от точки креплени€ -->
+		</Weapon>
+	</Body>
+</VehicleWeapon>
+
+<!-- type:
+		gun - пушка
+		railgun - пулемЄт
+		rocketLauncher - ракетница
+
+ -->

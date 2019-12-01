@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="its"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\OGRE\;CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/suvairin/Projects/its/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/suvairin/Projects/its/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="its">
+				<Option output="/home/suvairin/Projects/its/build/its" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/suvairin/Projects/its/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/OgreBullet/Dynamics"/>
+					<Add directory="/usr/local/include/OgreBullet/Collisions"/>
+					<Add directory="/usr/local/include/bullet"/>
+					<Add directory="/usr/local/include/OGRE/RTShaderSystem"/>
+					<Add directory="/usr/local/include/OGRE"/>
+					<Add directory="/usr/local/include/OGRE/Bites"/>
+					<Add directory="/usr/local/include/OGRE/Overlay"/>
+					<Add directory="/usr/local/include/OGRE/Terrain"/>
+					<Add directory="/usr/local/include/OGRE/Paging"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 its"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="its/fast">
+				<Option output="/home/suvairin/Projects/its/build/its" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/suvairin/Projects/its/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/OgreBullet/Dynamics"/>
+					<Add directory="/usr/local/include/OgreBullet/Collisions"/>
+					<Add directory="/usr/local/include/bullet"/>
+					<Add directory="/usr/local/include/OGRE/RTShaderSystem"/>
+					<Add directory="/usr/local/include/OGRE"/>
+					<Add directory="/usr/local/include/OGRE/Bites"/>
+					<Add directory="/usr/local/include/OGRE/Overlay"/>
+					<Add directory="/usr/local/include/OGRE/Terrain"/>
+					<Add directory="/usr/local/include/OGRE/Paging"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 its/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/suvairin/Projects/its/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/suvairin/Projects/its/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/suvairin/Projects/its/BBLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/BBLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/BonusBuilding.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/BonusBuilding.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/BonusBuildingBase.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/BonusBuildingBase.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Config.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Config.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ConnectionControl.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ConnectionControl.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ConnectionControlInterface.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ConnectionControlInterface.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ConnectionControlTcp.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ConnectionControlTcp.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Controlling.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Controlling.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/DotSceneLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/DotSceneLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/GSMap.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/GSMap.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/GSStart.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/GSStart.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/GameState.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/GameState.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ITS.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ITS.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Landscape.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Landscape.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Map.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Map.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/MapLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/MapLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Physics.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Physics.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/PhysicsShapesLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/PhysicsShapesLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/SceneLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/SceneLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/TPCamera.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/TPCamera.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ThreadSafeData.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/ThreadSafeData.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Tower.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Tower.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/TowerBase.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/TowerBase.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/TowerLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/TowerLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Vehicle.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Vehicle.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/VehicleBase.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/VehicleBase.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/VehicleLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/VehicleLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/VehiclePrototype.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/VehiclePrototype.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WGun.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WGun.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WRocketLauncher.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WRocketLauncher.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Weapon.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/Weapon.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WeaponFactory.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WeaponFactory.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WeaponHolder.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WeaponHolder.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WeaponLoader.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/WeaponLoader.h">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/main.cpp">
+			<Option target="its"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/../../../../usr/local/lib/OGRE/cmake/OGREConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/../../../../usr/local/lib/OGRE/cmake/OGREConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/../../../../usr/local/lib/OGRE/cmake/OgreTargets-relwithdebinfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+		<Unit filename="/home/suvairin/Projects/its/../../../../usr/local/lib/OGRE/cmake/OgreTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
