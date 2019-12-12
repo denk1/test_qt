@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="test_qt"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\local\;CMake Files\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\usr\local\lib\OGRE\;CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/den/Projects/test_qt/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/den/Projects/test_qt/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_qt">
+				<Option output="/home/den/Projects/test_qt/build/test_qt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/den/Projects/test_qt/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/cegui-0"/>
+					<Add directory="/usr/local/include/OgreBullet/Dynamics"/>
+					<Add directory="/usr/local/include/OgreBullet/Collisions"/>
+					<Add directory="/usr/local/include/ois"/>
+					<Add directory="/usr/local/include/bullet"/>
+					<Add directory="/usr/local/include/OGRE/RTShaderSystem"/>
+					<Add directory="/usr/local/include/OGRE"/>
+					<Add directory="/usr/local/include/OGRE/Bites"/>
+					<Add directory="/usr/local/include/OGRE/Overlay"/>
+					<Add directory="/usr/local/include/OGRE/Terrain"/>
+					<Add directory="/usr/local/include/OGRE/Paging"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 test_qt"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_qt/fast">
+				<Option output="/home/den/Projects/test_qt/build/test_qt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/den/Projects/test_qt/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/cegui-0"/>
+					<Add directory="/usr/local/include/OgreBullet/Dynamics"/>
+					<Add directory="/usr/local/include/OgreBullet/Collisions"/>
+					<Add directory="/usr/local/include/ois"/>
+					<Add directory="/usr/local/include/bullet"/>
+					<Add directory="/usr/local/include/OGRE/RTShaderSystem"/>
+					<Add directory="/usr/local/include/OGRE"/>
+					<Add directory="/usr/local/include/OGRE/Bites"/>
+					<Add directory="/usr/local/include/OGRE/Overlay"/>
+					<Add directory="/usr/local/include/OGRE/Terrain"/>
+					<Add directory="/usr/local/include/OGRE/Paging"/>
+					<Add directory="/usr/include/c++/8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/8"/>
+					<Add directory="/usr/include/c++/8/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 test_qt/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/den/Projects/test_qt/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/den/Projects/test_qt/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/den/Projects/test_qt/BBLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/BBLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/BonusBuilding.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/BonusBuilding.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/BonusBuildingBase.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/BonusBuildingBase.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Config.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Config.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/ConfigWindow.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/ConfigWindow.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/DotSceneLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/DotSceneLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GSMainMenu.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GSMainMenu.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GSMap.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GSMap.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GSStart.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GSStart.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GameState.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/GameState.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/IngameMenu.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/IngameMenu.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Landscape.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Landscape.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/MainMenu.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/MainMenu.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Map.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Map.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/MapLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/MapLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/MyTestApp.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/MyTestApp.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Physics.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Physics.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/PhysicsShapesLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/PhysicsShapesLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/PlayerInterface.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/PlayerInterface.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/SceneLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/SceneLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/TPCamera.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/TPCamera.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Tower.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Tower.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/TowerBase.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/TowerBase.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/TowerLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/TowerLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Vehicle.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Vehicle.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/VehicleBase.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/VehicleBase.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/VehicleLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/VehicleLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/VehiclePrototype.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/VehiclePrototype.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WGun.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WGun.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WRocketLauncher.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WRocketLauncher.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Weapon.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Weapon.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WeaponFactory.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WeaponFactory.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WeaponHolder.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WeaponHolder.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WeaponLoader.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/WeaponLoader.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Window.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/Window.h">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/main.cpp">
+			<Option target="test_qt"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/../../../../usr/local/lib/OGRE/cmake/OGREConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/../../../../usr/local/lib/OGRE/cmake/OGREConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/../../../../usr/local/lib/OGRE/cmake/OgreTargets-relwithdebinfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+		<Unit filename="/home/den/Projects/test_qt/../../../../usr/local/lib/OGRE/cmake/OgreTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\local\lib\OGRE\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

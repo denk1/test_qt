@@ -366,6 +366,8 @@ CMakeFiles/its.dir/BonusBuilding.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -532,7 +534,6 @@ CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/BonusBuilding.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -1252,6 +1253,8 @@ CMakeFiles/its.dir/ConnectionControl.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -1418,7 +1421,6 @@ CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreVector4.
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/ConnectionControl.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -1611,6 +1613,8 @@ CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -1777,7 +1781,6 @@ CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/Ogr
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/ConnectionControlInterface.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -1973,6 +1976,8 @@ CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -2139,7 +2144,6 @@ CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreVecto
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/ConnectionControlTcp.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -2333,6 +2337,8 @@ CMakeFiles/its.dir/Controlling.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/Controlling.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/Controlling.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/Controlling.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -2499,7 +2505,6 @@ CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/Controlling.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -2874,6 +2879,8 @@ CMakeFiles/its.dir/GSMap.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/GSMap.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/GSMap.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/GSMap.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -3040,7 +3047,6 @@ CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/GSMap.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -3233,6 +3239,8 @@ CMakeFiles/its.dir/GSStart.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/GSStart.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/GSStart.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/GSStart.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -3399,7 +3407,6 @@ CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/GSStart.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -3591,6 +3598,8 @@ CMakeFiles/its.dir/GameState.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/GameState.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/GameState.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/GameState.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -3757,7 +3766,6 @@ CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/GameState.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -3952,6 +3960,8 @@ CMakeFiles/its.dir/ITS.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/ITS.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/ITS.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/ITS.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -4118,7 +4128,6 @@ CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/ITS.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -4310,6 +4319,8 @@ CMakeFiles/its.dir/Landscape.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/Landscape.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/Landscape.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/Landscape.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -4476,7 +4487,6 @@ CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/Landscape.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -4670,6 +4680,8 @@ CMakeFiles/its.dir/Map.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/Map.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/Map.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/Map.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -4836,7 +4848,6 @@ CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/Map.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -5381,6 +5392,8 @@ CMakeFiles/its.dir/Physics.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/Physics.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/Physics.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/Physics.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -5547,7 +5560,6 @@ CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/Physics.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -6410,6 +6422,8 @@ CMakeFiles/its.dir/TPCamera.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/TPCamera.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/TPCamera.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/TPCamera.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -6576,7 +6590,6 @@ CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/TPCamera.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -6770,6 +6783,8 @@ CMakeFiles/its.dir/ThreadSafeData.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -6936,7 +6951,6 @@ CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/ThreadSafeData.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -7128,6 +7142,8 @@ CMakeFiles/its.dir/Tower.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/Tower.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/Tower.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/Tower.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -7294,7 +7310,6 @@ CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/Tower.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -8177,6 +8192,8 @@ CMakeFiles/its.dir/Vehicle.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/Vehicle.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/Vehicle.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/Vehicle.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -8343,7 +8360,6 @@ CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/Vehicle.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -8536,6 +8552,8 @@ CMakeFiles/its.dir/VehicleBase.cpp.o: ../VehiclePrototype.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -8702,7 +8720,6 @@ CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/VehicleBase.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -9567,6 +9584,8 @@ CMakeFiles/its.dir/WGun.cpp.o: ../WGun.h
 CMakeFiles/its.dir/WGun.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/WGun.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/WGun.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -9733,7 +9752,6 @@ CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/WGun.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -9926,6 +9944,8 @@ CMakeFiles/its.dir/WRocketLauncher.cpp.o: ../WRocketLauncher.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -10092,7 +10112,6 @@ CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/WRocketLauncher.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -10649,6 +10668,8 @@ CMakeFiles/its.dir/WeaponHolder.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: ../WeaponHolder.cpp
 CMakeFiles/its.dir/WeaponHolder.cpp.o: ../WeaponHolder.h
+CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -10815,7 +10836,6 @@ CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/WeaponHolder.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
@@ -11194,6 +11214,8 @@ CMakeFiles/its.dir/main.cpp.o: ../Weapon.h
 CMakeFiles/its.dir/main.cpp.o: ../WeaponFactory.h
 CMakeFiles/its.dir/main.cpp.o: ../WeaponHolder.h
 CMakeFiles/its.dir/main.cpp.o: ../main.cpp
+CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/Bites/OgreBitesPrerequisites.h
+CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/Bites/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/Ogre.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreAlignedAllocator.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreAnimable.h
@@ -11360,7 +11382,6 @@ CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreVector4.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreVertexBoneAssignment.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreVertexIndexData.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreViewport.h
-CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreWindowEventUtilities.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/OgreWorkQueue.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreFont.h
 CMakeFiles/its.dir/main.cpp.o: /usr/local/include/OGRE/Overlay/OgreFontManager.h
