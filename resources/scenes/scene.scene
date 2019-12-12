@@ -6,6 +6,10 @@
         <clipping near="0" far="100000" />
     </environment>
     <nodes>
+<<<<<<< HEAD
+=======
+	<!--
+>>>>>>> remote_control
         <node name="tube_water">
             <position x="645.616" y="40.8532" z="731.684" />
             <scale x="0.357677" y="0.299056" z="0.357677" />
@@ -51,5 +55,9 @@
                 </subentities>
             </entity>
         </node>
+<<<<<<< HEAD
+=======
+	-->
+>>>>>>> remote_control
     </nodes>
 </scene>

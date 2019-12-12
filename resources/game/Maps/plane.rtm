@@ -1,0 +1,102 @@
+<Map scene="scene.scene" >
+	<IncludeResources>
+		<Resource type="Tower" src="Lowland_BaseD.rtt" resourceGroup="Towers"/>
+		<!--<Resource type="Tower" src="Lowland_BonuseD.rtt" resourceGroup="Towers"/>-->
+		<Resource type="BonusBuilding" src="SpeedBonus.rtbb" resourceGroup="Bonuses"/>
+		<Resource type="Bonus" src="ArmorBonus.rtb" resourceGroup="Bonuses"/>
+	</IncludeResources>
+	
+	<Light>
+		<Ambient r="0.5" g="0.5" b="0.5" />
+		<Diffuse r="1.0" g="1.0" b="1.0" />
+		<Specular r="0.1" g="0.1" b="0.1" />
+		<Direction x="0.5" y="-0.3" z="0" />
+	</Light>
+	
+       	<!-- <Landscape src="lowland.raw" resourceGroup="Landscape" size="256" dat="lowland.dat" scaleXZ="4" scaleY="1" > -->
+	<Landscape src="plane.raw" resourceGroup="Landscape" size="256" dat="TestTerra.dat" scaleXZ="4" scaleY="4" > 
+		<Layers>
+			<!--<Layer diffuseSpecular="lowland_ds1.png" normalHeight="lowland_nh1.png" blend="lowland_b1.png" worldSize="30" />-->
+			<!--<Layer diffuseSpecular="lowland_ds2.png" normalHeight="lowland_nh2.png" blend="lowland_b2.png" worldSize="30" />-->
+			<!--<Layer diffuseSpecular="lowland_ds3.png" normalHeight="lowland_nh3.png" blend="lowland_b3.png" worldSize="30" />-->
+			<!--<Layer diffuseSpecular="lowland_ds4.PNG" normalHeight="lowland_nh4.png" blend="lowland_b4.PNG" worldSize="30" />-->
+			
+			<!--
+			<Layer diffuseSpecular="Layer1_diffuse.jpg" normalHeight="Layer1_normal.png" blend="Layer1_blend.png" worldSize="30" />
+			<Layer diffuseSpecular="Layer2_diffuse.jpg" normalHeight="Layer2_normal.png" blend="Layer2_blend.png" worldSize="30" />
+			<Layer diffuseSpecular="Layer3_diffuse.jpg" normalHeight="Layer3_normal.png" blend="Layer3_blend.png" worldSize="30" />
+			<Layer diffuseSpecular="Layer4_diffuse.jpg" normalHeight="Layer4_normal.png" blend="Layer4_blend.png" worldSize="30" />
+			-->
+			
+			<Layer diffuseSpecular="Asphalt.jpg" normalHeight="asphalt_normal.png" blend="lane_blend.png" worldSize="2" />
+			<Layer diffuseSpecular="lane.png" normalHeight="asphalt_normal.png" blend="lane_blend-inv.png" worldSize="2" />
+			<!--
+			<Layer diffuseSpecular="test_blue_diffuse.png" normalHeight="asphalt_normal.png" blend="test_blend.png" worldSize="30" />
+			<Layer diffuseSpecular="test_red_diffuse.png" normalHeight="asphalt_normal.png" blend="Layer_circle_diffuse.png" worldSize="30" />
+			-->			
+		</Layers>
+	</Landscape>
+
+	<GameObjects>
+		<!-- independent towers on map -->
+	
+		<Towers>
+			<!--
+			<Tower type="BaseD" >
+				<Position x="280" y="40" z="470" />
+				<Direction x="1" y="0" z="0" />
+			</Tower>
+
+			<Tower type="BaseD" >
+				<Position x="210" y="40" z="380" />
+				<Direction x="0" y="0" z="1" />
+			</Tower>
+			-->
+		</Towers>
+		
+		
+	
+		<BonusBuildings>
+			<!--
+			<BonusBuilding type="SpeedBonus" >
+				<Position x="240" y="40" z="430" />
+				<Direction x="0" y="0" z="0" />
+			
+				<Towers>
+					<Tower type="BaseD" >
+						
+						<Position x="10" y="0" z="-10" />
+						<Direction x="1" y="0" z="0" />
+					</Tower>
+				</Towers>
+				
+				<Position x="250" y="4" z="800" />
+				<Direction x="0.5" y="0" z="0.5" />
+			
+				<Towers>
+					<Tower type="BaseD" >
+						
+						<Position x="10" y="0" z="10" />
+						<Direction x="1" y="0" z="0" />
+					</Tower>
+				</Towers>
+			</BonusBuilding>
+			-->
+			<!--<BonusBuilding type="SpeedBonus" >
+				<Position x="0" y="10" z="-20" />
+				<Direction x="0" y="0" z="1" />
+			</BonusBuilding>-->
+		</BonusBuildings>
+		
+		<Bonuses>
+			<!--
+			<Bonus type="ArmorBonus" >
+				<Position x="200" y="300" z="500" />
+			</Bonus>
+			-->
+		</Bonuses>
+		
+		
+	</GameObjects>
+
+</Map>

@@ -1,0 +1,17 @@
+material Cratelake
+{
+	technique
+	{
+		pass
+		{
+			lighting off
+			depth_write off
+
+			texture_unit
+			{
+				cubic_texture sahara_south.jpg sahara_north.jpg  sahara_east.jpg sahara_west.jpg sahara_up.jpg sahara_down.jpg separateUV
+				tex_address_mode clamp
+			}
+		}
+	}
+}

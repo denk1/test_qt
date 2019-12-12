@@ -1,0 +1,4 @@
+<Vehicle name="BMW" mesh="bmw.mesh" max_speed="240" mass="100" base_life="100" base_armor="2" >
+	<FrontWheels  mesh="basic_wheel.mesh" torque="120" />
+	<RearWheels  mesh="basic_wheel.mesh" torque="0" />
+</Vehicle>

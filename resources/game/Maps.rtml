@@ -1,0 +1,5 @@
+<!-- list of all maps -->
+<Maps>
+	<Map name="lowland" src="lowland.rtm" resourceGroup="Maps"/>
+	<Map name="foothold" src="foothold.rtm" resourceGroup="Maps"/>
+</Maps>

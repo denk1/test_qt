@@ -1,0 +1,4 @@
+<Vehicle name="Porshe" mesh="porshe.mesh" max_speed="220" >
+	<FrontWheels  mesh="basic_wheel.mesh" torque="100" />
+	<RearWheels  mesh="basic_wheel.mesh" torque="0" />
+</Vehicle>

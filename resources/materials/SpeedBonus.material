@@ -1,0 +1,66 @@
+
+material b_speed_interior_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.788235 0.788235 0.788235 1
+			diffuse 0.788235 0.788235 0.788235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture b_speed_interior_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material b_speed_diff_d
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.788235 0.788235 0.788235 1
+			diffuse 0.788235 0.788235 0.788235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture b_speed_diff_d.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material b_speed_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.788235 0.788235 0.788235 1
+			diffuse 0.788235 0.788235 0.788235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture b_speed_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+

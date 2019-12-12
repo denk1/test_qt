@@ -1,0 +1,20 @@
+<Tower name="BaseD" resourceGroup="General" baseLife="100" respawnTime="120" timeToUpgrade="240" >
+	<Body mesh="tower_down.mesh" />
+	<Head mesh="tower_top.mesh" minRotate="-90" maxRotate="90" rotateSpeed="10" >
+		<Position x="0.2" y="6.9" z="-1.2" />
+		<!-- На башню целяется оружие-->
+		<Weapons>
+			<Weapon mesh="tower_gun.mesh" type="gun" minRotate="0" maxRotate="30" rotateSpeed="10" baseDamage="100" reloadTime="10" requiredTowerLevel="1" >
+				<Position x="0" y="2.7" z="0" />
+			</Weapon>
+			
+			<Weapon mesh="tower_rocket.mesh" type="rocketLauncher" minRotate="0" maxRotate="0" baseDamage="100" reloadTime="10" requiredTowerLevel="2" >
+				<Position x="0.7" y="1.2" z="-2.7" />
+			</Weapon>
+			
+			<Weapon mesh="tower_rocket.mesh" type="rocketLauncher" minRotate="0" maxRotate="0" baseDamage="100" reloadTime="10" requiredTowerLevel="2" >
+				<Position x="0.7" y="1.2" z="2.7" />
+			</Weapon>
+		</Weapons>
+	</Head>
+</Tower>

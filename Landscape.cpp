@@ -20,6 +20,7 @@ Landscape::~Landscape()
             // ???? ???????? ????????, ?? ??????? ????? ??????
             // ?? ?????????? ???????? (??????? - ??????? ????????, ??? ???????)
         OGRE_DELETE mTerrain;
+        OGRE_DELETE mTerrainGroup;
 
         Ogre::Node* terrainNode = ITS::getSceneManagerS()->getRootSceneNode()->getChild("Terrain");
         if (terrainNode)
@@ -41,6 +42,10 @@ void Landscape::init(const LandscapeSettings& settings)
     }
 
     mTerrain = OGRE_NEW Ogre::Terrain(ITS::getSceneManagerS());
+    mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(ITS::getSceneManagerS(),
+                                                Ogre::Terrain::ALIGN_X_Z,
+                                                257,
+                                                1024);
 
     mTerrain->setResourceGroup(settings.resourceGroup);
     if (mSettings.compiledTerrain.compare(""))
@@ -119,7 +124,10 @@ void Landscape::create()
             Ogre::uint8 *data = static_cast<Ogre::uint8*>(img.getPixelBox().data);
 
             for(int bp = 0;bp < blendmapsize * blendmapsize;bp++)
-                ptr[bp] = static_cast<float>(data[bp]) / 255.0f;
+            {
+                ptr[bp] = static_cast<float>(data[bp*4]) / 255.0f;
+
+            }
 
             blendmap->dirty();
             blendmap->update();
@@ -131,6 +139,7 @@ void Landscape::create()
     }
 
         // ???? ????????? ???????? ???, ????? ????? ??? ? (0; 0; 0). ??????????, ????? ????? ???? ??? ? (0; 0; 0)
+    mTerrainGroup->setOrigin(Ogre::Vector3(mSettings.scaleXZ*mSettings.size / 2.f, 0, mSettings.scaleXZ*mSettings.size / 2.f));
     mTerrain->setPosition(Ogre::Vector3(mSettings.scaleXZ*mSettings.size / 2.f, 0, mSettings.scaleXZ*mSettings.size / 2.f));
 
     mTerrain->freeTemporaryResources();

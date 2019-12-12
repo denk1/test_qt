@@ -38,21 +38,29 @@ bool ITS::keyPressed(const OgreBites::KeyboardEvent& evt)
 
         if(evt.keysym.sym == 'w')
         {
+            mVehicle->setCoeffForce(100.0f);
             mVehicle->processControl(VehicleBase::VSForwardPressed);
             mCamera->changeSignDirection(-1);
         }
         else if(evt.keysym.sym == 's')
         {
+            mVehicle->setCoeffForce(100.0f);
             mVehicle->processControl(VehicleBase::VSBackwardPressed);
             mCamera->changeSignDirection(1);
         }
         else if(evt.keysym.sym == 'a')
         {
+            mVehicle->setAimAngleSteering(45.0);
             mVehicle->processControl(VehicleBase::VSLeftPressed);
         }
         else if(evt.keysym.sym == 'd')
         {
+            mVehicle->setAimAngleSteering(-45.0);
             mVehicle->processControl(VehicleBase::VSRightPressed);
+        }
+        else if(evt.keysym.sym == 32)
+        {
+            mVehicle->processControl(VehicleBase::VSHandBreakPressed);
         }
     }
     else
@@ -73,7 +81,6 @@ bool ITS::keyPressed(const OgreBites::KeyboardEvent& evt)
         {
             TPCamera::getSingleton().startGoingRight();
         }
-
     }
     return true;
 }
@@ -89,19 +96,27 @@ bool ITS::keyReleased(const OgreBites::KeyboardEvent &evt)
         }
         else if(evt.keysym.sym == 'w')
         {
+            mVehicle->setCoeffForce(.0f);
             mVehicle->processControl(VehicleBase::VSForwardReleased);
         }
         else if(evt.keysym.sym == 's')
         {
+            mVehicle->setCoeffForce(.0f);
             mVehicle->processControl(VehicleBase::VSBackwardReleased);
         }
         else if(evt.keysym.sym == 'a')
         {
+            mVehicle->setAimAngleSteering(.0f);
             mVehicle->processControl(VehicleBase::VSLeftReleased);
         }
         else if(evt.keysym.sym == 'd')
         {
+            mVehicle->setAimAngleSteering(.0f);
             mVehicle->processControl(VehicleBase::VSRightReleased);
+        }
+        else if(evt.keysym.sym == 32)
+        {
+            mVehicle->processControl(VehicleBase::VSHandBreakReleased);
         }
     }
     else
@@ -169,7 +184,8 @@ void ITS::setup(void)
     // Initialise the resource groups:
     Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
     scnMgr_ = root_->createSceneManager(Ogre::ST_EXTERIOR_FAR, "BulletTerrain");
-//    scnMgr_->setSkyBox(true, "Cratelake");
+    //scnMgr_->setSkyBox(true, "Cratelake");
+    scnMgr_->setSkyBox(true, "Examples/SpaceSkyBox", 5000);
     mWindow = getRenderWindow();
     // register our scene with the RTSS
     shadergen_ = Ogre::RTShader::ShaderGenerator::getSingletonPtr();

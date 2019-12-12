@@ -49,7 +49,7 @@ struct VehicleProperties
 		, mMass(800)
 		, mMaxEngineForce(6000.f)
 		, mSteeringIncrement(0.04f)
-		, mSteeringClamp(0.8f)
+        , mSteeringClamp(0.1f)
 
 		, mWheelRadius(1.0f)
 		, mWheelWidth(0.4f)

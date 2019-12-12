@@ -1,0 +1,66 @@
+
+material lowland_soil
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.588235 0.588235 0.588235 1
+			diffuse 0.588235 0.588235 0.588235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture lowland_soil.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material plate_conc
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.588235 0.588235 0.588235 1
+			diffuse 0.588235 0.588235 0.588235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture plate_conc.jpg
+			}
+		}
+
+	}
+
+}
+
+
+
+material tube_diff
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.588235 0.588235 0.588235 1
+			diffuse 0.588235 0.588235 0.588235 1
+			specular 0 0 0 1 10
+
+			texture_unit
+			{
+				texture tube_diff.jpg
+			}
+		}
+
+	}
+
+}
+
+

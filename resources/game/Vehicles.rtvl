@@ -1,0 +1,5 @@
+<!-- list of all vehicles -->
+<Vehicles>
+	<Vehicle name="porshe" src="porshe.rtv" resourceGroup="Vehicles"/>
+	<Vehicle name="bmw" src="bmw.rtv" resourceGroup="Vehicles"/>
+</Vehicles>
