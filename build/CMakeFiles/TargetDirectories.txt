@@ -1,3 +1,0 @@
-/home/den/Projects/its/build/CMakeFiles/rebuild_cache.dir
-/home/den/Projects/its/build/CMakeFiles/its.dir
-/home/den/Projects/its/build/CMakeFiles/edit_cache.dir
