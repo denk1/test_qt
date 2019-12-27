@@ -14,7 +14,7 @@
 	</Light>
 	
        	<!-- <Landscape src="lowland.raw" resourceGroup="Landscape" size="256" dat="lowland.dat" scaleXZ="4" scaleY="1" > -->
-	<Landscape src="plane.raw" resourceGroup="Landscape" size="256" dat="TestTerra.dat" scaleXZ="4" scaleY="1" > 
+	<Landscape src="plane.raw" resourceGroup="Landscape" size="256" dat="TestTerra.dat" scaleXZ="4" scaleY="4" > 
 		<Layers>
 			<!--<Layer diffuseSpecular="lowland_ds1.png" normalHeight="lowland_nh1.png" blend="lowland_b1.png" worldSize="30" />-->
 			<!--<Layer diffuseSpecular="lowland_ds2.png" normalHeight="lowland_nh2.png" blend="lowland_b2.png" worldSize="30" />-->

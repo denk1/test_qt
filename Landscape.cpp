@@ -151,11 +151,12 @@ void Landscape::setupPhysics(float restitution, float friction)
     for (int i=0; i<mTerrain->getSize(); i++)
         memcpy(pDataConvert + mTerrain->getSize()*i,
             mTerrain->getHeightData() + mTerrain->getSize()*(mTerrain->getSize()-i-1),
-            sizeof(float)*(mTerrain->getSize()) );
+            sizeof(float)*(mTerrain->getSize()));
 
     float landSize = mTerrain->getSize();
     float maxHeight = mTerrain->getMaxHeight();
-    mVector3 = Ogre::Vector3(mSettings.scaleXZ, 1.f, mSettings.scaleXZ);
+
+    mVector3 = Ogre::Vector3(mSettings.scaleXZ, 1.0f, mSettings.scaleXZ);
     OgreBulletCollisions::HeightmapCollisionShape* shape = Physics::getSingleton().createHeightmapCollisionShape(landSize,landSize, pDataConvert, mVector3, maxHeight, false);
 
 
