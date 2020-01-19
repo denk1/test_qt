@@ -209,13 +209,13 @@ void ITS::setup(void)
                 Ogre::Vector3(-1000, -1000, -1000),
                 Ogre::Vector3(1000, 1000, 1000)
                 );
-    //new Physics(bounds, true);
-    new Physics(bounds);
+    new Physics(bounds, true);
+    //new Physics(bounds);
     mGameState = new GSStart();
     MapLoader loader;
     Map* map;
-    map = loader.loadMap("lowland.rtm", ITS::getSingleton().getSceneManager(), "Maps");
-    //map = loader.loadMap("plane.rtm", ITS::getSingleton().getSceneManager(), "Maps");
+    //map = loader.loadMap("lowland.rtm", ITS::getSingleton().getSceneManager(), "Maps");
+    map = loader.loadMap("plane.rtm", ITS::getSingleton().getSceneManager(), "Maps");
     map->load();
     mGSMap = new GSMap(map, this);
     ITS::getSingleton().switchState(mGSMap);

@@ -163,7 +163,8 @@ void Landscape::setupPhysics(float restitution, float friction)
 
     Ogre::SceneNode* node = ITS::getSceneManagerS()->getRootSceneNode()->createChildSceneNode ("Terrain", mTerrain->getPosition());
 
-    Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, (maxHeight - 1.f) / 2.f, mSettings.scaleXZ*(landSize-1.f) / 2.f);
+    //Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, (maxHeight - 1.f) / 2.f, mSettings.scaleXZ*(landSize-1.f) / 2.f);
+    Ogre::Vector3 terrainShiftPos( mSettings.scaleXZ*(landSize - 1.f) / 2.f, 0.3f, mSettings.scaleXZ*(landSize-1.f) / 2.f);
 
     body->setStaticShape(node, shape, restitution, friction, terrainShiftPos);
 
