@@ -1,0 +1,7 @@
+*.cmake
+*.txt.user*
+*.cmake
+*.dat
+/.vscode
+/build
+*.txt.user
